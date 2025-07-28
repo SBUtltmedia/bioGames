@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <link rel="shortcut icon"  href="favicon.ico">
+    <title>Gel Electrophoresis</title>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/gameStep.js"></script>
+    <script src="js/resize.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/loadSteps2.js"></script>
+    <script src="js/eventLogic.js"></script>
+    <script src="js/animdefs.js"></script>
+    <script src="js/helperFunctions.js"></script>
+    <script src="js/gameLogic.js"></script>
+    <script src="js/loadSVG.js"></script>
+    <script src="js/zoom.js"></script>
+    <script src="js/jquery.keyframes.js"></script>
+    <script src="js/keyframes.js"></script>
+
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="../resources/css/menuStyle.css">
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="challengeStyle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        var testMode;
+    </script>
+    <!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> </head>
+<style id="dynamic-style">
+</style>
+
+
+
+<body class="stripes">
+    <div id="stage" class="screen">
+        <div id="view">
+
+
+            <div id="bothDays">
+
+                <div id="pipetHolder" class="day3"></div>
+                <div id="micropipet1" class="day3" class="micropipet" class="item">
+                    <div id="itemLabel2" class="itemLabel">
+                        <div id="itemLabelText2" class="itemLabelText"> </div>
+                    </div>
+                </div>
+                <div id="micropipet0" class="day3" class="micropipet" class="item">
+                    <div id="itemLabel1" class="itemLabel">
+                        <div id="itemLabelText1" class="itemLabelText"> </div>
+                    </div>
+                </div>
+                <div id="micropipet2" class="day3" class="micropipet" class="micropipet2" class="item">
+                    <div id="pipetteTip1" class="tip"></div>
+                    <div id="itemLabel0" class="itemLabel"></div>
+                    <div id="itemLabelText0" class="itemLabelText"> </div>
+                </div>
+                <div id="tip1" class="tip" class="day3"></div>
+                <div id="tip2" class="tip" class="day3"></div>
+                <div id="tip3" class="tip" class="day3"></div>
+                <div id="tip4" class="tip" class="day3"></div>
+                <div id="tip5" class="tip" class="day3"></div>
+                <div id="tip6" class="tip" class="day3"></div>
+                <div id="tip7" class="tip" class="day3"></div>
+                <div id="tip8" class="tip" class="day3"></div>
+                <div id="tip9" class="tip" class="day3"></div>
+                <div id="tip10" class="tip" class="day3"></div>
+                <div id="tip11" class="tip" class="day3"></div>
+                <div id="tip12" class="tip" class="day3"></div>
+                <div id="shelf1"></div>
+                <div id="holder" class="day3"></div>
+                <div id="s5Tube" class="microTube" class="item">
+                    <div id="itemLabel9" class="itemLabel"></div>
+                    <div id="itemLabelText9" class="itemLabelText"> </div>
+                </div>
+                <div id="s4Tube" class="microTube" class="item">
+                    <div id="itemLabel8" class="itemLabel"></div>
+                    <div id="itemLabelText8" class="itemLabelText"> </div>
+                </div>
+                <div id="s3Tube" class="microTube" class="item">
+                    <div id="itemLabel7" class="itemLabel"></div>
+                    <div id="itemLabelText7" class="itemLabelText"> </div>
+                </div>
+                <div id="s2Tube" class="microTube" class="item">
+                    <div id="itemLabel6" class="itemLabel"></div>
+                    <div id="itemLabelText6" class="itemLabelText"></div>
+                </div>
+                <div id="s1Tube" class="microTube" class="item">
+                    <div id="itemLabel5" class="itemLabel"></div>
+                    <div id="itemLabelText5" class="itemLabelText"></div>
+                </div>
+                <div id="s0Tube" class="microTube" class="item">
+                </div>
+                <div id="tubeBlock" class="day3"></div>
+
+                <!--                I dont know when this is being used-->
+                <div id="s1loadingDyeTube" class="loadingDye">
+                    <div id="s1loadingDyeCap" class="loadingDye"></div>
+                    <div id="s1loadingDyeTubeBody" class="loadingDye"></div>
+                </div>
+                <!--  =================================================-->
+
+                <form id="volumeInputForm" >
+                    <input id="volumeInput" type="text" name="volume" value="">
+                    <input type="submit" name="volumeButton" value="" id="volumeButton">
+                </form>
+                <div id="waterBath"></div>
+                <div id="waterBathNoLid" class="item">
+                    <div id="itemLabel13" class="itemLabel"></div>
+                </div>
+                <div id="waterBathLid" class="item">
+                    <div id="itemLabel14" class="itemLabel"></div>
+                </div>
+                <div id="wasteBasket" class="day3"></div>
+                <div id="labBench2" class="day3"></div>
+
+            </div>
+
+
+
+            <div id="day1">
+                <div id="enzTube" class="item">
+                    <div id="itemLabel3" class="itemLabel"></div>
+                    <div id="itemLabelText3" class="itemLabelText"></div>
+                </div>
+                <div id="iceBucket"></div>
+                <form id="timerForm">
+                    <input id="timer" type="text" name="volume" value="">
+                    <input type="submit" name="timerButton" value="" id="timerButton" class="fs-10">
+                </form>
+            </div>
+
+
+
+
+            <div id="day2" class="day2">
+                <!-- <div id="powerSupply" class="day2"></div> -->
+                <div id="zoomOutButton3" class="day2"></div>
+                <div id="tubeRack" class="item">
+                    <div id="itemLabel12" class="itemLabel">
+                        <div id="itemLabelText12" class="itemLabelText"></div>
+                    </div>
+                </div>
+                <div id="shelf2"></div>
+                <div id="loadDye" class="loadingDye">
+                    <div id="loadDyeCap"></div>
+                    <div id="loadDyeBody"></div>
+                </div>
+                <!-- <form id="volumeInput1Form">
+                    <input id="volumeInput1" type="text" name="volume" value="">
+                    <input type="submit" name="volumeButton1" value="" id="volumeButton1">
+                </form> -->
+                <!-- <div id="volumeButton2"></div> -->
+                <!-- <div id="tubeContentMixing4"></div> -->
+                <div id="gelLid" class="day2"></div>
+                <div id="gelComb"></div>
+                <div id="gelTray"></div>
+                <div id="gelCombHitBox"></div>
+                <div id="gelSideView" class="day2"></div>
+                <div id="stainingTraySide" class="day3"></div>
+                <div id="stainedGel" class="day3"></div>
+                <div id="graduatedCylinder" class="day3"></div>
+                <div id="emptyGraduatedCylinder"></div>
+                <div id="stainedGelContainer" class="day3"></div>
+                <div id="gel"></div>
+                <!-- <form id="answerForm">
+                    <input id="answerInput" type="text" name="answerEntry" value="">
+                    <input type="submit" name="answerEntryButton" id="answerButton">
+                </form> -->
+            </div>
+
+
+
+            <div id="topView" class="topView">
+                <div id="labBenchTop" class="topView"> </div>
+                <div id="gelTopView" class="topView" class="topView2"></div>
+                <div id="gelChoiceLeft" class="topView"></div>
+                <div id="gelChoiceRight" class="topView"></div>
+                <div id="lidBox" class="topView" class="topView2"></div>
+                <div id="lidBase" class="topView" class="topView2"></div>
+                <div id="lidSide" class="topView"></div>
+                <div id="stainingTray" class="topView" class="topView2"></div>
+                <div id="arrowDown" class="topView"></div>
+                <div id="arrowUp" class="topView"></div>
+                <div id="powerSupplyTop" class="topView" class="topView2"></div>
+                <div id="microtubeHolderTop" class="holderTop"></div>
+                <div id="tubeTop_0" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_1" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_2" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_3" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_4" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_5" class="holderTop tubeTopp topView"></div>
+                <div id="tubeTop_6" class="holderTop tubeTopp topView"></div>
+                <div id="tipBoxTop" class="topView tipBoxTop topView2"></div>
+                <div id="wasteBinTop" class="topView" class="topView2"></div>
+                <div id="gelFinalTop"></div>
+                <div id="zoomOutButton2" class="topView" class="topView2"></div>
+                <div id="gelVoltageCover" class="topView gelVoltage">
+                <form id="voltageInputForm">  <input id="voltage" class="gelVoltage"></input>
+                  <input type="submit" name="voltageButton" value="" id="voltageButton"></input>
+                </form>
+                </div>
+                <div id="micropipetTopView" class="topView"></div>
+                <div id="sideView" class="side">
+                    <div id="gelWell" class="side">
+                        <div id="gelWellBoundary" class="side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="header" class="text fs-32">
+            <div id="headerText" class="text fs-32"></div>
+        </div>
+        <div id="footer" class="text fs-32">
+            <div id="footerText" class="text fs-32"></div>
+        </div>
+        <div id="steps"></div>
+
+        <div id="overlay" class="screen" draggable="false">
+            <div id="overlayBox">
+                <div id="overlayBG"></div>
+                <div id="results" class="rounded stripes" draggable="false">
+                    <p id="endText" class="text fs-100" draggable="false"></p>
+                    <p id="endSubText" class="text fs-50" draggable="false"></p>
+                    <p id="endErrorText1" class="endErrorText text fs-50" draggable="false"></p>
+                    <p id="endErrorText2" class="endErrorText text fs-35" draggable="false">when you were supposed to</p>
+                    <p id="endErrorText3" class="endErrorText text fs-50" draggable="false"></p>
+                    <div class="endOption rounded stripes" id="endOption1" draggable="false">
+                        <div id="endOptionText1" class="endOptionText fs-42 text"></div>
+                    </div>
+                    <div class="endOption rounded stripes" id="endOption2" draggable="false">
+                        <div id="endOptionText2" class="endOptionText fs-42 text"></div>
+                    </div>
+                    <div class="endOption rounded stripes" id="endOption3" draggable="false">
+                        <div id="endOptionText3" class="endOptionText fs-42 text"></div>
+                    </div>
+                    <div class="endOptionDesc" id="endOptionDesc1">
+                        <div class="endOptionDescText darkText fs-20" id="endOptionDescText1"></div>
+                    </div>
+                    <div class="endOptionDesc" id="endOptionDesc2">
+                        <div class="endOptionDescText darkText fs-20" id="endOptionDescText2"></div>
+                    </div>
+                    <div class="endOptionDesc" id="endOptionDesc3">
+                        <div class="endOptionDescText darkText fs-20" id="endOptionDescText3"></div>
+                    </div>
+                    <div id="scoreBox1" class="scoreBox text fs-24"></div>
+                    <div id="scoreBox2" class="scoreBox text fs-24"></div>
+                    <div id="scoreBox3" class="scoreBox text fs-24"></div>
+                </div>
+                <div id="challengeScreen">
+                    <div id="hexGrid"></div>
+                    <div id="viewLeaderboard">
+                        <div id="viewLeaderboardSelected" class="cellSelected"></div>
+                    </div>
+                    <div id="currentChallenge">
+                        <div id="currentTitle" class="text fs-50"></div>
+                        <div id="currentDesc" class="text fs-20"></div>
+                        <div id="currentFlavor" class="fadeText fs-20"></div>
+                        <div id="currentIcon">
+                            <div id="currentState" class="unknownIcon"></div>
+                        </div>
+                    </div>
+                    <div id="totalCompleteLabel" class="darkText fs-40"></div>
+                    <div id="totalComplete">
+                        <div id="totalCompleteText" class="greenText fs-120"></div>
+                    </div>
+                </div>
+                <div id="challengeButton" class="stripes rounded">
+                    <div id="challengeButtonText" class="text fs-50"> Challenges </div>
+                    <div id="backButtonText" class="text fs-50"> Play Game </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

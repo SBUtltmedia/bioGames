@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 505 505" style="enable-background:new 0 0 505 505;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#C9C9C9;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st1{display:none;fill:#303030;stroke:#000000;stroke-width:18.6667;stroke-miterlimit:10;}
+	.st2{display:none;opacity:0.25;fill:#FFFFFF;enable-background:new    ;}
+	.st3{fill:#A09F9F;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st4{display:none;fill:#303030;stroke:#727373;stroke-width:2;stroke-miterlimit:10;}
+	.st5{fill:#8C8C8C;}
+	.st6{fill:#484748;stroke:#727373;stroke-width:0.7336;stroke-miterlimit:10;}
+	.st7{fill:none;stroke:#727272;stroke-width:0.5;stroke-miterlimit:10;}
+</style>
+<path class="st0" d="M446,502.5H59c-31.2,0-56.5-25.3-56.5-56.5V59C2.5,27.8,27.8,2.5,59,2.5h387c31.2,0,56.5,25.3,56.5,56.5v387
+	C502.5,477.2,477.2,502.5,446,502.5z"/>
+<circle class="st1" cx="252.5" cy="252.5" r="210"/>
+<circle class="st2" cx="252.5" cy="252.5" r="210"/>
+<circle class="st3" cx="252.5" cy="252.5" r="135"/>
+<circle class="st4" cx="252.5" cy="83.4" r="26.4"/>
+<circle class="st5" cx="252.5" cy="252.5" r="43.2"/>
+<path class="st6" d="M275.3,256.7v-8.3l-6.5-0.8c-0.3-1.1-0.7-2.1-1.2-3l4-5.2l-5.9-5.9l-5.2,4c-1-0.5-2-0.9-3-1.2l-0.8-6.5h-8.3
+	l-0.8,6.5c-1.1,0.3-2.1,0.7-3,1.2l-5.2-4l-5.9,5.9l4,5.2c-0.5,1-0.9,2-1.2,3l-6.5,0.8v8.3l6.5,0.8c0.3,1.1,0.7,2.1,1.2,3l-4,5.2
+	l5.9,5.9l5.2-4c1,0.5,2,0.9,3,1.2l0.8,6.5h8.3l0.8-6.5c1.1-0.3,2.1-0.7,3-1.2l5.2,4l5.9-5.9l-4-5.2c0.5-1,0.9-2,1.2-3L275.3,256.7z"
+	/>
+<g>
+	<g>
+		<line class="st7" x1="252.5" y1="200.8" x2="252.5" y2="127.5"/>
+		<line class="st7" x1="252.5" y1="377.5" x2="252.5" y2="304.2"/>
+	</g>
+	<g>
+		<line class="st7" x1="200.8" y1="252.5" x2="127.5" y2="252.5"/>
+		<line class="st7" x1="377.5" y1="252.5" x2="304.2" y2="252.5"/>
+	</g>
+	<g>
+		<line class="st7" x1="215.9" y1="215.9" x2="164.1" y2="164.1"/>
+		<line class="st7" x1="340.9" y1="340.9" x2="289.1" y2="289.1"/>
+	</g>
+	<g>
+		<line class="st7" x1="215.9" y1="289.1" x2="164.1" y2="340.9"/>
+		<line class="st7" x1="340.9" y1="164.1" x2="289.1" y2="215.9"/>
+	</g>
+</g>
+</svg>

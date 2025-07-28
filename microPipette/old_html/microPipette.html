@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Micropipette Test</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+    <script src="jquery-mousewheel/jquery.mousewheel.min.js"></script>
+
+
+    <style>
+        #plunger {
+            width: 10%;
+            height: 40px;
+            position: absolute;
+            left: 6.6667%;
+            top: -10px;
+            z-index: -1;
+        }
+        #pipeBody {
+            width: 2.6667%;
+            height: 295px;
+        }
+        #draggable {
+            width: 4%;
+            height: 360px;
+            float: left;
+            margin: 10px 10px 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+        #droppable {
+            width: 3.2%;
+            height: 200px;
+            float: left;
+            <!---margin: 150px 10px 10px 0;
+            --> position: relative;
+            z-index: 2;
+        }
+        #flask {
+            width: 25%;
+            height: 30%;
+            position: absolute;
+            top: 51%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        #alertBox {
+            position: absolute;
+            left: 118%;
+            top: 55px;
+            background-color: #ffffff
+        }
+        #floor {
+            width: 100%;
+            height: 21%;
+            position: absolute;
+            top: 80%;
+            left: 0%;
+            background-color: #4A3035;
+            z-index: 3;
+        }
+        body {
+            background-image: url("stripeBG.png");
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        #stage {
+            background-color: #A9D0F5;
+            position: absolute;
+            width: 100%;
+            height: 300px;
+            margin: auto;
+        }
+    </style>
+    <script>
+        var stageWidth = 0;
+        var stageHeight = 0;
+        var stageLeft = 0;
+        var stageTop = 0;
+        $(window).ready(function () {
+            resizeWindow();
+        });
+
+        var positionLabel = ["state one", "state two", "state three"];
+        var wheelHeight = 0;
+        var plungerTopFloat;
+        var plungerRange = 10;
+        var plungerState = 0;
+        var plungerSpeed = 30;
+        var totalPlungerStates = 5;
+        var currentPlungerSpeed = plungerSpeed;
+        var beakerLeft = 129;
+        var beakerRight = 219;
+        var liquidHeight = 29;
+
+        $(function () {
+            //console.log(positionLabel[1])
+            plungerTopFloat = parseInt($("#plunger").css("top"));
+            $("#pipeBody").mousewheel(function (event) {
+                plungerState = Math.floor((plungerTopFloat + plungerRange) / ((plungerRange * 2) / (totalPlungerStates)));
+                if (plungerState == 2) currentPlungerSpeed = 700;
+                else currentPlungerSpeed = plungerSpeed;
+                wheelHeight = (event.deltaY / currentPlungerSpeed);
+                if (Math.abs(plungerTopFloat - wheelHeight) < (plungerRange / 2 + plungerRange / 2)) {
+                    plungerTopFloat += -wheelHeight;
+                }
+                $("#plunger").css({
+                    top: plungerTopFloat + "px"
+                })
+                //console.log((plungerTopFloat + plungerRange) / ((plungerRange * 2) / (totalPlungerStates)));
+
+
+            });
+
+
+            $("#draggable").draggable({
+                    drag: function (event, ui) {
+                        var pipetteLeft = parseInt($(this).css("left"));
+                        var pipetteTop = parseInt($(this).css("top"));
+
+                        if (pipetteLeft > 129 && pipetteLeft < 219 && pipetteTop > 29) {
+                            alert("You broke your pipette!");
+                        }
+
+
+                    }
+                }
+
+
+            );
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                    $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html();
+                }
+            });
+        });
+
+         // Fix aspect ratio of the stage
+        $(window).resize(function () {
+            resizeWindow();
+        });
+
+         // Resize the window
+        function resizeWindow() {
+            // Get window width and height
+            var w = $(window).width();
+            var h = $(window).height();
+            // If the aspect ratio is greater than or equal to 4:3, fix height and set width based on height
+            if ((w / h) >= 4 / 3) {
+                stageHeight = h;
+                stageWidth = (4 / 3) * h;
+                stageLeft = (w - stageWidth) / 2;
+                stageTop = 0;
+            }
+            // If the aspect ratio is less than 4:3, fix width and set height based on width
+            else {
+                stageWidth = w;
+                stageHeight = (3 / 4) * w;
+                stageTop = (h - stageHeight) / 2;
+                stageLeft = 0;
+            }
+            // Set stage width and height to stageWidth and stageHeight, and center screen
+            $("#stage").css({
+                width: stageWidth + "px",
+                height: stageHeight + "px",
+                left: stageLeft + "px",
+                top: stageTop + "px"
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="stage">
+
+        <div id="floor"></div>
+        <div id="droppable" class="ui-widget-header">
+            <img id="flask" src="Conical_flask.svg" draggable="false">
+        </div>
+
+        <!--<div id="draggable">
+            <img id="plunger" src="plunger.svg" class="ui-widget-content">
+            <img id="pipeBody" src="microPipette.svg" class="ui-widget-content">
+        </div>
+
+        <div id="alertBox" style="width:290px;height:110px;border:2px solid #000; color:red"></div>-->
+
+    </div>
+
+</body>
+
+</html>

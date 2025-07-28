@@ -1,0 +1,29 @@
+<html>
+<head>
+<style>
+.numberPuncher, .numberPuncher:focus{
+ border: 5px solid white; 
+ outline:none;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+$(function() {
+$(".numberPuncher").click(function() {
+
+$('.numberPuncher').keydown(function() {
+return false;
+});
+
+  $(this).val((parseInt($(this).val())+1)%10)
+});
+});
+</script>
+</head>
+<body>
+</body>
+<input  type="text" class="numberPuncher" value="0" id="tens"/> <br>
+<input  type="text" class="numberPuncher" value="0" id="ones"/> <br>
+<input  type="text" class="numberPuncher" value="0" id="tenths"/>
+
+</html>

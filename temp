@@ -1,0 +1,7 @@
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/centrifuge/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/cylinder/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/leaderboard/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/microPipette/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/pH/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/spect/data"(/.*)?"
+semanage fcontext -a httpd_sys_rw_content_t "/home/tltsecure/apache2/htdocs/bio/vernier/data"(/.*)?"

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <title>pH Meter</title>
+    <script src="//code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="gameStep.js"></script>
+    <script src="resize.js"></script>
+    <script src="challenges.js"></script>
+    <script src="loadSteps.js"></script>
+    <script src="eventLogic.js"></script>
+    <script src="gameLogic.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/menuStyle.css">
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="challengeStyle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body class="stripes">
+    <div id="stage" class="screen">
+        <div id="header" class="text fs-32">
+            <div id="headerText" class="text fs-32"></div>
+        </div>
+        <div id="steps"></div>
+        <div id="view">
+            
+        </div>
+    </div>
+    <div id="overlay" class="screen" draggable="false">
+        <div id="overlayBox">
+            <div id="overlayBG"></div>
+            <div id="results" class="rounded stripes" draggable="false">
+                <p id="endText" class="text fs-100" draggable="false"></p>
+                <p id="endSubText" class="text fs-50" draggable="false"></p>
+                <p id="endErrorText1" class="endErrorText text fs-50" draggable="false"></p>
+                <p id="endErrorText2" class="endErrorText text fs-35" draggable="false">when you were supposed to</p>
+                <p id="endErrorText3" class="endErrorText text fs-50" draggable="false"></p>
+                <div class="endOption rounded stripes" id="endOption1" draggable="false">
+                    <div id="endOptionText1" class="endOptionText fs-42 text"></div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption2" draggable="false">
+                    <div id="endOptionText2" class="endOptionText fs-42 text"></div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption3" draggable="false">
+                    <div id="endOptionText3" class="endOptionText fs-42 text"></div>
+                </div>
+                <div class="endOptionDesc" id="endOptionDesc1">
+                    <div class="endOptionDescText darkText fs-20" id="endOptionDescText1"></div>
+                </div>
+                <div class="endOptionDesc" id="endOptionDesc2">
+                    <div class="endOptionDescText darkText fs-20" id="endOptionDescText2"></div>
+                </div>
+                <div class="endOptionDesc" id="endOptionDesc3">
+                    <div class="endOptionDescText darkText fs-20" id="endOptionDescText3"></div>
+                </div>
+                <div id="scoreBox1" class="scoreBox text fs-24"></div>
+                <div id="scoreBox2" class="scoreBox text fs-24"></div>
+                <div id="scoreBox3" class="scoreBox text fs-24"></div>
+            </div>
+            <div id="challengeScreen">
+                <div id="hexGrid"></div>
+                <div id="viewLeaderboard">
+                    <div id="viewLeaderboardSelected" class="cellSelected"></div>
+                </div>
+                <div id="currentChallenge">
+                    <div id="currentIcon">
+                        <div id="currentState" class="unknownIcon"></div>
+                    </div>
+                    <div id="currentTitle" class="text fs-50"></div>
+                    <div id="currentDesc" class="text fs-20"></div>
+                    <div id="currentFlavor" class="fadeText fs-20"></div>
+                </div>
+                <div id="totalCompleteLabel" class="darkText fs-40"></div>
+                <div id="totalComplete">
+                    <div id="totalCompleteText" class="greenText fs-120"></div>
+                </div>
+            </div>
+            <div id="challengeButton" class="stripes rounded">
+                <div id="challengeButtonText" class="text fs-50">
+                    Challenges
+                </div>
+                <div id="backButtonText" class="text fs-50">
+                    Play Game
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

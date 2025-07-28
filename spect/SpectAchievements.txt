@@ -1,0 +1,12 @@
+Spectrophotometer Achievements?
+- Complete Hints Mode
+- Complete No-Hints Mode
+- Complete Challenge Mode
+- Complete Hints Mode without the green hint arrows showing up (i.e. < 10 sec per step)
+- Complete Hints Mode in 17 clicks or fewer
+- Complete Hints Mode without reading the dial incorrectly
+- Complete No-Hints Mode twice in a row without losing
+- Correctly read absorbance 10 times
+- Correctly read transmittance 10 times
+- Correctly read the dial a total of 20 times
+- De-sync the clock by 2 hours

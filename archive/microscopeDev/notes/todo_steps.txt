@@ -1,0 +1,97 @@
+Modes:
+	1) Guided
+	2) Unguided
+
+
+- Merge intro + setup
+- Replace Low Magnification/High Magnification
+  -> “e magnification” + “onion cell”
+- Add warnings
+
+
+We will be using a compound microscope with 40x, 100x, 400x, and 1000x lenses.
+The microscope works by magnifying a sample on the slide using the lenses. Let’s get started!
+
+
+	Introduction
+		- Light Switch
+			Turns the light on and off.
+		- Eyepiece
+			View the sample through the eyepiece. The lens magnifies the image ten times.
+		- Coarse Adjustment
+			Moves the stage up and down for focusing
+		- Fine Adjustment
+			Moves the stage slightly to sharpen the focus
+		- Diaphragm
+			Adjusts the amount of light on the slide
+		- Nosepiece (Lenses)
+			The lenses are rotated on the nosepiece to change the magnification.
+			These different lenses are referred to as the objectives, for example, the 40x objective.
+		- Caliper
+			View the sample through the eyepiece. The lens magnifies the image ten times.
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+** In resting state, toggled functionality of all components should be enabled.
+	-> hovering over div in middle inclusive of stage, diaphragm etc.—- popup bubble to zoom in
+
+
+	Setup (how to use everything)
+		- Light Switch
+		- Eyepiece
+		- Coarse knobs
+		- Fine knobs
+		- Diaphragm (brightness)
+		- Diaphragm (height)
+		- Nosepiece (Lenses)
+		- Caliper x
+		- Caliper y
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+(Some of the order does not matter here. -> statemachine)
+	Low Magnification(10x)
+		- Turn on light
+		- Turn the lens to 10x (low magnification)
+		- Place slide
+		  Slide will be on table. Click+drag onto stage.
+		- Center the slide
+		  x, y adjustment through caliper knobs
+		- Adjust coarse knob
+		  Image should not appear until a particular value has been reached. Value doesn't matter in particular.
+		- Adjust fine knob
+		  CSS: Variable gaussian blur, turn off when achieved.
+  	        - Adjust brightness (Diaphragm - Light)
+		  Adjust the diaphragm so more/less light comes through.
+
+
+	    Note to user:
+		  Multiply the number on the objective lens by 10, the magnification of the eyepiece lens, to find the total magnification. For example, the 10x objective would give you 10x10, or 100x magnification.
+		  Be sure to adjust the eyepiece before raising the platform.
+		  (Rotation state determined by y-axis displacement. Will add extra frames for “pseudo-tweening” (search:"inbetweening"))
+
+
+	High Magnification (100x)
+		- Place slide
+		- Knobs
+			- Coarse Focus
+			- Fine Focus
+		- Nosepiece(100x)
+			- High magnification (100x)
+		- Center slide (Field Diaphragm Centering)
+        		 Close the field diaphragm to is minimum aperture
+
+
+
+
+	Clean up
+		- Turn off light
+		- ?
+
+

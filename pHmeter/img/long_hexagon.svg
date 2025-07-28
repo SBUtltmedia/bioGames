@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 201.9 101" style="enable-background:new 0 0 201.9 101;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#191919;}
+	.st2{fill:#262626;}
+	.st3{fill:url(#SVGID_1_);stroke:#000000;stroke-miterlimit:10;}
+</style>
+<pattern  x="0.5" y="0.3" width="14.6" height="38.2" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_1" viewBox="0 -38.2 14.6 38.2" style="overflow:visible;">
+	<g>
+		<rect y="-38.2" class="st0" width="14.6" height="38.2"/>
+		<rect x="0" y="-38.2" class="st1" width="11" height="38.2"/>
+		<rect x="7.3" y="-38.2" class="st2" width="7.3" height="38.2"/>
+	</g>
+</pattern>
+<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_1" patternTransform="matrix(0.9369 0.5409 -0.5409 0.9369 -4868.9077 3895.7437)">
+</pattern>
+<path class="st3" d="M199.9,44.8L177.6,6.2c-2-3.5-5.8-5.7-9.9-5.7h-35.9h-8.6h-13.1H87.3h-8.5H65.6H34.2c-4.1,0-7.9,2.2-9.9,5.7
+	L2,44.8c-2,3.5-2,7.9,0,11.4l22.3,38.6c2,3.5,5.8,5.7,9.9,5.7h31.4h13.1h8.5h22.8h13.1h8.6h35.9c4.1,0,7.9-2.2,9.9-5.7l22.3-38.6
+	C201.9,52.7,201.9,48.3,199.9,44.8z"/>
+</svg>

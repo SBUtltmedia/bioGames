@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-74.6 167.2 101.2 87.6" style="enable-background:new -74.6 167.2 101.2 87.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#111111;}
+	.st2{fill:#202020;}
+	.st3{fill:url(#SVGID_1_);}
+	.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st5{fill:#2BB673;}
+	.st6{fill:none;stroke:#2BB673;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<pattern  x="-74" y="261" width="33.5" height="69.7" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_3" viewBox="0 -69.7 33.5 69.7" style="overflow:visible;">
+	<g>
+		<polygon class="st0" points="0,0 33.5,0 33.5,-69.7 0,-69.7 		"/>
+		<polygon class="st1" points="23.7,0 0,0 0,-69.7 23.7,-69.7 		"/>
+		<polygon class="st2" points="33.5,0 16.8,0 16.8,-69.7 33.5,-69.7 		"/>
+	</g>
+</pattern>
+<g>
+	
+		<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_3" patternTransform="matrix(0.6124 0.6124 0.6124 -0.6124 -6103.4736 -9867.8311)">
+	</pattern>
+	<polygon class="st3" points="-49,254.3 -74,211 -49,167.7 1,167.7 26,211 1,254.3 	"/>
+	<polygon class="st4" points="-49,254.3 -74,211 -49,167.7 1,167.7 26,211 1,254.3 	"/>
+</g>
+<polygon class="st5" points="1,196.4 -3.2,192.3 -32.3,221.4 -44.8,208.9 -49,213.1 -32.4,229.7 -32.3,229.7 -32.3,229.7 "/>
+<polygon class="st6" points="-44,245.6 -64,211 -44,176.4 -4,176.4 16,211 -4,245.6 "/>
+</svg>

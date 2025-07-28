@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 361.5 343" style="enable-background:new 0 0 361.5 343;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#3D50A3;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:url(#SVGID_1_);stroke:#000000;stroke-miterlimit:10;}
+	.st2{fill:url(#SVGID_2_);stroke:#000000;stroke-miterlimit:10;}
+	.st3{fill:url(#SVGID_3_);stroke:#000000;stroke-miterlimit:10;}
+	.st4{opacity:0.75;fill:#FFFFFF;enable-background:new    ;}
+	.st5{font-family:'Helvetica-Bold';}
+	.st6{font-size:60px;}
+</style>
+<g id="basket">
+	<polygon class="st0" points="301.5,343 60,343 0,57.5 361.5,57.5 	"/>
+	
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="59.3751" y1="-454.8751" x2="29.3749" y2="-484.8751" gradientTransform="matrix(1 0 0 1 0 513)">
+		<stop  offset="0" style="stop-color:#2B338D"/>
+		<stop  offset="1" style="stop-color:#5C63AD"/>
+	</linearGradient>
+	<polygon class="st1" points="0,57.5 60,0 60,57.5 	"/>
+	
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="302.125" y1="-454.875" x2="332.125" y2="-484.875" gradientTransform="matrix(1 0 0 1 0 513)">
+		<stop  offset="0" style="stop-color:#2B338D"/>
+		<stop  offset="1" style="stop-color:#5C63AD"/>
+	</linearGradient>
+	<polygon class="st2" points="301.5,0 301.5,57.5 361.5,57.5 	"/>
+	
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="180.75" y1="-455.5" x2="180.75" y2="-513" gradientTransform="matrix(1 0 0 1 0 513)">
+		<stop  offset="0" style="stop-color:#2B338D"/>
+		<stop  offset="1" style="stop-color:#5C63AD"/>
+	</linearGradient>
+	<rect x="60" class="st3" width="241.5" height="57.5"/>
+</g>
+<g id="text__x2B__arrow">
+	<text transform="matrix(1 0 0 1 91.3218 132.25)" class="st4 st5 st6">Waste</text>
+	<polygon class="st4" points="190.2,246.8 190.2,162 171.2,162 171.2,246.8 148.6,246.8 180.8,302.5 212.9,246.8 	"/>
+</g>
+</svg>

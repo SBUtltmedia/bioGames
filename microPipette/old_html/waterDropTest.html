@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+ <title>Water Drop Test</title>
+<link rel="stylesheet" type="text/css" media="all" href=/> 
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<style>
+    body{ background-color: green; }
+    canvas{border:none;}
+</style>
+<script>
+$(function(){
+
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+
+    // a flag to let you stop the animation
+    var ok2animate=true;
+
+
+    // a Drop pseudo-class
+    // Properties: current x,y & the speed at which this drop falls
+    function Drop(){
+        this.x=Math.random()*(canvas.width-5);
+        this.y=-Math.random()*5;
+        this.fallRate=2.5;
+    }
+    // draw this drop on the canvas
+    Drop.prototype.draw=function(){
+        ctx.beginPath();
+        ctx.moveTo(this.x-5,this.y);
+        ctx.lineTo(this.x,this.y-7);
+        ctx.lineTo(this.x+5,this.y);
+        ctx.arc(this.x,this.y,5,0,Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        return(this);    
+    }
+    // make this drop "fall" 
+    Drop.prototype.fall=function(){
+        this.y+=this.fallRate;
+        return(this);
+    }
+
+    // an animation loop to make some test drops fall 
+    function animate(){
+
+        // request another animation frame
+        if(ok2animate){
+            requestAnimationFrame(animate);
+        }
+
+        // fill the canvas with the orange background
+        ctx.fillStyle="white";
+        ctx.fillRect(0,0,canvas.width,canvas.height)
+
+        // make all drops fall and then redraw them
+        ctx.fillStyle="#4E9E26";
+        for(var i=0;i<drops.length;i++){
+            drops[i].fall().draw();
+        }
+
+    }
+
+   
+    // an array of objects each representing 1 drop
+    var drops=[];
+
+    // add some test drops
+    for(var i=0;i<1;i++){
+        drops.push(new Drop());    
+    }
+
+    // start the animation
+    requestAnimationFrame(animate);
+
+
+}); // end $(function(){});
+</script>
+</head>
+<body>
+     <canvas id="canvas" width=75 height=300></canvas>
+</body>
+</html>

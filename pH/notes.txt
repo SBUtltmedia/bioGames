@@ -1,0 +1,31 @@
+Challenges
+==================
+Lv. 0
+Clear Practice mode.
+==================
+Lv. 1
+Find the pH of 3 different solutions.
+Clear Challenge mode.
+Clear Practice mode in under X [time units].
+==================
+Lv. 2
+Find the pH of 6 different solutions.
+Clear Challenge+ mode.
+Clear Challenge mode in under X [time units].
+In Challenge+ mode, reach the target pH.
+
+
+==================
+Lv. 3
+Find the pH of 9 different solutions.
+Clear Challenge+ mode in under X [time units].
+In Challenge+ mode, measure 6 solutions in a single run.
+In Challenge+ mode, reach the target pH 3 times in a row.
+In Challenge+ mode, reach the target pH 6 times.
+
+==================
+Lv. 4
+Find the pH of all of the solutions.
+In Challenge+ mode, reach the target pH 6 times in a row.
+
+==================

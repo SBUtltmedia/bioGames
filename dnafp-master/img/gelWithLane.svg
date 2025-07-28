@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 198.5 165.6" xml:space="preserve">
+<style type="text/css">
+	.bands{filter:url(#f1);}
+	.laneFill{fill:#70a5f4; filter:url(#f2);}
+    .bandFill{fill:#5391ed;}
+	.gelBase{fill:#93BCFF;stroke:#020202;stroke-miterlimit:10;}
+	.lanes{fill:#72A0EA;}
+	.wells{fill:#5D88CC;stroke:#020202;stroke-miterlimit:10;}
+
+</style>
+<filter  height="200%" id="f2" width="200%" x="-50%" y="-50%">
+	<feGaussianBlur  in="SourceGraphic" stdDeviation="2.8"></feGaussianBlur>
+</filter>
+<filter  height="200%" id="f1" width="200%" x="-50%" y="-50%">
+	<feGaussianBlur  in="SourceGraphic" stdDeviation=".9"></feGaussianBlur>
+</filter>
+    	<rect x="0.3" y="0.1" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.1153 0.1387)" class="gelBase" width="198.3" height="165.3"/>
+
+    <g id="dyeTrail6" class="laneFill">
+	<rect x="171.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_6"/>
+</g>
+<g id="dyeTrail5" class="laneFill">
+	<rect x="144.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_5"/>
+</g>
+<g id="dyeTrail4" class="laneFill">
+	<rect x="117.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_4"/>
+</g>
+<g id="dyeTrail3" class="laneFill">
+	<rect x="90.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_3"/>
+</g>
+<g id="dyeTrail2" class="laneFill">
+	<rect x="64.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_2"/>
+</g>
+<g id="dyeTrail1" class="laneFill">
+	<rect x="37.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_1"/>
+</g>
+<g id="dyeTrail0" class="laneFill">
+	<rect x="10.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_0"/>
+</g>
+
+<g id="Lane6">
+	<g id="weight8_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane5">
+	<g id="weight8_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane4">
+	<g id="weight8_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane3">
+	<g id="weight8_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane2">
+	<g id="weight8_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane1">
+	<g id="weight8_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g id="Lane0">
+	<g id="weight8_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight7_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight6_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight5_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight4_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight3_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight2_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight1_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+	<g id="weight0_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
+	</g>
+</g>
+<g>
+
+
+	<g class="lanes">
+
+			<rect x="171.9" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2538)" id="well_6" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="145" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2163)" id="well_5" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="118.1" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1788)" id="well_4" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="91.2" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1413)" id="well_3" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="64.3" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1038)" id="well_2" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="37.4" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 6.628948e-02)" id="well_1" class="wells" width="20.1" height="5.2"/>
+
+			<rect x="10.5" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2123 2.879296e-02)" id="well_0" class="wells" width="20.1" height="5.2"/>
+	</g>
+</g>
+
+</svg>

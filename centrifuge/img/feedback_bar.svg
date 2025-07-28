@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 503 103" style="enable-background:new 0 0 503 103;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#161616;}
+	.st2{fill:url(#SVGID_1_);stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+</style>
+<pattern  x="1.5" y="1.5" width="59" height="235.2" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_1" viewBox="0 -235.2 59 235.2" style="overflow:visible;">
+	<g>
+		<rect x="0" y="-235.2" class="st0" width="59" height="235.2"/>
+		<rect x="0" y="-235.2" width="44.2" height="235.2"/>
+		<rect x="29.5" y="-235.2" class="st1" width="29.5" height="235.2"/>
+	</g>
+</pattern>
+<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_1" patternTransform="matrix(0.7071 0.7071 -0.7071 0.7071 -8019.0596 3076.4243)">
+</pattern>
+<path class="st2" d="M451.5,101.5h-400c-27.5,0-50-22.5-50-50v0c0-27.5,22.5-50,50-50h400c27.5,0,50,22.5,50,50v0
+	C501.5,79,479,101.5,451.5,101.5z"/>
+</svg>

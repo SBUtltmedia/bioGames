@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 441.1 70.2" style="enable-background:new 0 0 441.1 70.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#131313;}
+	.st2{fill:#202020;}
+	.st3{fill:url(#SVGID_2_);}
+	.st4{fill:none;stroke:#010101;stroke-miterlimit:10;}
+</style>
+<pattern  y="87.6" width="35" height="70" patternUnits="userSpaceOnUse" id="SVGID_1_" viewBox="0 0 35 70" style="overflow:hidden;">
+	<polygon class="st1" points="0,0 27.5,0 27.5,70 0,70 "/>
+	<polygon class="st2" points="17.5,0 35,0 35,70 17.5,70 "/>
+</pattern>
+<g>
+	<pattern  id="SVGID_2_" xlink:href="#SVGID_1_" patternTransform="matrix(0.4894 0.4894 0.4894 -0.4894 -16762.8438 -25580.4902)">
+	</pattern>
+	<polygon class="st3" points="20.6,69.7 0.6,35.1 20.6,0.5 420.5,0.5 440.5,35.1 420.5,69.7 	"/>
+	<polygon class="st4" points="20.6,69.7 0.6,35.1 20.6,0.5 420.5,0.5 440.5,35.1 420.5,69.7 	"/>
+</g>
+</svg>

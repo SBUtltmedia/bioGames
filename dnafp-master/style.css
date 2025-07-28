@@ -1,0 +1,1782 @@
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#day1, #day2, #bothDays {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 0;*/
+  font-family: "Helvetica", sans-serif;
+  pointer-events: none;
+}
+
+#day1 *, #day2 *, #bothDays * {
+  pointer-events: initial;
+}
+
+.itemLabel {
+  pointer-events: none !important;
+}
+
+#iceBucket {
+  width: 20%;
+  height: 12%;
+  left: 80%;
+  top: 66.57%;
+  position: absolute;
+  background-image: url(img/ice_bucket.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 5*/
+}
+
+#labBench2 {
+  width: 100%;
+  height: 60%;
+  left: 0%;
+  top: 67%;
+  position: absolute;
+  background-image: url(img/labBench2.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  pointer-events: none !important;
+}
+
+#micropipet0 {
+  width: 4.6%;
+  height: 23%;
+  left: 0.5%;
+  top: 52%;
+  position: absolute;
+  background-image: url(img/micropipet.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#micropipet1 {
+  width: 4.6%;
+  height: 23%;
+  left: 7.5%;
+  top: 52%;
+  position: absolute;
+  background-image: url(img/micropipet.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#micropipet3 {
+  width: 4.6%;
+  height: 23%;
+  left: 14.5%;
+  top: 52%;
+  position: absolute;
+  background-image: url(img/micropipet20.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  /*z-index: 7*/
+}
+
+#pipetHolder {
+  width: 22%;
+  height: 29%;
+  left: -0.25%;
+  top: 51%;
+  position: absolute;
+  background-image: url(img/piptetHolder.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#holder {
+  width: 10%;
+  height: 7.5%;
+  left: 20.4%;
+  top: 71.9%;
+  position: absolute;
+  background-image: url(img/holder.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.highLighted {
+  animation: pulse 1.5s linear 10s infinite normal forwards;
+}
+
+@keyframes pulse {
+    0% {
+
+      box-shadow: 1px 1px 1rem 0.2rem red;
+    },
+    50% {
+
+      box-shadow: 1px 1px 5rem 2rem red;
+    },
+    100% {
+
+      box-shadow: 1px 1px 1rem 0.2rem red;
+    }
+}
+
+/*
+#tubeDiv {
+    border: 1px solid blue;
+    position:absolute;
+
+    width:100%;
+    height:20%;
+}
+*/
+#tip {
+  width: 0.7%;
+  height: 7%;
+  left: 22.4%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: visible;
+}
+
+#shelf1 {
+  width: 18%;
+  height: 3%;
+  left: 60%;
+  top: 40%;
+  position: absolute;
+  background-image: url(img/shelf.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#shelf2 {
+  width: 18%;
+  height: 3%;
+  left: 2.5%;
+  top: 31%;
+  position: absolute;
+  background-image: url(img/shelf.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#waterBathNoLid {
+  width: 18%;
+  height: 26%;
+  left: 60%;
+  top: 14.8%;
+  position: absolute;
+  background-image: url(img/water_bath_no_lid.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  /*z-index: 5;*/
+}
+
+#waterBathLid {
+  width: 18%;
+  height: 6%;
+  left: 59.88%;
+  top: 21.64%;
+  position: absolute;
+  background-image: url(img/water_bath_lid.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+  /*z-index: 7;*/
+}
+
+#backButton {
+  width: 6.5%;
+  height: 6%;
+  left: 76%;
+  top: 5.1%;
+  position: absolute;
+  background-image: url(img/backButton.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  /*z-index: 100;*/
+}
+
+#zoomOutButton {
+  width: 0.95%;
+  height: 1%;
+  left: 59%;
+  top: 20%;
+  position: absolute;
+  background-image: url(img/zoomOutButton.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#zoomOutButton1 {
+  width: 0.95%;
+  height: 1%;
+  left: 38.3%;
+  top: 65.7%;
+  position: absolute;
+  background-image: url(img/zoomOutButton.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#zoomOutButton1a {
+  width: 0.95%;
+  height: 1%;
+  left: 38.3%;
+  top: 65.7%;
+  top: 65.7%;
+  position: absolute;
+  background-image: url(img/zoomOutButton.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#tubeRack {
+  width: 10%;
+  height: 7%;
+  left: 6.5%;
+  top: 24%;
+  position: absolute;
+  background-image: url(img/tubeRack.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+#tubeBlock {
+  width: 17%;
+  height: 4.8%;
+  left: 35.2%;
+  top: 73.4%;
+  position: absolute;
+  background-image: url(img/tubeBlock.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 3;*/
+}
+
+/*------------------------------------*/
+.microTube {
+  width: 2.9%;
+  height: 7%;
+  top: 70%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 100% 0%;
+  z-index: 0;
+  /*z-index: 2;*/
+}
+
+#s0Tube {
+  left: 35.5%;
+}
+
+#s1Tube {
+  left: 38%;
+}
+
+#s2Tube {
+  left: 40.5%;
+}
+
+#s3Tube {
+  left: 43%;
+}
+
+#s4Tube {
+  left: 45.5%;
+}
+
+#s5Tube {
+  left: 48%;
+}
+
+.microTubeCap {
+  width: 90%;
+  height: 20%;
+  left: 4%;
+  top: 0%;
+  transform-origin: 4% 29%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  z-index: 2;
+  /*z-index: 2;*/
+}
+
+.microTubeBody {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  /*z-index: 2;*/
+}
+
+/*
+#s0TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/csTube.svg);
+}
+
+#s1TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s1Tube.svg);
+}
+
+#s2TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s2Tube.svg);
+}
+
+#s3TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s3Tube.svg);
+}
+
+#s4TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s4Tube.svg);
+}
+
+#s5TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s5Tube.svg);
+}
+
+
+
+#s0Tube1 {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+    z-index: 0;
+}
+
+#s0TubeBody1 {
+    width: 100%;
+    height: 100%;
+    left: -7%;
+    top: -1%;
+    position: absolute;
+    background-image: url(img/csTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s0Cap1 {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 1.16%;
+    position: absolute;
+    background-image: url(img/csCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 4% 29%;
+}
+ */
+.tubeColor {
+  opacity: 1;
+  stroke: #000000;
+}
+
+.opacity9 {
+  opacity: 0.9;
+}
+
+.opacity8 {
+  opacity: 0.8;
+}
+
+.opacity7 {
+  opacity: 0.7;
+}
+
+.opacity6 {
+  opacity: 0.6;
+}
+
+.opacity5 {
+  opacity: 0.5;
+}
+
+.opacity4 {
+  opacity: 0.4;
+}
+
+.opacity3 {
+  opacity: 0.3;
+}
+
+.opacity2 {
+  opacity: 0.2;
+}
+
+.opacity1 {
+  opacity: 0.1;
+}
+
+.tubeFluid {
+  opacity: 1;
+  fill: #818AC4;
+}
+
+.Cap {
+  transform-origin: 3% 5%;
+}
+
+.s0TubeColor {
+  fill: green;
+}
+
+.s1TubeColor {
+  fill: blue;
+}
+
+.s2TubeColor {
+  fill: orange;
+}
+
+.s3TubeColor {
+  fill: purple;
+}
+
+.s4TubeColor {
+  fill: red;
+}
+
+.s5TubeColor {
+  fill: yellow;
+}
+.clearTube {
+  fill :#CFCCCC;
+}
+.dyeFluid{
+  fill: #2E4EA2;
+}
+
+#loadDye {
+  width: 5%;
+  height: 15%;
+  left: 8%;
+  top: 19.2%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 100% 0%;
+}
+
+/* #loadDyeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/loadingDyeClosed.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#loadDyeCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: -2%;
+    position: absolute;
+    background-image: url(img/loadingDyeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 5% 29%;
+} */
+/*
+#s1loadingDyeTube {
+    width: 3%;
+    height: 7.8%;
+    left: 11.7%;
+    top: 23.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s1loadingDyeTubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/loadingDyeClosed.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s1loadingDyeCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: -2%;
+    position: absolute;
+    background-image: url(img/loadingDyeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 5% 30%;
+}
+*/
+#wasteBasket {
+  width: 11.5%;
+  height: 14%;
+  left: 55%;
+  top: 64.5%;
+  position: absolute;
+  background-image: url(img/waste_basket.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#ejectButton {
+  width: 7%;
+  height: 6.4%;
+  left: 0.5%;
+  top: 5.5%;
+  position: absolute;
+  background-image: url(img/ejectButton.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#ejectButton1 {
+  width: 7%;
+  height: 6.4%;
+  left: 0.5%;
+  top: 5.5%;
+  position: absolute;
+  background-image: url(img/ejectButton.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/*
+#flickButton {
+    width: 7%;
+    height: 7%;
+    left: 8.1%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/flickButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+*/
+#mixContentsButton {
+  width: 7%;
+  height: 7%;
+  left: 8.1%;
+  top: 5.5%;
+  position: absolute;
+  background-image: url(img/mixContentsButton.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#mixContentsButton1 {
+  width: 7%;
+  height: 7%;
+  left: 8.1%;
+  top: 5.5%;
+  position: absolute;
+  background-image: url(img/mixContentsButton.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.opClass {
+  display: none;
+  opacity: 0.0;
+  filter: alpha(opacity=0);
+}
+
+.day3 {
+  /* display:block;
+  opacity: 1.0;
+  visibility:visible;  */
+}
+
+.pressButton button {
+  position: absolute;
+  font-size: .19rem;
+  border: .015rem solid black;
+  background: lightgrey;
+  padding: .075rem;
+}
+
+.pressButton {
+  width: 4%;
+  height: 4%;
+  position: absolute;
+  top: 52%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#pressButton_0 {
+  left: 30%;
+}
+
+#pressButton_1 {
+  left: 32.9%;
+}
+
+#pressButton_2 {
+  left: 35.8%;
+}
+
+#pressButton_3 {
+  left: 38.55%;
+}
+
+#pressButton_4 {
+  left: 41.3%;
+}
+
+#pressButton_5 {
+  left: 44.1%;
+}
+
+#checkVolume {
+  width: 20%;
+  height: 100%;
+  left: 10%;
+  top: 2600%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/*
+#volumeButton {
+    width: 2%;
+    height: 1.6%;
+    left: 91%;
+    top: 36.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: .1rem;
+}
+*/
+#volumeButton2 {
+  width: 2%;
+  height: 1.6%;
+  left: 25.7%;
+  top: 14%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/check.svg);
+  /*    font-size: .1rem;*/
+}
+
+#voltageButton {
+  width: 6%;
+  height: 6%;
+  left: 48.7%;
+  top: 40%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/check.svg);
+  /*    font-size: .1rem;*/
+}
+
+#volumeInput1 {
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  width: 1.6%;
+  height: 1.3%;
+  left: 23.2%;
+  top: 14%;
+  position: absolute;
+  border: .1rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: .25rem;
+}
+
+#volumeButton1 {
+  width: 2%;
+  height: 1.6%;
+  left: 25.7%;
+  top: 14%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/check.svg);
+  /*    font-size: .1rem;*/
+}
+
+#answerButton {
+  width: 4%;
+  height: 3%;
+  left: 13%;
+  top: 36.2%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 0.25rem;
+}
+
+#answerInput {
+  width: 7%;
+  height: 2%;
+  left: 5%;
+  top: 36%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 0;
+  /*z-index: 10;*/
+}
+
+#timer {
+  width: 2.2%;
+  height: 2.0%;
+  left: 61.3%;
+  top: 36.4%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0;
+  padding: 0;
+  border: 20rem;
+  font-size: .35rem;
+  z-index: 0;
+  /*z-index: 5;*/
+}
+
+#timerButton {
+  width: 3.5%;
+  height: 2.8%;
+  left: 64%;
+  top: 36%;
+  padding: 0;
+  border: 20rem;
+  font-size: .25rem;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-image: url(img/check.svg);
+  background-size: contain;
+  z-index: 0;
+  /*z-index: 5;*/
+}
+
+#tubeContentMixing2 {
+  width: 2.9%;
+  height: 7.75%;
+  left: 35.3%;
+  top: 62.9%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/tubeContentMixing2.svg);
+}
+
+#tubeContentMixing3 {
+  width: 100%;
+  height: 100%;
+  left: -7%;
+  top: -1%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/tubeContentMixing3.svg);
+}
+
+#tubeContentMixing4 {
+  width: 2.9%;
+  height: 7.75%;
+  left: 35.3%;
+  top: 62.9%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/tubeContentMixing3.svg);
+  z-index: 0;
+  /*z-index: 0;*/
+}
+
+#powerSupply {
+  width: 16%;
+  height: 9%;
+  left: 63%;
+  top: 61.5%;
+  position: absolute;
+  background-image: url(img/powerSupply.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#powerSupplyUp {
+  width: 5%;
+  height: 5%;
+  left: 46.5%;
+  top: 38%;
+  position: absolute;
+  background-image: url(img/powerSupplyUp.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: inherit;*/
+  pointer-events: initial
+}
+
+#powerSupplyDown {
+  width: 5%;
+  height: 5%;
+  left: 46.5%;
+  top: 42%;
+  position: absolute;
+  background-image: url(img/powerSupplyDown.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  pointer-events: initial
+}
+
+#voltage {
+  width: 6%;
+  height: 4%;
+  left: 40%;
+  top: 40%;
+  border: .1rem solid black;
+  font-size: 1rem;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  /*z-index: inherit;*/
+}
+
+#zoomOutButton3 {
+  width: 2%;
+  height: 2%;
+  left: 73%;
+  top: 59.5%;
+  position: absolute;
+  background-image: url(img/zoomOutButton.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  visibility: visible;
+}
+
+#gelTray {
+  width: 13%;
+  height: 8%;
+  left: 69%;
+  top: 71.8%;
+  position: absolute;
+  background-image: url(img/gelTray.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#gelComb {
+  width: 11%;
+  height: 8%;
+  left: 70%;
+  top: 70%;
+  position: absolute;
+  background-image: url(img/gelComb.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#gelCombHitBox {
+  width: 11%;
+  height: 8%;
+  left: 70%;
+  top: 71%;
+  position: absolute;
+  z-index: 0;
+  /*z-index: 100;*/
+}
+
+#gelSideView {
+  width: 20%;
+  height: 6%;
+  left: 82%;
+  top: 72.5%;
+  position: absolute;
+  background-image: url(img/gelSideView.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#stainingTraySide {
+  width: 10%;
+  height: 4%;
+  left: 88%;
+  top: 74.5%;
+  position: absolute;
+  background-image: url(img/stainingTraySide.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 10000;*/
+}
+
+#stainedGel {
+  width: 10%;
+  height: 4%;
+  left: 88%;
+  top: 74.5%;
+  position: absolute;
+  background-image: url(img/stainedGel.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 9999;*/
+}
+
+#graduatedCylinder {
+  width: 2%;
+  height: 14%;
+  left: 84%;
+  top: 63.7%;
+  position: absolute;
+  /* background-image: url(img/graduatedCylinder.svg); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 10000;*/
+}
+
+#emptyGraduatedCylinder {
+  width: 3%;
+  height: 12%;
+  left: 84%;
+  top: 66.2%;
+  position: absolute;
+  background-image: url(img/emptyGraduatedCylinder.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 999;*/
+}
+
+#stainedGelContainer {
+  width: 20%;
+  height: 20%;
+  left: 35%;
+  top: 30%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: 2;*/
+}
+
+#gel {
+  width: 80%;
+  height: 80%;
+  left: 20%;
+  top: 11%;
+  position: absolute;
+  z-index: 0;
+  visibility: hidden;
+}
+
+#topView {
+  /* display:none; */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  /*z-index: -5;*/
+  font-family: "Helvetica", sans-serif;
+}
+
+#arrowDown {
+  width: 5%;
+  height: 16%;
+  left: 55%;
+  top: 10%;
+  position: absolute;
+  background-image: url(img/arrowDown.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#arrowUp {
+  width: 5%;
+  height: 16%;
+  left: 60%;
+  top: 10%;
+  position: absolute;
+  background-image: url(img/arrowUp.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#gelTopView {
+  width: 20%;
+  height: 30%;
+  left: 7%;
+  top: 55%;
+  position: absolute;
+  background-image: url(img/gelTopView.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: hidden;
+}
+
+#labBenchTop {
+  width: 85%;
+  height: 175%;
+  left: -21%;
+  top: -25%;
+  position: absolute;
+  background-image: url(img/labBenchTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  z-index: 0;
+  /*z-index: inherit;*/
+  /* visibility: hidden; */
+}
+
+#gelTrayTop {
+  width: 22%;
+  height: 11%;
+  left: 6%;
+  top: 65.4%;
+  position: absolute;
+  background-image: url(img/gelTrayTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 500;*/
+}
+
+#gelFinalTop {
+  width: 9.9%;
+  height: 11%;
+  left: 12%;
+  top: 65.5%;
+  position: absolute;
+  /*    background-image: url(img/gelWithLane.svg);*/
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 2000;*/
+}
+
+#micropipetTopView {
+  width: 5%;
+  height: 7%;
+  left: -10.5%;
+  top: 71.6%;
+  position: absolute;
+  background-image: url(img/micropipetTopView.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  /* visibility: visible; */
+  z-index: 0;
+  /*z-index: 505;*/
+}
+
+#restPosition {
+  top: 51.3%;
+  left: 13.9%;
+}
+
+#well1 {
+  top: 55%;
+  left: 13.9%;
+}
+
+#well2 {
+  top: 57.9%;
+  left: 13.9%;
+}
+
+#well3 {
+  top: 60.3%;
+  left: 13.9%;
+}
+
+#well4 {
+  top: 62.6%;
+  left: 13.9%;
+}
+
+#well5 {
+  top: 65%;
+  left: 13.9%;
+}
+
+#well6 {
+  top: 67.1%;
+  left: 13.9%;
+}
+
+#well7 {
+  top: 69.3%;
+  left: 13.9%;
+}
+
+#lidBox, #lidBase {
+  width: 35%;
+  height: 45%;
+  left: -5.5%;
+  top: 40%;
+  position: absolute;
+  background-image: url(img/lidBox.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#lidBox {
+  background-image: url(img/lidBox.svg);
+  z-index: 1;
+}
+
+#lidBase {
+  background-image: url(img/lidBase.svg);
+}
+
+#lidSide {
+  width: 36%;
+  height: 30%;
+  left: -2%;
+  top: 20.3%;
+  position: absolute;
+  background-image: url(img/lid.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 1001*/
+}
+
+#powerSupplyTop {
+  width: 15%;
+  height: 30%;
+  left: -3.9%;
+  top: 19.4%;
+  position: absolute;
+  background-image: url(img/powerSupplyTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#sideView {
+  width: 45%;
+  height: 60%;
+  left: 55%;
+  top: 25%;
+  position: absolute;
+  overflow: hidden;
+  background-image: url(img/sideBackground.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: -9;*/
+}
+
+#sideViewOverFlow {
+  width: 100%;
+  height: 65%;
+  left: 0%;
+  top: 35%;
+  position: absolute;
+  overflow: hidden;
+}
+
+#gelWell {
+  width: 98%;
+  height: 53%;
+  left: 1%;
+  top: 46%;
+  position: absolute;
+  background: rgba(59, 128, 194, .46);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#gelWellBoundary {
+  width: 60%;
+  height: 80%;
+  left: 20%;
+  top: 0%;
+  background: rgba(59, 128, 194, .86);
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#tipSide {
+  width: 15%;
+  height: 121%;
+  left: 42%;
+  top: -80%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#stainingTray {
+  width: 15%;
+  height: 18%;
+  left: 28%;
+  top: 55%;
+  position: absolute;
+  background-image: url(img/stainingTray.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+#microtubeHolderTop {
+  width: 8%;
+  height: 30%;
+  left: 35%;
+  top: 23%;
+  position: absolute;
+  background-image: url(img/microtubeHolderTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+.tubeTopp {
+  width: 7%;
+  height: 3.5%;
+  left: 33.5%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#tubeTop_0 {
+  /*    ladderTop*/
+  top: 20%;
+  background-image: url(img/ladderTop.svg);
+}
+
+#tubeTop_1 {
+  /*    csTop*/
+  top: 24.5%;
+  background-image: url(img/csTop.svg);
+}
+
+#tubeTop_2 {
+  top: 29%;
+  background-image: url(img/s1Top.svg);
+}
+
+#tubeTop_3 {
+  top: 33.5%;
+  background-image: url(img/s2Top.svg);
+}
+
+#tubeTop_4 {
+  top: 38%;
+  background-image: url(img/s3Top.svg);
+}
+
+#tubeTop_5 {
+  top: 42.5%;
+  background-image: url(img/s4Top.svg);
+}
+
+#tubeTop_6 {
+  top: 47%;
+  background-image: url(img/s5Top.svg);
+}
+
+#zoomOutButton2 {
+  width: 7.5%;
+  height: 8%;
+  left: 73%;
+  top: 41.7%;
+  position: absolute;
+  background-image: url(img/zoomOutButton.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  visibility: visible;
+}
+
+#wasteBinTop {
+  width: 10%;
+  height: 10%;
+  left: 33%;
+  top: 75%;
+  position: absolute;
+  background-image: url(img/wasteBinTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}
+
+#tipBoxTop {
+  width: 10%;
+  height: 10%;
+  left: 33%;
+  top: 60%;
+  position: absolute;
+  background-image: url(img/tipBoxTop.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 0;
+  /*z-index: 407;*/
+}
+
+#gelVoltageCover {
+  width: 200%;
+  height: 160%;
+  left: -55%;
+  top: -20%;
+  position: absolute;
+  background-image: url(img/gelVoltageCover.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+  z-index: 1;
+  /*z-index: -5000;*/
+}
+
+/*
+#gelLid {
+    width: 16%;
+    height: 9%;
+    left: 63%;
+    top: 61.5%;
+    position: absolute;
+    background-image: url(img/gelLid.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+*/
+/*--------------STUFF THAT ARE DONE in keyframes.js--------------------*/
+/*-------------------------------------*/
+.meterButton {
+  width: 12%;
+  height: 7.1%;
+  top: 65%;
+  background: none;
+  opacity: 1;
+  position: absolute;
+  border-radius: 50%;
+}
+
+#itemButton1 {
+  left: 15.85%;
+}
+
+#itemButton2 {
+  left: 35.2%;
+}
+
+#itemButton3 {
+  left: 54.55%;
+}
+
+#itemButton4 {
+  left: 73.9%;
+}
+
+#itemButton5 {
+  left: 73.9%;
+}
+
+#itemButton6 {
+  left: 73.9%;
+}
+
+#itemButton7 {
+  left: 73.9%;
+}
+
+#itemButton8 {
+  left: 73.9%;
+}
+
+#itemButton9 {
+  left: 73.9%;
+}
+
+#itemButton10 {
+  left: 73.9%;
+}
+
+#itemButton11 {
+  left: 73.9%;
+}
+
+#itemButton12 {
+  left: 73.9%;
+}
+
+#itemButton13 {
+  left: 73.9%;
+}
+
+#itemButton14 {
+  left: 73.9%;
+}
+
+.itemLabel {
+  width: 500%;
+  height: 300%;
+  left: -200%;
+  top: 100%;
+  position: absolute;
+  background-image: url("../resources/img/white_text_bubble_up.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0;
+  /*z-index: 10000;*/
+  pointer-events: none;
+  opacity: 0;
+}
+
+.itemLabelText {
+  width: 100%;
+  top: 43%;
+  position: absolute;
+  color: black;
+  text-align: center;
+}
+
+#enzTube {
+  width: 5%;
+  height: 11%;
+  left: 85.5%;
+  top: 62.7%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 100% 0%;
+}
+
+/*
+#enzTubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/enzymeTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#enzCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: 6%;
+    position: absolute;
+    background-image: url(img/enzymeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 1.5% 15%;
+}
+ */
+#pipetteTip1 {
+  width: 15%;
+  height: 22.5%;
+  left: 54%;
+  top: 96%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#pipetteTip2 {
+  width: 17%;
+  height: 27.5%;
+  left: 55%;
+  top: 96%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: hidden;
+}
+
+#tip1 {
+  width: 0.7%;
+  height: 7%;
+  left: 20.8%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: visible;
+}
+
+#tip2 {
+  width: 0.7%;
+  height: 7%;
+  left: 21.6%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip3 {
+  width: 0.7%;
+  height: 7%;
+  left: 22.4%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip4 {
+  width: 0.7%;
+  height: 7%;
+  left: 23.2%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip5 {
+  width: 0.7%;
+  height: 7%;
+  left: 24%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip6 {
+  width: 0.7%;
+  height: 7%;
+  left: 24.8%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip7 {
+  width: 0.7%;
+  height: 7%;
+  left: 25.6%;
+  top: 70%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip8 {
+  width: 0.7%;
+  height: 7%;
+  left: 26.4%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip9 {
+  width: 0.7%;
+  height: 7%;
+  left: 27.2%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip10 {
+  width: 0.7%;
+  height: 7%;
+  left: 28%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip11 {
+  width: 0.7%;
+  height: 7%;
+  left: 28.8%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#tip12 {
+  width: 0.7%;
+  height: 7%;
+  left: 29.6%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#micropipet2 {
+  width: 4.6%;
+  height: 23%;
+  left: 14.5%;
+  top: 52%;
+  position: absolute;
+  background-image: url(img/micropipet20.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  /*z-index: 7*/
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
+
+#volumeButton {
+  width: 2%;
+  height: 1.6%;
+  left: 29.1%;
+  top: 47.2%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(img/check.svg);
+  /*    font-size: .1rem;*/
+}
+
+#volumeInput {
+  -webkit-appearance: none;
+  width: 1.6%;
+  height: 1.8%;
+  margin: 0;
+  padding: 0;
+  border: .1rem;
+  left: 26.5%;
+  top: 47%;
+  position: absolute;
+  background-repeat: no-repeat;
+  font-size: .25rem;
+  z-index: 10;
+  /*z-index: 10;*/
+}
+
+/*Step 4*/

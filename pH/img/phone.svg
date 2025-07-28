@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 132 223.9" style="enable-background:new 0 0 132 223.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{stroke:#303030;stroke-width:2;}
+	.st1{fill:#181818;stroke:#303030;}
+	.st2{stroke:#303030;}
+</style>
+<path id="bezel_2_" sketch:type="MSShapeGroup" class="st0" d="M131,206.9c0,8.8-7.2,16-16.1,16H17.1c-8.9,0-16.1-7.2-16.1-16V17
+	C1,8.2,8.2,1,17.1,1h97.9c8.9,0,16.1,7.2,16.1,16V206.9L131,206.9z"/>
+<rect id="screen_2_" x="10" y="36.9" sketch:type="MSShapeGroup" class="st1" width="111.9" height="147.1">
+</rect>
+<path id="speaker" sketch:type="MSShapeGroup" class="st2" d="M78,26.7c0,0.6-0.4,1.1-1,1.1H56.9c-0.5,0-1-0.5-1-1.1v-2.6
+	c0-0.6,0.4-1.1,1-1.1H77c0.5,0,1,0.5,1,1.1V26.7L78,26.7z"/>
+<circle id="camera_1_" sketch:type="MSShapeGroup" class="st2" cx="67" cy="12.9" r="3">
+</circle>
+<ellipse id="lock_1_" sketch:type="MSShapeGroup" class="st2" cx="66" cy="202.9" rx="10" ry="10">
+</ellipse>
+</svg>

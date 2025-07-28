@@ -1,0 +1,43 @@
+body {
+    background-color: aquamarine;
+    margin: none;
+    padding: none;
+}
+
+#stage {
+    background-color: #abceed;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: none;
+    padding: none;
+    overflow: hidden;
+}
+
+#gel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-origin: left top;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(2);
+    }
+}
+
+.anim_zoomIn {
+    animation: zoomIn .25s ease-in-out 0s 1 forwards;
+}

@@ -1,0 +1,1860 @@
+
+/* Actual CSS I wrote starts here */
+/* Lots of cool CSS to see here, folks */
+
+.screen {
+    overflow: hidden;
+}
+
+.shelfSleeves {
+    width: 20%;
+    height: 25%;
+    position: absolute;
+    left: 79%;
+    top: 54%;
+    background-color: #aa8866;
+    background-image: url("stripes/BeigeStripe.png");
+    z-index: 100;
+}
+
+#shelfSleeve1 {
+    width: 6%;
+    height: 45%;
+    position: absolute;
+    left: 20%;
+    top: 5%;
+}
+
+#shelfSleeve2 {
+    width: 7%;
+    height: 55%;
+    position: absolute;
+    left: 45.5%;
+    top: 5%;
+}
+
+#shelfSleeve3 {
+    width: 9%;
+    height: 69%;
+    position: absolute;
+    left: 70.5%;
+    top: 5%;
+}
+
+.sleeve {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+#pipetteSleeve {
+    width: 9%;
+    position: absolute;
+    left: 53%;
+    top: 105%;
+    border: 0px;
+}
+
+.endChallenge {
+    width: 20%;
+    height: 25%;
+    position: absolute;
+    left: 79%;
+    top: 54%;
+    background-color: #aa8866;
+    background-image: url("stripes/GreenStripe3.png");
+    z-index: -100;
+}
+
+#endChallengeText {
+    color: white;
+    font-family: "Helvetica";
+    text-align: center;
+    top: 27%;
+    position: absolute;
+}
+
+#plunger {
+    width: 30%;
+    height: 16.6%;
+    position: absolute;
+    left: 40%;
+    z-index: -2;
+}
+
+#pipeBody {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 10%
+}
+
+#ejectPlunger {
+    width: 16%;
+    height: 5%;
+    left: 62%;
+    top: 11%;
+    position: absolute;
+    background-image: url("img/eject_button.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    z-index: -10;
+}
+
+.anim_ejectPlungerDown {
+    animation: ejectPlungerDown 1s 0s 1 ease normal forwards;
+}
+
+@keyframes ejectPlungerDown {
+    from {
+        top: 11%
+    }
+    to {
+        top: 12.5%;
+    }
+}
+
+#droppable {
+    width: 100%;
+    height: 100%;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+#draggable {
+    width: 13.5%;
+    height: 50%;
+    left: 0px;
+    top: 0px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    margin-right: 0%;
+    padding: 0;
+    position: absolute;
+    z-index: 10;
+    color: #00ffff;
+}
+
+#flaskL {
+    width: 22.5%;
+    height: 35%;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    color: currentColor;
+    z-index: -1;
+}
+
+#flaskR {
+    width: 22.5%;
+    height: 35%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    color: currentColor;
+    z-index: -1;
+}
+
+.flask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: currentColor;
+    z-index: -1;
+    opacity: 0;
+}
+
+#liquidLeft {
+    width: 98.5%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: .6%;
+    color: currentColor;
+    z-index: -100;
+    background-color: #4E9E26;
+    opacity: 0;
+}
+
+#liquidRight {
+    width: 98.5%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: .6%;
+    color: currentColor;
+    z-index: -100;
+    background-color: #E6E600;
+    opacity: 0;
+}
+
+#sleeveVolumeBox {
+    position: absolute;
+    left: 70%;
+    top: 10%;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+#floor {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    top: 80%;
+    left: 0px;
+    background-color: #4A3035;
+    background-image: url("stripes/BrownStripe2.png");
+}
+
+#alertFloor {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-image: url("stripes/AlertStripe.png");
+    z-index: 5;
+    opacity: 0;
+}
+
+body {
+    background-image: url("stripes/stripeBG.png");
+    overflow: hidden !important;
+    max-width: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.rounded {}
+
+#stage {
+    background-color: #abceed;
+    position: absolute;
+    margin: 0px;
+    z-index: 6;
+    overflow: hidden;
+}
+
+#floorText {
+    width: 100%;
+    height: 100%;
+    top: 5%;
+    z-index: 0;
+    position: absolute;
+}
+
+p.help {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    z-index: 10;
+    opacity: 1;
+}
+
+.numberPuncher,
+.numberPuncher:focus {
+    float: left;
+}
+
+p {
+    font-family: "Helvetica";
+    margin: 0px;
+    padding: 0px;
+}
+
+p.dial_num {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+#plungerStateBox {
+    position: absolute;
+    left: 84%;
+    top: 6.0%;
+    background-image: url("stripes/DarkStripeBG.png");
+    color: #ffffff;
+    text-align: center;
+    width: 15%;
+    height: 5.25%;
+    text-align: center;
+    font-family: "Helvetica";
+    padding-top: .75%;
+    opacity: 0;
+}
+
+#sleeveVolumeBox {
+    width: 100%;
+    height: 20%;
+    left: 0px;
+    top: 80%;
+    background-color: #4A3035;
+    background-image: url("stripes/BrownStripe2.png");
+    color: #ffffff;
+    text-align: center;
+    font-family: "Helvetica";
+}
+
+#goalBox {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-image: url("stripes/DarkStripeBG.png");
+    color: #ffffff;
+    width: 100%;
+    height: 5%;
+    text-align: center;
+}
+
+#goalText {
+    top: 10%;
+    left: 2.5%;
+    width: 95%;
+    height: 80%;
+    position: absolute;
+    text-align: center;
+}
+
+#pipetteDials {
+    position: absolute;
+    left: 71.0%;
+    top: 17.5%;
+    width: 6.5%;
+    height: 10%;
+    border: .1% solid;
+    border-color: #000000;
+}
+
+.pipette_dial {
+    width: 100%;
+    height: 25%;
+    background-color: #000000;
+    color: white;
+    left: 0px;
+    z-index: 5;
+    position: absolute;
+}
+
+#pipette_dial_1 {
+    top: 0px;
+}
+
+#pipette_dial_2 {
+    top: 25%;
+}
+
+#pipette_dial_3 {
+    top: 50%;
+}
+
+#pipette_dial_4 {
+    top: 75%;
+}
+
+p.pipette_dial_num {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.pipette_innerDial {
+    width: 96%;
+    height: 96%;
+    background-color: black;
+    left: 2%;
+    top: 2%;
+    position: absolute;
+}
+
+.pipetteTops {
+    width: 20%;
+    height: 40%;
+    position: absolute;
+    left: 79%;
+    top: 13.0%;
+    z-index: 20;
+    background-color: #808080;
+}
+
+.pipetteTop img {
+    width: 100%;
+    height: 33.33%;
+    position: absolute;
+    left: 0px;
+}
+
+#pipetteTop1 img {
+    top: 0px;
+}
+
+#pipetteTop2 img {
+    top: 33.33%;
+}
+
+#pipetteTop3 img {
+    top: 66.67%;
+}
+
+.researchPipette {
+    width: 20%;
+    height: 40%;
+    position: absolute;
+    left: 79%;
+    top: 13%;
+    z-index: 5;
+    background-image: url("img/shortPipette.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.referencePipette {
+    width: 20%;
+    height: 40%;
+    position: absolute;
+    left: 79%;
+    top: 13%;
+    background-image: url("img/student.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#grayDiv {
+    width: 22%;
+    height: 100%;
+    position: absolute;
+    left: 78%;
+    top: 0px;
+    z-index: -10;
+    background-image: url("stripes/GrayStripe.png");
+}
+
+#modeBox {
+    width: 90%;
+    height: 5%;
+    position: absolute;
+    left: 1%;
+    top: 96%;
+    color: #ffffff;
+    z-index: 30
+}
+
+p.mText {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    color: #ffffff;
+    margin: .5%;
+    padding: 0;
+    z-index: 10;
+    opacity: .3;
+}
+
+#highScoreBox {
+    width: 99%;
+    height: 5%;
+    position: absolute;
+    left: 0px;
+    top: 95%;
+    color: #ffffff;
+    z-index: 30
+}
+
+#highScoreText {
+    color: #009933;
+    opacity: 1;
+}
+
+p.hsText {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #ffffff;
+    margin: .5%;
+    padding: 0;
+    z-index: 10;
+    opacity: .3;
+}
+
+#usernameBox {
+    width: 98%;
+    height: 5%;
+    position: absolute;
+    left: 0px;
+    top: 96%;
+    color: #ffffff;
+    z-index: 30;
+}
+
+p.userText {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    color: #ffffff;
+    margin: .5%;
+    padding: 0;
+    z-index: 10;
+    opacity: .3;
+}
+
+#overlay {
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+    position: absolute;
+    margin: auto;
+}
+
+#endScreen {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 10;
+    margin: auto;
+}
+
+#results {
+    width: 75%;
+    height: 55%;
+    left: 12.5%;
+    top: 25%;
+    background-color: #ffffff;
+    background-image: url("stripes/DarkStripeBG.png");
+    z-index: 20;
+    opacity: 1;
+    position: absolute;
+    box-shadow: .5% .5% .5% #000000;
+}
+
+p.endText {
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 3%;
+    padding: 0;
+    z-index: 40;
+    text-shadow: 1% 1% #808080;
+    position: absolute;
+}
+
+p.scoreText {
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    color: #bbbbbb;
+    margin-top: 14%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+}
+
+p.endSubText {
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 19.5%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+}
+
+p.endSubSubText {
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 26%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+}
+
+#challengeError {
+    top: 26%;
+    left: 5%;
+    width: 55%;
+    height: 16%;
+    position: absolute;
+}
+
+#challengeMistake {
+    top: 40%;
+    left: 5%;
+    width: 55%;
+    height: 16%;
+    position: absolute;
+}
+
+#challengeScore {
+    top: 26%;
+    left: 65%;
+    width: 30%;
+    height: 33%;
+    position: absolute;
+}
+
+.ctext {
+    color: white;
+    font-family: "Helvetica";
+    position: absolute;
+}
+
+.ctextBlack {
+    color: black;
+    font-family: "Helvetica";
+    position: absolute;
+}
+
+.challengeEndText {
+    text-align: right;
+    top: 42%;
+    left: 1.5%;
+    width: 45%;
+}
+
+.challengeEndNumberText {
+    text-align: left;
+    top: 0%;
+    left: 50%;
+    width: 50%;
+}
+
+.challengeScoreText {
+    text-align: center;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+}
+
+.challengeScoreNumberText {
+    text-align: center;
+    top: 33%;
+    left: 5%;
+    width: 90%;
+}
+
+.endOption {
+    width: 25%;
+    height: 27.5%;
+    position: absolute;
+    z-index: 50;
+    box-shadow: 5% 5% 5% #000000;
+}
+
+.endOptionText {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 12.5%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+    font-family: "Helvetica";
+}
+
+.endOptionLText {
+    width: 100%;
+    height: 2.5%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 11%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+    font-family: "Helvetica";
+}
+
+#endOption1 {
+    top: 60%;
+    left: 5%;
+    background-image: url("stripes/GreenStripe2.png");
+    position: absolute;
+    z-index: 5;
+}
+
+#endOption2 {
+    top: 60%;
+    left: 37.5%;
+    position: absolute;
+    z-index: 5;
+    height: 27.5%;
+}
+
+#endOption2c {
+    top: 60%;
+    left: 37.5%;
+    position: absolute;
+    z-index: 250;
+    height: 27.5%;
+}
+
+#endOption2Text {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1.5%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+    font-family: "Helvetica";
+}
+
+#endOption2L {
+    top: 60%;
+    left: 37.5%;
+    background-image: url("stripes/LockedStripe.png");
+    position: absolute;
+    z-index: 0;
+}
+
+#endOption3 {
+    top: 60%;
+    left: 70%;
+    background-image: url("stripes/GreenStripe2.png");
+    position: absolute;
+    z-index: 5;
+}
+
+#endOption3L {
+    top: 60%;
+    left: 70%;
+    background-image: url("stripes/LockedStripe.png");
+    position: absolute;
+    z-index: 0;
+}
+
+#title {
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    margin: auto;
+    z-index: 1000;
+    background-color: black;
+}
+
+#titleBG {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-image: url("stripes/SuperDarkStripe.png");
+    z-index: 0;
+}
+
+#titleBGHeader {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    color: #ffffff;
+    top: 2%;
+    padding: 0;
+    z-index: 40;
+    position: absolute;
+    font-family: "Helvetica";
+}
+
+#titleAboutText {
+    width: 100%;
+    height: 20%;
+    top: 97%;
+    left: -.5%;
+    text-align: right;
+    color: #ffffff;
+    z-index: 40;
+    position: absolute;
+}
+
+#titleHelpText {
+    width: 90%;
+    height: 20%;
+    top: 74%;
+    left: 0px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 40;
+    position: absolute;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.titleSlide {
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: 20%;
+    position: absolute;
+    border: .2% solid gray;
+    box-shadow: .5% .5% .5% #000000;
+}
+
+#buttonLeft {
+    width: 11.25%;
+    height: 15%;
+    left: 6.5%;
+    top: 35%;
+    position: absolute;
+    z-index: 100;
+}
+
+#buttonRight {
+    width: 11.25%;
+    height: 15%;
+    left: 82.5%;
+    top: 35%;
+    position: absolute;
+    z-index: 100;
+}
+
+#hints {}
+
+.researchHints {
+    height: 70%;
+    width: 80%;
+    position: absolute;
+    top: 5%;
+    left: 0px;
+}
+
+.referenceHints {
+    height: 100%;
+    width: 120%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+#dials {}
+
+.researchDials {
+    position: absolute;
+    left: 88.35%;
+    top: 25%;
+    width: 6%;
+    height: 24%;
+    border: .2% solid;
+}
+
+.referenceDials {
+    position: absolute;
+    left: 81.95%;
+    top: 25.9%;
+    width: 14.25%;
+    height: 5.5%;
+    border: 0% solid;
+}
+
+.referenceDial {
+    display: inline-table;
+    width: 24.0%;
+    height: 100%;
+    color: white;
+    position: relative;
+    padding-top: 1%;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+}
+
+.researchDial {
+    width: 100%;
+    height: 25.00%;
+    background-color: #000000;
+    color: white;
+    z-index: 5;
+}
+
+.referenceColor {
+    width: 50%;
+    height: 30%;
+    top: 47%;
+    left: 25%;
+    position: absolute;
+    z-index: -10;
+}
+
+.researchZoomDialNum {
+    border-style: solid;
+    border-color: #808080;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.referenceZoomDialNum {
+    border-style: solid;
+    border-color: #808080;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.dialHint {}
+
+.researchDialHint {
+    border: 0% solid black;
+    z-index: 50;
+    width: 100%;
+    height: 25%;
+    left: -4%;
+    position: relative;
+    background-image: url("img/HintBubble.svg");
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    padding-top: 15%;
+    padding-bottom: 8%;
+}
+
+.referenceDialHint {
+    border: 0% solid black;
+    display: inline-table;
+    z-index: 50;
+    width: 18%;
+    height: 20%;
+    left: -103%;
+    top: -242%;
+    position: relative;
+    background-image: url("img/HintBubbleDown.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 7%;
+    padding-bottom: 8%;
+    padding-left: 1.3%;
+    background-position: 0% 15%;
+}
+
+.researchHintNum {
+    left: -3.5%;
+    width: 100%;
+    top: -10%;
+    position: absolute;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    position: relative;
+}
+
+.referenceHintNum {
+    left: -3.5%;
+    width: 100%;
+    top: -100%;
+    position: absolute;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    position: relative;
+}
+
+#tubes {
+    width: 78%;
+    height: 70%;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+#rack {
+    width: 70%;
+    height: 40.5%;
+    left: 30%;
+    top: 69.25%;
+    position: absolute;
+    z-index: 110;
+}
+
+#rackFront {
+    width: 50%;
+    height: 43%;
+    left: 40%;
+    top: 71.3%;
+    position: absolute;
+    z-index: 1000;
+    background-image: url("img/rack.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.tubeFluidBox {
+    width: 10%;
+    height: 26.5%;
+    top: 50%;
+    position: absolute;
+}
+
+.tubeFluid {
+    opacity: 0.65;
+    width: 58%;
+    height: 100%;
+    top: 0px;
+    left: 21%;
+    position: absolute;
+    z-index: 100;
+}
+
+#tubeFluidL {
+    background-color: #4375E0;
+}
+
+#tubeFluidR {
+    background-color: #E6E600;
+}
+
+#tubeFluidBoxL {
+    left: 36.5%;
+}
+
+#tubeFluidBoxR {
+    left: 54.875%;
+}
+
+.greenFluid {
+    -webkit-animation: fluidColorChange 1s 0s 1 ease normal forwards;
+    -moz-animation: fluidColorChange 1s 0s 1 ease normal forwards;
+}
+
+@-webkit-keyframes fluidColorChange {
+    to {
+        background-color: #009933;
+    }
+}
+
+@-moz-keyframes fluidColorChange {
+    to {
+        background-color: #009933;
+    }
+}
+
+#stopBox {
+    left: 79%;
+    top: 5.75%;
+    width: 5%;
+    height: 6.666666%;
+    position: absolute;
+    position: absolute;
+    opacity: 0;
+}
+
+#stopBox img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+}
+
+#stopBoxBG {
+    width: 100%;
+    height: 100%;
+    background-color: #95E8C9;
+    position: absolute;
+    z-index: 5;
+}
+
+#stopBoxFill {
+    width: 100%;
+    height: 1%;
+    background-color: #00965F;
+    position: absolute;
+    z-index: 7;
+}
+
+#waste {
+    background-image: url(img/wastebasket.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 25%;
+    width: 20%;
+    top: 55%;
+    left: 6%;
+    position: absolute;
+    z-index: 0;
+    opacity: 1;
+}
+
+#wasteFront {
+    background-image: url(img/wastebasket_front.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 25%;
+    width: 20%;
+    top: 55%;
+    left: 6%;
+    position: absolute;
+    z-index: 1000;
+    opacity: 1;
+}
+
+div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+#stateClickBox {
+    width: 20%;
+    height: 6.5%;
+    left: 79%;
+    top: 5.75%;
+    position: absolute;
+    z-index: 100000;
+}
+
+.stateClickButton {
+    width: 25%;
+    height: 100%;
+    top: 0%;
+    position: absolute;
+    background-image: url("stripes/stateButtonBG1.svg");
+    background-size: 100% 100%;
+    z-index: 100;
+    text-align: center;
+    font-family: "Helvetica";
+    color: white;
+}
+
+.currentState {
+    background-image: url("stripes/stateButtonBG2.svg");
+}
+
+#stateButton0 {
+    left: 0%;
+}
+
+#stateButton1 {
+    left: 25%;
+}
+
+#stateButton2 {
+    left: 50%;
+}
+
+#stateButton3 {
+    left: 75%;
+}
+
+.animState0 {
+    -webkit-animation: state0 1s 0s 1 ease normal forwards;
+    -moz-animation: state0 1s 0s 1 ease normal forwards;
+}
+
+.animState1 {
+    -webkit-animation: state1 1s 0s 1 ease normal forwards;
+    -moz-animation: state1 1s 0s 1 ease normal forwards;
+}
+
+.animState2 {
+    -webkit-animation: state2 1s 0s 1 ease normal forwards;
+    -moz-animation: state2 1s 0s 1 ease normal forwards;
+}
+
+.animState3 {
+    -webkit-animation: state3 1s 0s 1 ease normal forwards;
+    -moz-animation: state3 1s 0s 1 ease normal forwards;
+}
+
+.animState0a {
+    top: -1%;
+}
+
+.animState1a {
+    top: 1%;
+}
+
+.animState2a {
+    top: 3%;
+}
+
+.animState3a {
+    top: 5%;
+}
+
+@-webkit-keyframes state0 {
+    to {
+        top: -1%;
+    }
+}
+
+@-webkit-keyframes state1 {
+    to {
+        top: 1%;
+    }
+}
+
+@-webkit-keyframes state2 {
+    to {
+        top: 3%;
+    }
+}
+
+@-webkit-keyframes state3 {
+    to {
+        top: 5%;
+    }
+}
+
+@-moz-keyframes state0 {
+    to {
+        top: -1%;
+    }
+}
+
+@-moz-keyframes state1 {
+    to {
+        top: 1%;
+    }
+}
+
+@-moz-keyframes state2 {
+    to {
+        top: 3%;
+    }
+}
+
+@-moz-keyframes state3 {
+    to {
+        top: 5%;
+    }
+}
+
+.fallingSleeve {
+    -webkit-animation: fall 1s 0s 1 cubic-bezier(0, 0, .8, 0) normal forwards;
+    -moz-animation: fall 1s 0s 1 cubic-bezier(0, 0, .8, 0) normal forwards;
+}
+
+@-webkit-keyframes fall {
+    to {
+        top: 175%;
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes fall {
+    to {
+        top: 175%;
+        opacity: 0;
+    }
+}
+
+.onScreen {
+    -webkit-animation: animOnScreen .5s 0s 1 cubic-bezier(0, .7, 0, 1) normal forwards;
+    -moz-animation: animOnScreen .5s 0s 1 cubic-bezier(0, .7, 0, 1) normal forwards;
+}
+
+@-webkit-keyframes animOnScreen {
+    from {
+        top: 200%;
+    }
+    to {
+        top: 22.5%;
+    }
+}
+
+@-moz-keyframes animOnScreen {
+    from {
+        top: 200%;
+    }
+    to {
+        top: 22.5%;
+    }
+}
+
+.offScreen {
+    -webkit-animation: animOffScreen .5s 0s 1 cubic-bezier(0, 0, 1, 0) normal forwards;
+    -moz-animation: animOffScreen .5s 0s 1 cubic-bezier(0, 0, 1, 0) normal forwards;
+}
+
+@-webkit-keyframes animOffScreen {
+    from {
+        top: 25%;
+    }
+    to {
+        top: -500%;
+    }
+}
+
+@-moz-keyframes animOffScreen {
+    from {
+        top: 25%;
+    }
+    to {
+        top: -500%;
+    }
+}
+
+.fadeIn {
+    -webkit-animation: animFadeIn .5s 0s 1 linear normal forwards;
+    -moz-animation: animFadeIn .5s 0s 1 linear normal forwards;
+}
+
+@-webkit-keyframes animFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: .5;
+    }
+}
+
+@-moz-keyframes animFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: .5;
+    }
+}
+
+.fadeOut {
+    -webkit-animation: animFadeOut .5s 0s 1 linear normal forwards;
+    -moz-animation: animFadeOut .5s 0s 1 linear normal forwards;
+}
+
+@-webkit-keyframes animFadeOut {
+    from {
+        opacity: .5;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes animFadeOut {
+    from {
+        opacity: .5;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.sendToBack {
+    -webkit-animation: animBack .01s .5s 1 linear normal forwards;
+    -moz-animation: animBack .01s .5s 1 linear normal forwards;
+}
+
+@-webkit-keyframes animBack {
+    to {
+        z-index: -10000;
+    }
+}
+
+@-moz-keyframes animBack {
+    to {
+        z-index: -10000;
+    }
+}
+
+.sendToFront {
+    -webkit-animation: animFront .01s .5s 1 linear normal forwards;
+    -moz-animation: animFront .01s .5s 1 linear normal forwards;
+}
+
+@-webkit-keyframes animFront {
+    to {
+        z-index: 10000;
+    }
+}
+
+@-moz-keyframes animFront {
+    to {
+        z-index: 10000;
+    }
+}
+
+.alertError {
+    -webkit-animation: animAlert .5s 0s 1 linear normal forwards;
+    -moz-animation: animAlert .5s 0s 1 linear normal forwards;
+}
+
+@-webkit-keyframes animAlert {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes animAlert {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#lab {
+    top: 5%;
+    left: 0%;
+    width: 78%;
+    height: 60%;
+    position: absolute;
+}
+
+.stateButtonText {
+    top: 25%;
+    position: absolute;
+}
+
+#leaderboardButton {
+    top: 7.5%;
+    left: 0%;
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    background-image: url("stripes/BlueStripe.png");
+    z-index: 100;
+    opacity: 0;
+}
+
+#leaderboardButtonText {
+    top: 19%;
+    left: 4%;
+    position: absolute;
+}
+
+.lbButtonIn {
+    -webkit-animation: lbButtonInAnim .5s 0s 1 cubic-bezier(0, 1, 1, 1) normal forwards;
+    -moz-animation: lbButtonInAnim .5s 0s 1 cubic-bezier(0, 1, 1, 1) normal forwards;
+}
+
+.lbButtonOut {
+    -webkit-animation: lbButtonOutAnim .2s 0s 1 cubic-bezier(1, 0, 1, 1) normal forwards;
+    -moz-animation: lbButtonOutAnim .2s 0s 1 cubic-bezier(1, 0, 1, 1) normal forwards;
+}
+
+@-webkit-keyframes lbButtonInAnim {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes lbButtonOutAnim {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#leaderboard {
+    width: 75%;
+    height: 80%;
+    left: 15%;
+    top: 10%;
+    background-color: #ffffff;
+    background-image: url("stripes/GrayStripe.png");
+    position: absolute;
+    box-shadow: .5% .5% .5% #000000;
+}
+
+.lbIn {
+    -webkit-animation: lbInAnim .5s 0s 1 cubic-bezier(0, 1, 1, 1) normal forwards;
+    -moz-animation: lbInAnim .5s 0s 1 cubic-bezier(0, 1, 1, 1) normal forwards;
+}
+
+.lbOut {
+    -webkit-animation: lbOutAnim .2s 0s 1 cubic-bezier(1, 0, 1, 1) normal forwards;
+    -moz-animation: lbOutAnim .2s 0s 1 cubic-bezier(1, 0, 1, 1) normal forwards;
+}
+
+@-webkit-keyframes lbInAnim {
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes lbOutAnim {
+    to {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes lbInAnim {
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes lbOutAnim {
+    to {
+        opacity: 0;
+    }
+}
+
+.lbToFront {
+    -webkit-animation: lbFront .01s 0s 1 linear normal forwards;
+    -moz-animation: lbFront .01s 0s 1 linear normal forwards;
+}
+
+@-webkit-keyframes lbFront {
+    to {
+        z-index: 11000;
+    }
+}
+
+@-moz-keyframes lbFront {
+    to {
+        z-index: 11000;
+    }
+}
+
+
+#lbHeading {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: 3%;
+    position: absolute;
+    text-align: center;
+}
+
+.lbScoreBox {
+    width: 90%;
+    height: 6%;
+    left: 5%;
+    position: absolute;
+}
+
+.lbButton {
+    width: 25%;
+    height: 10%;
+    left: 0%;
+    top: 87.5%;
+    position: absolute;
+    background-image:url("stripes/LockedStripe.png");
+}
+
+#lbButton1 {
+    left: 7.5%;
+}
+
+#lbButton2 {
+    left: 37.5%;
+}
+
+
+#lbButton3 {
+    left: 67.5%;
+}
+
+.lbButtonText {
+    text-align: center;
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    left: 0%;
+    position: absolute;
+}
+
+.lbRank {
+    width: 25%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    text-align: right;
+}
+.lbName {
+    width: 50%;
+    height: 100%;
+    left: 25%;
+    top: 0%;
+    position: absolute;
+    text-align: center;
+}
+.lbScore {
+    width: 25%;
+    height: 100%;
+    left: 75%;
+    top: 0%;
+    position: absolute;
+    text-align: left;
+}
+
+#lbBox0 {
+    top: 16%;
+}
+#lbBox1 {
+    top: 22%;
+}
+#lbBox2 {
+    top: 28%;
+}
+#lbBox3 {
+    top: 34%;
+}
+#lbBox4 {
+    top: 40%;
+}
+#lbBox5 {
+    top: 46%;
+}
+#lbBox6 {
+    top: 52%;
+}
+#lbBox7 {
+    top: 58%;
+}
+#lbBox8 {
+    top: 64%;
+}
+#lbBox9 {
+    top: 70%;
+}
+#lbBoxSelf {
+    top: 79%;
+}
+
+.ctextSelf {
+    color: yellow;
+    font-family: "Helvetica";
+    position: absolute;
+}
+
+.everythingIsTerrible {
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important
+}
+
+#selectType {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -10000;
+    opacity: 0;
+}
+
+#selectTypeBG {
+    top: 5%;
+    left: 0%;
+    width: 78%;
+    height: 75%;
+    position: absolute;
+    background-image: url("stripes/GrayStripe.png");
+    z-index: 0;
+}
+
+#selectResearch {
+    left: 5%;
+    top: 12.5%;
+    width: 30%;
+    height: 60%;
+    position: absolute;
+    border: 5px solid black;
+    background-image: url("img/selectResearch.svg");
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+#selectReference {
+    left: 42.5%;
+    top: 12.5%;
+    width: 30%;
+    height: 60%;
+    position: absolute;
+    border: 5px solid black;
+    background-image: url("img/selectReference.svg");
+    background-size: 100% 100%;
+    z-index: 10;
+}
+
+#feedback {
+    width: 90%;
+    height: 15%;
+    left: 5%;
+    top: 80%;
+    z-index: 19;
+    opacity: 0;
+    position: absolute;
+}
+
+.feedbackPanel {
+    width: 50%;
+    height: 25%;
+    position: absolute;
+    background-color: #303030;
+}
+
+#fbPanel0 {
+    left: 0%;
+    top: 0%;
+}
+#fbPanel1 {
+    left: 0%;
+    top: 25%;
+}
+#fbPanel2 {
+    left: 0%;
+    top: 50%;
+}
+#fbPanel3 {
+    left: 0%;
+    top: 75%;
+}
+#fbPanel4 {
+    left: 50%;
+    top: 0%;
+}
+#fbPanel5 {
+    left: 50%;
+    top: 25%;
+}
+#fbPanel6 {
+    left: 50%;
+    top: 50%;
+}
+#fbPanel7 {
+    left: 50%;
+    top: 75%;
+}
+
+.feedbackPanelText {
+    text-align: center;
+    width: 85%;
+    height: 70%;
+    top: 15%;
+}
+
+.feedbackScorePanelText {
+    text-align: center;
+    width: 100%;
+    height: 70%;
+    top: 15%;
+}
+
+.feedbackScorePanel {
+    width: 15%;
+    height: 100%;
+    left: 85%;
+    top: 0%;
+    position: absolute;
+    background-color: red;
+}
+
+.noHintsButton {
+    width: 30%;
+    height: 46%;
+    top: 27%;
+    z-index: 100;
+    position: absolute;
+    background-image: url("stripes/GreenStripe2.png");
+    background-color: gray;
+}
+
+#noHintsButton1 {
+    left: 2%;
+}
+
+#noHintsButton2 {
+    left: 35%;
+}
+
+#noHintsButton3 {
+    left: 68%;
+}
+
+.noHintsButtonText {
+    top: 5%;
+    width: 75%;
+    height: 50%;
+    left: 12.5%;
+    position: absolute;
+    text-align: center;
+}
+
+.noHintsButtonCircle {
+    border-radius: 50%;
+    width: 50%;
+    height: 55%;
+    top: 37%;
+    left: 25%;
+    position: absolute;
+}
+
+#noHintsButtonCircle1 {
+    background-color: #ffffff;
+}
+
+#noHintsButtonCircle2 {
+    background-color: #fff200;
+}
+
+#noHintsButtonCircle3 {
+    background-color: #364fa2;
+}
+
+#hintScoreBox {
+    width: 25%;
+    height: 7%;
+    left: 5%;
+    top: 89%;
+    text-align: center;
+    position: absolute;
+}
+
+#challengeScoreBox {
+    width: 25%;
+    height: 7%;
+    left: 70%;
+    top: 89%;
+    text-align: center;
+    position: absolute;
+}
+
+.noHintScoreBox {
+    width: 7%;
+    height: 12%;
+    top: 79%;
+    text-align: center;
+    position: absolute;
+}
+
+#noHintScoreBox1 {
+    left: 38.25%;
+}
+
+#noHintScoreBox2 {
+    left: 46.5%;
+}
+
+#noHintScoreBox3 {
+    left: 54.75%;
+}

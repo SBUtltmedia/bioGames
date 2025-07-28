@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Micropipette Simulator</title>
+    <script src="//code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
+    <script src="jquery-mousewheel-master/jquery.mousewheel.min.js"></script>
+    <script src="challenges.js"></script>
+    <script src="resize.js"></script>
+    <script src="eventLogic.js"></script>
+    <script src="gameLogic.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/menuStyle.css">
+    <link rel="stylesheet" type="text/css" href="generalStyle.css">
+    <link rel="stylesheet" type="text/css" href="challengeStyle.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="modernizr.custom.91959.js"></script>
+</head>
+
+<body class="noselect stripes">
+    <div id="stage" class="screen">
+        <div id="grayDiv" class="stripes">
+        </div>
+        <div id="modeBox">
+            <p id="modeText" class="mText fs-28">Guided Mode</p>
+        </div>
+        <div id="highScoreBox">
+            <p id="highScoreText" class="hsText fs-35"></p>
+        </div>
+        <div id="usernameBox">
+            <p id="usernameText" class="userText fs-28">Signed in as [username]</p>
+        </div>
+        <div id="floor" class="stripes">
+            <div id="alertFloor" class="stripes"></div>
+            <div id="floorText">
+                <p id="helpText" class="help fs-55"></p>
+            </div>
+        </div>
+
+        <div id="stopBox" class="noselect">
+            <div id="stopBoxBG"></div>
+            <div id="stopBoxFill"></div>
+            <img id="stopBoxImg" src="img/StopBox1.svg" draggable="false">
+        </div>
+
+        <div id="flaskL" class="noselect">
+            <img id="flaskLeft" class="flask noselect" src="img/flask_new_two.svg" draggable="false">
+            <div id="liquidLeft" class="noselect" src="img/liquid.svg" draggable="false"></div>
+        </div>
+        <div id="flaskR" class="noselect">
+            <img id="flaskRight" class="flask noselect" src="img/flask_new_two.svg" draggable="false">
+            <div id="liquidRight" class="noselect" src="img/liquid.svg" draggable="false"></div>
+        </div>
+
+        <div id="tubeFluidBoxL" class="tubeFluidBox noselect" draggable="false">
+            <div id="tubeFluidL" class="tubeFluid noselect" draggable="false"></div>
+        </div>
+        <div id="tubeFluidBoxR" class="tubeFluidBox noselect" draggable="false">
+            <div id="tubeFluidR" class="tubeFluid noselect" draggable="false"></div>
+        </div>
+        <div id="tubes" class="noselect">
+            <img id="rack" class="noselect" src="img/eppendorfTubeRack.svg" draggable="false">
+            <img id="rackFront" class="noselect" draggable="false">
+        </div>
+
+        <div id="lab">
+            <div id="draggable">
+                <img id="plunger" src="img/plunger1.svg" class="ui-widget-content">
+                <img id="pipeBody" src="img/pipette.svg" class="ui-widget-content">
+                <img id="pipetteSleeve" src="img/empty.svg">
+                <div id="pipetteDials" class="ui-widget-content">
+                    <div class="numberPuncher pipette_dial" id="pipette_dial_1">
+                        <div class="innerDial">
+                            <p class="pipette_dial_num fs-7" id="pipette_num_1">0</p>
+                        </div>
+                    </div>
+
+                    <div class="numberPuncher pipette_dial" id="pipette_dial_2">
+                        <div class="innerDial">
+                            <p class="pipette_dial_num fs-7" id="pipette_num_2">0</p>
+                        </div>
+                    </div>
+
+                    <div class="numberPuncher pipette_dial" id="pipette_dial_3">
+                        <div class="innerDial">
+                            <p class="pipette_dial_num fs-7" id="pipette_num_3">0</p>
+                        </div>
+                    </div>
+                    <div class="numberPuncher pipette_dial" id="pipette_dial_4">
+                        <div class="innerDial">
+                            <p class="pipette_dial_num fs-7" id="pipette_num_4">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="ejectPlunger"></div>
+            </div>
+        </div>
+
+
+        <div class="shelfSleeves noselect stripes" draggable="false">
+            <div id="shelfSleeve1" draggable="false">
+                <img id="sleeve1" class="sleeve" src="img/pipette_tip_1.png" draggable="false" />
+            </div>
+            <div id="shelfSleeve2" draggable="false">
+                <img id="sleeve2" class="sleeve" src="img/pipette_tip_2.png" draggable="false" />
+            </div>
+            <div id="shelfSleeve3" draggable="false">
+                <img id="sleeve3" class="sleeve" src="img/pipette_tip_3.png" draggable="false" />
+            </div>
+            <div id="sleeveVolumeBox" class="fs-35 stripes" draggable="false">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="endChallenge noselect fs-50" draggable="false">
+            <div id="endChallengeText">End Challenge</div>
+        </div>
+
+        <div class="pipetteTops noselect" draggable="false">
+            <div id="pipetteTop1" class="pipetteTop" draggable="false">
+                <img id="top1" src="img/pipetteTopOne.svg" draggable="false" />
+
+            </div>
+            <div id="pipetteTop2" class="pipetteTop" draggable="false">
+                <img id="top2" src="img/pipetteTopTwo.svg" draggable="false" />
+            </div>
+            <div id="pipetteTop3" class="pipetteTop" draggable="false">
+                <img id="top3" src="img/pipetteTopThree.svg" draggable="false" />
+            </div>
+        </div>
+
+        <div id="plungerStateBox" class="fs-22 stripes" draggable="false">
+            <p></p>
+        </div>
+
+        <div id="goalBox" class="fs-36 stripes" draggable="false">
+            <div id="goalText" draggable="false">
+                <p></p>
+            </div>
+        </div>
+        <div id="zoomPipette">
+            <div id="refColor"></div>
+        </div>
+
+
+        <div id="dials" draggable="false">
+            <div class="numberPuncher dial" id="zoom_dial_1">
+                <p class="zoom_dial_num fs-50" id="zoom_num_1">0</p>
+            </div>
+            <div class="numberPuncher dial" id="zoom_dial_2">
+                <p class="zoom_dial_num fs-50" id="zoom_num_2">0</p>
+            </div>
+            <div class="numberPuncher dial" id="zoom_dial_3">
+                <p class="zoom_dial_num fs-50" id="zoom_num_3">0</p>
+            </div>
+            <div class="numberPuncher dial" id="zoom_dial_4">
+                <p class="zoom_dial_num fs-50" id="zoom_num_4">0</p>
+            </div>
+            <div id="hints">
+                <div id="hint_1" class="dialHint">
+                    <p class="hint_num fs-32" id="hint_num_1">0</p>
+                </div>
+                <div id="hint_2" class="dialHint">
+                    <p class="hint_num fs-32" id="hint_num_2">0</p>
+                </div>
+                <div id="hint_3" class="dialHint">
+                    <p class="hint_num fs-32" id="hint_num_3">0</p>
+                </div>
+                <div id="hint_4" class="dialHint">
+                    <p class="hint_num fs-32" id="hint_num_4">0</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div id="waste" draggable="false"></div>
+        <div id="wasteFront" draggable="false"></div>
+
+        <div id="stateClickBox">
+            <div id="stateButton0" class="stateClickButton">
+                <p class="stateButtonText fs-16">Resting State</p>
+            </div>
+            <div id="stateButton1" class="stateClickButton">
+                <p class="stateButtonText fs-16">First Stop</p>
+            </div>
+            <div id="stateButton2" class="stateClickButton">
+                <p class="stateButtonText fs-16">Second Stop</p>
+            </div>
+            <div id="stateButton3" class="stateClickButton">
+                <p id="stateButton3Text" class="stateButtonText fs-16">Third Stop</p>
+            </div>
+        </div>
+
+        <div id="selectType">
+            <div id="selectTypeBG" class="stripes"></div>
+            <div id="selectResearch"></div>
+            <div id="selectReference"></div>
+        </div>
+
+    </div>
+    <div id="overlay" class="screen" draggable="false">
+        <div id="overlayBox">
+            <div id="overlayBG"></div>
+            <div id="results" class="rounded stripes" draggable="false">
+                <p class="endText fs-100" draggable="false">[Success?]</p>
+                <p class="scoreText fs-38" draggable="false">[accuracy]</p>
+                <p class="endSubText fs-50" draggable="false">[subtext]</p>
+                <p class="endSubSubText fs-25" draggable="false">[subsubtext]</p>
+                <div id="challengeError">
+                    <p id="endMargin" class="challengeEndText ctext fs-35">Margin of Error:</p>
+                    <p id="endMarginNum" class="challengeEndNumberText ctext fs-80">0.51%</p>
+                </div>
+                <div id="challengeMistake">
+                    <p id="endMistake" class="challengeEndText ctext fs-35">Penalties:</p>
+                    <p id="endMistakeNum" class="challengeEndNumberText ctext fs-80">5</p>
+                </div>
+                <div id="challengeScore">
+                    <p id="endScore" class="challengeScoreText ctext fs-45">Final Score</p>
+                    <p id="endScoreNum" class="challengeScoreNumberText ctext fs-100">999</p>
+                </div>
+
+                <div class="endOption rounded stripes" id="endOption1" draggable="false">
+                    <div class="endOptionText fs-42 ctext">
+                        <p>Retry with hints</p>
+                    </div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption2" draggable="false">
+                    <div class="endOptionText fs-30 ctext" id="endOption2Text">
+                        <p>Play without hints</p>
+                    </div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption2c" draggable="false">
+                    <div class="noHintsButton ctext fs-19 rounded" id="noHintsButton1">
+                        <div class="noHintsButtonText rounded">P10</div>
+                        <div class="noHintsButtonCircle" id="noHintsButtonCircle1"></div>
+                    </div>
+                    <div class="noHintsButton ctext fs-19 rounded" id="noHintsButton2">
+                        <div class="noHintsButtonText rounded">P100</div>
+                        <div class="noHintsButtonCircle" id="noHintsButtonCircle2"></div>
+                    </div>
+                    <div class="noHintsButton ctext fs-19 rounded" id="noHintsButton3">
+                        <div class="noHintsButtonText rounded">P1000</div>
+                        <div class="noHintsButtonCircle" id="noHintsButtonCircle3"></div>
+                    </div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption2L" draggable="false">
+                    <div class="endOptionLText fs-42 ctext">
+                        <p>Locked</p>
+                    </div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption3" draggable="false">
+                    <div class="endOptionText fs-42 ctext" id="endOption3Text">
+                        <p>Challenge Mode</p>
+                    </div>
+                </div>
+                <div class="endOption rounded stripes" id="endOption3L" draggable="false">
+                    <div class="endOptionLText fs-42 ctext">
+                        <p>Locked</p>
+                    </div>
+                </div>
+                <div id="hintScoreBox" class="ctext fs-24"></div>
+                <div id="noHintScoreBox1" class="noHintScoreBox ctext fs-55"></div>
+                <div id="noHintScoreBox2" class="noHintScoreBox ctext fs-55"></div>
+                <div id="noHintScoreBox3" class="noHintScoreBox ctext fs-55"></div>
+                <div id="challengeScoreBox" class="ctext fs-24"></div>
+            </div>
+            <div id="challengeScreen">
+                <div id="hexGrid"></div>
+                <div id="viewLeaderboard">
+                    <div id="viewLeaderboardSelected" class="cellSelected"></div>
+                </div>
+                <div id="currentChallenge">
+                    <div id="currentIcon">
+                        <div id="currentState" class="unknownIcon"></div>
+                    </div>
+                    <div id="currentTitle" class="text fs-50"></div>
+                    <div id="currentDesc" class="text fs-20"></div>
+                    <div id="currentFlavor" class="fadeText fs-20"></div>
+                </div>
+                <div id="totalCompleteLabel" class="darkText fs-40"></div>
+                <div id="totalComplete">
+                    <div id="totalCompleteText" class="greenText fs-120"></div>
+                </div>
+            </div>
+            <div id="challengeButton" class="stripes rounded">
+                <div id="challengeButtonText" class="text fs-50">
+                    Challenges
+                </div>
+                <div id="backButtonText" class="text fs-50">
+                    Play Game
+                </div>
+            </div>
+            <div id="feedback" class="rounded stripes">
+                <div id="fbPanel0" class="feedbackPanel rounded">
+                    <div id="fbPanelText0" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel0" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText0" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel1" class="feedbackPanel rounded">
+                    <div id="fbPanelText1" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel1" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText1" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel2" class="feedbackPanel rounded">
+                    <div id="fbPanelText2" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel2" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText2" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel3" class="feedbackPanel rounded">
+                    <div id="fbPanelText3" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel3" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText3" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel4" class="feedbackPanel rounded">
+                    <div id="fbPanelText4" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel4" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText4" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel5" class="feedbackPanel rounded">
+                    <div id="fbPanelText5" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel5" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText5" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel6" class="feedbackPanel rounded">
+                    <div id="fbPanelText6" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel6" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText6" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+                <div id="fbPanel7" class="feedbackPanel rounded">
+                    <div id="fbPanelText7" class="feedbackPanelText ctext fs-28"></div>
+                    <div id="fbScorePanel7" class="feedbackScorePanel rounded">
+                        <div id="fbScorePanelText7" class="feedbackScorePanelText ctext fs-28"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="title" class="screen" draggable="false">
+        <div id="titleBG" class="stripes" draggable="false"></div>
+        <div id="titleBGHeader" class="fs-120" draggable="false">
+            <p>Pipette Simulator</p>
+        </div>
+        <div id="titleAboutText" class="fs-24" draggable="false">
+            <p>Designed by Jim and Colleen @ TLL 2014-2015</p>
+        </div>
+        <div id="titleHelpText" class="fs-60" draggable="false">
+            <p></p>
+        </div>
+        <img id="slide0" class="titleSlide" draggable="false" src="img/tutorial1.svg">
+        <img id="slide1" class="titleSlide" draggable="false" src="img/tutorial2.svg">
+        <img id="slide2" class="titleSlide" draggable="false" src="img/tutorial3.svg">
+        <img id="slide3" class="titleSlide" draggable="false" src="img/tutorial4.svg">
+        <img id="slide4" class="titleSlide" draggable="false" src="img/tutorial5.svg">
+        <img id="slide5" class="titleSlide" draggable="false" src="screens/screen5.png">
+        <img id="buttonLeft" draggable="false" src="img/LeftButton.svg">
+        <img id="buttonRight" draggable="false" src="img/RightButton.svg">
+    </div>
+
+
+</body>
+
+</html>

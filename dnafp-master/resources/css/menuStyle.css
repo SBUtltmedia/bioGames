@@ -1,0 +1,19 @@
+.endOptionUnlocked {
+    cursor: pointer;
+}
+
+.endOptionLocked {
+    cursor: not-allowed;
+}
+
+.medal {
+    pointer-events: none;
+}
+
+#challengeButton {
+    cursor: pointer;
+}
+
+#viewLeaderboard {
+    cursor: pointer;
+}

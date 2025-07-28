@@ -1,0 +1,423 @@
+#challengeScreen {
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0%;
+    position: absolute;
+}
+
+#hexGrid {
+    width: 60%;
+    height: 80%;
+    left: 20%;
+    top: 2.5%;
+    position: absolute;
+}
+
+.cell {
+    width: 20%;
+    height: 20%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("general_img/step_bg.svg");
+    z-index: 100;
+}
+
+.cellState {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.unknownIcon {
+    background-image: url("../resources/img/step_unknown.svg");
+}
+
+.knownIcon {
+    background-image: url("../resources/img/step_known.svg");
+}
+
+.finishedIcon {
+    background-image: url("../resources/img/step_complete.svg");
+}
+
+.cellSelected {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("general_img/step_border.svg");
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+}
+
+.cellSelected:hover {
+    opacity: 1;
+}
+
+.cellSelectedHide {
+    z-index: -10000;
+    top: 2000%;
+    opacity: 0;
+}
+
+#currentChallenge {
+    width: 50%;
+    height: 20%;
+    left: 2.5%;
+    top: 77.5%;
+    position: absolute;
+    z-index: 10;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../resources/img/currentChallenge.svg");
+    opacity: 0;
+}
+
+#currentIcon {
+    width: 30%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("general_img/step_bg.svg");
+    position: absolute;
+}
+
+#currentState {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+}
+
+#currentTitle {
+    width: 60%;
+    height: 30%;
+    top: 15%;
+    left: 30%;
+    text-align: center;
+    position: absolute;
+}
+
+#currentDesc {
+    width: 60%;
+    height: 25%;
+    top: 51%;
+    left: 31%;
+    text-align: left;
+    position: absolute;
+}
+
+#currentFlavor {
+    width: 60%;
+    height: 12%;
+    top: 76%;
+    left: 26%;
+    text-align: left;
+    position: absolute;
+}
+
+#challengeButton {
+    width: 50%;
+    height: 10%;
+    left: 75%;
+    top: 7.5%;
+    position: absolute;
+    background-image: url(stripes/GrayStripe.png);
+}
+
+#challengeButtonText {
+    width: 40%;
+    height: 70%;
+    top: 20%;
+    left: 5%;
+    position: absolute;
+    text-align: center;
+}
+
+#backButtonText {
+    width: 40%;
+    height: 70%;
+    top: 20%;
+    left: 55%;
+    position: absolute;
+    text-align: center;
+}
+
+.cellFront {
+    z-index: 1000;
+}
+
+.cellSecondFront {
+    z-index: 500;
+}
+
+@keyframes challengeExit {
+    0% {
+        width: 100%;
+        height: 100%;
+        top: 0%;
+    }
+    100% {
+        width: 0%;
+        height: 0%;
+        top: 50%;
+        left: 50%;
+    }
+}
+
+.anim_challengeExit {
+    animation: challengeExit 0.125s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+@keyframes challengeEnter {
+    0% {
+        width: 0%;
+        height: 0%;
+        top: 50%;
+        left: 50%;
+    }
+    50% {
+        width: 120%;
+        height: 120%;
+        top: -10%;
+        left: -10%;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+.anim_challengeEnter {
+    animation: challengeEnter 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+@keyframes challengeEnterBig {
+    0% {
+        width: 0%;
+        height: 0%;
+        top: 50%;
+        left: 50%;
+    }
+    50% {
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0%;
+    }
+}
+
+.anim_challengeEnterBig {
+    animation: challengeEnterBig 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+#totalComplete {
+    width: 22.5%;
+    height: 30%;
+    top: 67.5%;
+    left: 75%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../resources/img/total_complete.svg");
+}
+
+.greenText {
+    font-family: "Helvetica", sans-serif;
+    color: #2AB673;
+}
+
+#totalCompleteText {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 14%;
+    left: 0%;
+    text-align: center;
+}
+
+#totalCompleteLabel {
+    width: 22.5%;
+    height: 10%;
+    top: 58%;
+    left: 75%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../resources/img/challenge_plate.svg");
+}
+
+.challengeAlert {
+    width: 40%;
+    height: 15%;
+    left: 30%;
+    top: 9%;
+    text-align: center;
+    position: absolute;
+    color: #ffff66;
+    opacity: 0;
+}
+
+@keyframes chAlert {
+    from {
+        top: 17.5%;
+    }
+    to {
+        top: 20%;
+    }
+}
+
+.anim_chAlert {
+    animation: chAlert .5s cubic-bezier(.5, 0, .5, 1) 0s infinite alternate;
+}
+
+.anim_enterChButton {
+    animation: enterChButton .5s 0s 1 cubic-bezier(0, 1, 0, 1) normal forwards;
+}
+
+@keyframes enterChButton {
+    from {
+        left: 500%;
+    }
+    to {
+        left: 75%;
+    }
+}
+
+.anim_enterChButton2 {
+    animation: enterChButton2 .5s 0s 1 cubic-bezier(0, 1, 0, 1) normal forwards;
+}
+
+@keyframes enterChButton2 {
+    from {
+        left: -350%;
+    }
+    to {
+        left: 75%;
+    }
+}
+
+.anim_exitChButton {
+    animation: exitChButton .5s 0s 1 cubic-bezier(1, 0, 1, 0) normal forwards;
+}
+
+@keyframes exitChButton {
+    from {
+        left: 75%;
+    }
+    to {
+        left: 500%;
+    }
+}
+
+#overlayBox {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+}
+
+@keyframes toLeft {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+.anim_toLeft {
+    animation: toLeft 0.25s cubic-bezier(.5, 0, .5, 1) 0s 1 forwards;
+}
+
+@keyframes toRight {
+    from {
+        left: 0%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+.anim_toRight {
+    animation: toRight 0.25s cubic-bezier(.5, 0, .5, 1) 0s 1 forwards;
+}
+
+.snapToRight {
+    left: -100% !important;
+}
+
+.fadeText {
+    font-family: "Helvetica", sans-serif;
+    color: white;
+    opacity: .5;
+}
+
+.anim_enterChallenges {
+    animation: enterChallenges .5s 0s 1 cubic-bezier(0, 1, 0, 1) normal forwards;
+}
+
+@keyframes enterChallenges {
+    from {
+        top: 1000%;
+    }
+    to {
+        top: 0%;
+    }
+}
+
+.anim_exitChallenges {
+    animation: exitChallenges .5s 0s 1 cubic-bezier(1, 0, 1, 0) normal forwards;
+}
+
+@keyframes exitChallenges {
+    from {
+        top: 0%;
+    }
+    to {
+        top: 1000%;
+    }
+}
+
+#viewLeaderboard {
+    width: 20%;
+    height: 20%;
+    left: 77.5%;
+    top: 7.5%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../resources/img/icon_leaderboard.svg");
+}

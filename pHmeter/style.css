@@ -1,0 +1,1888 @@
+#view {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+}
+
+.cylinder {
+    position: absolute;
+}
+
+.front {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/cylinderBase.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 200;
+}
+
+.marks {
+    left: 30%;
+    top: 6%;
+    width: 40%;
+    height: 88.5%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+}
+
+#cylinders {
+    width: 50%;
+    height: 40%;
+    top: 20%;
+    left: 25%;
+    position: absolute;
+}
+
+.fluid {
+    left: 31%;
+    top: 18.5%;
+    width: 38%;
+    height: 76%;
+    position: absolute;
+    background-color: #5F9EA0;
+    z-index: 50;
+    opacity: 1;
+}
+
+.meniscus {
+    left: 31%;
+    top: 18.5%;
+    width: 38%;
+    height: 3%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 50;
+    opacity: 1;
+}
+
+.meniscusTall {
+    background-image: url(img/meniscusTall.svg);
+}
+
+.meniscusMedium {
+    background-image: url(img/meniscusMedium.svg);
+}
+
+.meniscusShort {
+    background-image: url(img/meniscusShort.svg);
+}
+
+#caliperClickBox {
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    left: 0%;
+    position: absolute;
+    z-index: 100000;
+}
+
+#hud {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    z-index: 200;
+}
+
+#hudLeft {
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    top: 0%;
+    position: absolute;
+}
+
+#hudRight {
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    top: 0%;
+    position: absolute;
+}
+
+#hudTop {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: -50%;
+    position: absolute;
+}
+
+#hudBottom {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 50%;
+    position: absolute;
+}
+
+@keyframes hudLeftIn {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+.anim_hudLeftIn {
+    animation: hudLeftIn 0.375s cubic-bezier(0, .5, .5, 1) 0s 1 forwards;
+}
+
+@keyframes hudLeftOut {
+    from {
+        left: 0%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+.anim_hudLeftOut {
+    animation: hudLeftOut 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+@keyframes hudRightIn {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+.anim_hudRightIn {
+    animation: hudRightIn 0.375s cubic-bezier(0, .5, .5, 1) 0s 1 forwards;
+}
+
+@keyframes hudRightOut {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.anim_hudRightOut {
+    animation: hudRightOut 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+@keyframes hudBottomIn {
+    from {
+        top: 50%;
+    }
+    to {
+        top: 0%;
+    }
+}
+
+.anim_hudBottomIn {
+    animation: hudBottomIn 0.375s cubic-bezier(0, .5, .5, 1) 0s 1 forwards;
+}
+
+@keyframes hudBottomOut {
+    from {
+        top: 0%;
+    }
+    to {
+        top: 50%;
+    }
+}
+
+.anim_hudBottomOut {
+    animation: hudBottomOut 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+@keyframes hudTopIn {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 0%;
+    }
+}
+
+.anim_hudTopIn {
+    animation: hudTopIn 0.375s cubic-bezier(0, .5, .5, 1) 0s 1 forwards;
+}
+
+@keyframes hudTopOut {
+    from {
+        top: 0%;
+    }
+    to {
+        top: -50%;
+    }
+}
+
+.anim_hudTopOut {
+    animation: hudTopOut 0.375s cubic-bezier(.5, 0, 1, .5) 0s 1 forwards;
+}
+
+#progress {
+    width: 50%;
+    height: 15%;
+    left: 25%;
+    top: 7.5%;
+    position: absolute;
+}
+
+#progressDisplay {
+    width: 30%;
+    height: 50%;
+    top: 0%;
+    left: 35%;
+    position: absolute;
+    background-image: url(img/longer_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#progressChecks {
+    width: 100%;
+    height: 35%;
+    top: 55%;
+    left: 0%;
+    position: absolute;
+}
+
+.progressCheck {
+    width: 10%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url(img/step_bg.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.progressCheckState {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.incompleteIcon {
+    background-image: url(img/step_incomplete.svg)
+}
+
+.completeIcon {
+    background-image: url(img/step_finished.svg)
+}
+
+.failedIcon {
+    background-image: url(img/step_failed.svg)
+}
+
+.supportL {
+    width: 100%;
+    height: 30%;
+    top: 35%;
+    left: -20%;
+    position: absolute;
+    background-image: url(img/support.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#progressLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 25%;
+    text-align: center;
+    position: absolute;
+    color: #a0a0a0
+}
+
+#progressLabel2 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 75%;
+    text-align: center;
+    position: absolute;
+    color: #a0a0a0;
+}
+
+#progressNum {
+    width: 100%;
+    height: 45%;
+    left: 0%;
+    top: 27.5%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+#lives {
+    width: 20%;
+    height: 20%;
+    left: 77.5%;
+    top: 5%;
+    position: absolute;
+}
+
+#livesDisplay {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url(img/long_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#livesLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 23.75%;
+    text-align: center;
+    position: absolute;
+    color: #a0a0a0
+}
+
+.heart {
+    width: 30%;
+    height: 25%;
+    left: 10%;
+    top: 45%;
+    position: absolute;
+    background-image: url(img/heart.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#heart1 {
+    left: 7.5%;
+}
+
+#heart2 {
+    left: 35%;
+}
+
+#heart3 {
+    left: 62.5%;
+}
+
+@keyframes heartBreak {
+    from {
+        top: 45%;
+        opacity: 1;
+    }
+    to {
+        top: 55%;
+        opacity: 0;
+    }
+}
+
+.anim_heartBreak {
+    background-image: url(img/heart_break.svg);
+    animation: heartBreak 0.5s linear 0.25s 1 forwards;
+}
+
+#score {
+    width: 20%;
+    height: 20%;
+    left: 2.5%;
+    top: 5%;
+    position: absolute;
+}
+
+#scoreDisplay {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url(img/long_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#scoreLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 23.75%;
+    text-align: center;
+    position: absolute;
+    color: #a0a0a0;
+}
+
+#scoreNum {
+    width: 100%;
+    height: 40%;
+    left: 0%;
+    top: 37%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+.supportR {
+    width: 100%;
+    height: 30%;
+    top: 35%;
+    left: 40%;
+    position: absolute;
+    background-image: url(img/support.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#entry {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: 80%;
+    position: absolute;
+}
+
+#entryDisplay {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url(img/inputBox.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#entryLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 10%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+#entryInput {
+    width: 56%;
+    height: 40%;
+    left: 15%;
+    top: 40%;
+    position: absolute;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #808080;
+    box-sizing: border-box;
+}
+
+#entryInput:focus {
+    border: 2px solid #ffffff;
+}
+
+#question {
+    width: 35%;
+    height: 40%;
+    left: 70%;
+    top: 0%;
+    position: absolute;
+}
+
+#questionDisplay {
+    width: 80%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url(img/long_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#questionLabel1 {
+    width: 80%;
+    height: 12%;
+    left: 10%;
+    top: 32.75%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+textarea,
+input {
+    outline: none;
+}
+
+#okButton {
+    width: 25%;
+    height: 20%;
+    left: 72%;
+    top: 82.75%;
+    position: absolute;
+}
+
+#okButtonDisplay {
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    left: 10%;
+    position: absolute;
+    background-image: url(img/submit_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#okButtonLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 30%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+#zoomButton {
+    width: 25%;
+    height: 20%;
+    left: 74.25%;
+    top: 50%;
+    position: absolute;
+}
+
+#zoomButtonDisplay {
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    left: 10%;
+    position: absolute;
+    background-image: url(img/long_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#zoomButtonLabel1 {
+    width: 100%;
+    height: 12%;
+    left: 0%;
+    top: 36%;
+    text-align: center;
+    position: absolute;
+    color: #ffffff;
+}
+
+@keyframes textGreen {
+    0% {
+        color: #48d148;
+    }
+    50% {
+        color: #48d148;
+    }
+    100% {
+        color: #ffffff;
+    }
+}
+
+.anim_textGreen {
+    animation: textGreen 0.5s linear 0s 1 forwards;
+}
+
+@keyframes textRed {
+    0% {
+        color: #ff0000;
+    }
+    50% {
+        color: #ff0000;
+    }
+    100% {
+        color: #ffffff;
+    }
+}
+
+.anim_textRed {
+    animation: textRed 0.5s linear 0s 1 forwards;
+}
+
+#dataReport {
+    width: 20%;
+    height: 20%;
+    left: -12.5%;
+    top: -26%;
+    position: absolute;
+    background-image: url(img/green_hexagon.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+#dataReportText {
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    position: absolute;
+    text-align: center;
+}
+
+.endOptionDesc {
+    width: 25%;
+    height: 30%;
+    position: absolute;
+    z-index: 50;
+    box-shadow: 5% 5% 5% #000000;
+    top: 40%;
+    opacity: 0;
+    background-image: url("img/bubble.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#endOptionDesc1 {
+    left: 5%;
+}
+
+#endOptionDesc2 {
+    left: 37.5%;
+}
+
+#endOptionDesc3 {
+    left: 70%;
+}
+
+.darkText {
+    font-family: "Helvetica", sans-serif;
+    color: black;
+}
+
+.endOptionDescText {
+    width: 90%;
+    height: 60%;
+    left: 5%;
+    top: 10%;
+    position: absolute;
+    text-align: left;
+}
+
+.anim_enterEndOptionDesc {
+    animation: enterEndOptionDesc .05s 0s 1 linear normal forwards;
+}
+
+@keyframes enterEndOptionDesc {
+    from {
+        top: 37%;
+        opacity: 0;
+    }
+    to {
+        top: 40%;
+        opacity: 1;
+    }
+}
+
+.anim_exitEndOptionDesc {
+    animation: exitEndOptionDesc .05s 0s 1 linear normal forwards;
+}
+
+@keyframes exitEndOptionDesc {
+    from {
+        top: 40%;
+        opacity: 1;
+    }
+    to {
+        top: 37%;
+        opacity: 0;
+    }
+}
+
+.scoreBox {
+    width: 25%;
+    height: 5%;
+    top: 92.5%;
+    text-align: center;
+    position: absolute;
+}
+
+#scoreBox1 {
+    left: 5%;
+}
+
+#scoreBox2 {
+    left: 37.5%;
+}
+
+#scoreBox3 {
+    left: 70%;
+}
+
+.medal {
+    width: 10%;
+    height: 16%;
+    top: 65%;
+    position: absolute;
+    background-image: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 200;
+}
+
+#medal1 {
+    left: 25%;
+}
+
+#medal2 {
+    left: 57.5%;
+}
+
+#medal3 {
+    left: 90%;
+}
+
+#endScoreBox {
+    width: 60%;
+    height: 35%;
+    top: 27.5%;
+    left: 20%;
+    position: absolute;
+    background-image: url(img/scorebox.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+}
+
+#endScoreMode {
+    width: 90%;
+    height: 20%;
+    left: 5%;
+    top: 5%;
+    position: absolute;
+    text-align: center;
+}
+
+#endScoreScoreLabel {
+    width: 90%;
+    height: 20%;
+    left: 5%;
+    top: 5%;
+    position: absolute;
+    text-align: left;
+}
+
+#endScoreMedalLabel {
+    width: 90%;
+    height: 20%;
+    left: 5%;
+    top: 5%;
+    position: absolute;
+    text-align: right;
+}
+
+#endScoreScore {
+    width: 43.5%;
+    height: 60%;
+    left: 5%;
+    top: 22.5%;
+    position: absolute;
+    text-align: center;
+}
+
+#endScoreScoreSub {
+    width: 43.5%;
+    height: 20%;
+    left: 5%;
+    top: 75%;
+    position: absolute;
+    text-align: center;
+}
+
+.bigMedal {
+    width: 43.5%;
+    height: 70%;
+    top: 27.5%;
+    left: 51.5%;
+    position: absolute;
+    background-image: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 20;
+}
+
+#caliper {
+    width: 90%;
+    height: 40%;
+    left: 5%;
+    top: 27.5%;
+    position: absolute;
+}
+
+.caliper_img {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#caliper_front {
+    z-index: 200;
+    position: absolute;
+}
+
+#caliper_body {
+    z-index: 150;
+    position: absolute;
+}
+
+#caliper_back {
+    z-index: 100;
+    position: absolute;
+}
+
+.hintBubbleText {
+    width: 100%;
+    height: 50%;
+    left: 0%;
+    position: absolute;
+    text-align: center;
+}
+
+#hintBubble1Text {
+    top: 17%;
+}
+
+#hintBubble2Text {
+    top: 28%;
+}
+
+#hintBubble1 {
+    width: 5%;
+    height: 5%;
+    left: 0%;
+    top: 39%;
+    z-index: 1000;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/hintBubble1.svg);
+    opacity: 0;
+}
+
+#hintBubble2 {
+    width: 5%;
+    height: 5%;
+    left: 19.75%;
+    top: 48%;
+    z-index: 1000;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/hintBubble2.svg);
+    opacity: 0;
+}
+
+#hintBox {
+    width: 20%;
+    height: 15%;
+    left: 78%;
+    top: 62.5%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/hintBox.svg);
+    opacity: 0;
+}
+
+@keyframes enterHintBox {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.anim_enterHintBox {
+    animation: enterHintBox .25s .125s 1 linear normal forwards;
+}
+
+@keyframes exitHintBox {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.anim_exitHintBox {
+    animation: exitHintBox .25s 0s 1 linear normal forwards;
+}
+
+#hintText1 {
+    width: 50%;
+    height: 50%;
+    top: 10%;
+    left: 11.5%;
+    position: absolute;
+    text-align: center;
+}
+
+#hintText2 {
+    width: 25%;
+    height: 50%;
+    top: 10%;
+    left: 64.5%;
+    position: absolute;
+    text-align: center;
+}
+
+#hintSubText1 {
+    width: 50%;
+    height: 15%;
+    top: 80%;
+    left: 11%;
+    position: absolute;
+    text-align: center;
+}
+
+#hintSubText2 {
+    width: 25%;
+    height: 15%;
+    top: 80%;
+    left: 65%;
+    position: absolute;
+    text-align: center;
+}
+
+#table {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/tabletop.svg);
+}
+
+#meter {
+    width: 22%;
+    height: 50%;
+    top: 40%;
+    left: 2%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/pH_meter.svg);
+}
+
+.anim_cool3DSpin {
+    animation: cool3DSpin 2s 0s infinite linear normal forwards;
+}
+
+@keyframes cool3DSpin {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+    }
+    50% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(180deg)
+    }
+    100% {
+        transform: rotateX(720deg) rotateY(720deg) rotateZ(360deg)
+    }
+}
+
+#jar {
+    width: 10%;
+    height: 25%;
+    top: 64.8%;
+    left: 26%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+}
+
+.anim_jarStir {
+    animation: jarStir .2s 0s 5 ease-in-out normal forwards;
+}
+
+@keyframes jarStir {
+    0% {
+        left: 26%;
+        top: 64.8%;
+    }
+    25% {
+        left: 25%;
+        top: 64%;
+    }
+    75% {
+        left: 27%;
+        top: 64%;
+    }
+    100% {
+        left: 26%;
+        top: 64.8%;
+    }
+}
+
+#wasteContainer {
+    width: 10%;
+    height: 25%;
+    top: 64.8%;
+    left: 26%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/jar_empty.svg);
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.anim_wasteContainerIn {
+    animation: wasteContainerIn .2s 0s 1 ease-in normal forwards;
+}
+
+@keyframes wasteContainerIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.anim_wasteContainerOut {
+    animation: wasteContainerOut .2s 0s 1 ease-out normal forwards;
+}
+
+@keyframes wasteContainerOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#electrode {
+    width: 10%;
+    height: 42%;
+    top: 35%;
+    left: 26%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/electrode.svg);
+}
+
+.anim_electrodeUp {
+    animation: electrodeUp .125s 0s 1 linear normal forwards;
+}
+
+@keyframes electrodeUp {
+    from {
+        top: 35%;
+    }
+    to {
+        top: 15%;
+    }
+}
+
+.anim_electrodeDown {
+    animation: electrodeDown .125s 0s 1 linear normal forwards;
+}
+
+@keyframes electrodeDown {
+    from {
+        top: 15%;
+    }
+    to {
+        top: 35%;
+    }
+}
+
+#droplets {
+    width: 18%;
+    height: 27%;
+    top: 66%;
+    left: 38%;
+    position: absolute;
+}
+
+.droplet {
+    width: 25%;
+    height: 10%;
+    position: absolute;
+    opacity: .5;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/droplet.svg);
+}
+
+.anim_dropletFall {
+    animation: dropletFall 2s 0s infinite linear normal forwards;
+}
+
+@keyframes dropletFall {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+    20% {
+        top: 20%;
+        opacity: .5;
+    }
+    80% {
+        top: 80%;
+        opacity: .5;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+#electrodeHole {
+    width: 5%;
+    height: 1.75%;
+    left: 47.5%;
+    top: 37%;
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#holeBGBlue {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    position: absolute;
+    background-color: #3b69ab;
+    z-index: 10;
+}
+
+#holeBGClear {
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    position: absolute;
+    background-color: #000000;
+    z-index: 20;
+}
+
+.anim_openElectrodeHole {
+    animation: openElectrodeHole .25s 0s 1 linear normal forwards;
+}
+
+@keyframes openElectrodeHole {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+#electrodeClickArea {
+    width: 40%;
+    height: 7%;
+    left: 30%;
+    top: 34%;
+    position: absolute;
+    opacity: 0;
+    z-index: 30;
+}
+
+#wireContainer {
+    width: 40%;
+    height: 40%;
+    left: 0%;
+    top: 5%;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1000;
+}
+
+#wire {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+}
+
+#waterBottle {
+    width: 12.5%;
+    height: 33%;
+    top: 57%;
+    left: 53%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/water_bottle.svg);
+}
+
+.anim_bottleRinse {
+    animation: bottleRinse 2s 0s 1 ease-in-out normal forwards;
+}
+
+@keyframes bottleRinse {
+    0% {
+        top: 57%;
+        left: 53%;
+    }
+    10% {
+        top: 36%;
+        left: 33%;
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(-15deg);
+    }
+    85% {
+        transform: rotate(-15deg);
+    }
+    90% {
+        top: 36%;
+        left: 33%;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 57%;
+        left: 53%;
+    }
+}
+
+#wipes {
+    width: 30%;
+    height: 27%;
+    top: 63.25%;
+    left: 68%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/wipes.svg);
+    z-index: 100;
+}
+
+#wipe {
+    width: 15.8%;
+    height: 27%;
+    top: 59.3%;
+    left: 75%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/wipe.svg);
+    z-index: 75;
+    opacity: 1;
+}
+
+.anim_wipeElectrode {
+    animation: wipeElectrode 1.5s 0s 1 ease-in-out normal forwards;
+}
+
+@keyframes wipeElectrode {
+    0% {
+        top: 59.3%;
+        left: 75%;
+        opacity: 1;
+    }
+    10% {
+        top: 35%;
+        left: 75%;
+    }
+    30% {
+        top: 35%;
+        left: 23%;
+    }
+    37.5% {
+        top: 37%;
+        left: 24%;
+    }
+    45% {
+        top: 39%;
+        left: 23%;
+    }
+    52.5% {
+        top: 41%;
+        left: 24%;
+        opacity: 1;
+    }
+    60% {
+        top: 43%;
+        left: 23%;
+    }
+    67.5% {
+        top: 45%;
+        left: 23.5%;
+        opacity: 1;
+    }
+    100% {
+        top: 45%;
+        left: 23.5%;
+        opacity: 0;
+    }
+}
+
+#shelf {
+    width: 35%;
+    height: 9.5%;
+    top: 30%;
+    left: 39.5%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/shelf.svg);
+    z-index: 80;
+    opacity: 1;
+}
+
+.smallJar {
+    width: 6%;
+    height: 15%;
+    top: 15.5%;
+    left: 42%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+}
+
+#smallJar1 {
+    left: 42%;
+    opacity: 0;
+}
+
+#smallJar2 {
+    left: 50%;
+}
+
+#smallJar3 {
+    left: 58%;
+}
+
+#smallJar4 {
+    left: 66%;
+}
+
+.smallJarLabel {
+    fill: white;
+}
+
+.smallJarLabelText {
+    color: black;
+    font-family: "Helvetica", sans-serif;
+    text-anchor: middle;
+    font-size: 30px;
+}
+
+tspan {
+    text-anchor: middle;
+}
+
+.anim_smallJarTake1 {
+    animation: smallJarAnim1 .5s 0s 1 ease-in-out normal forwards;
+}
+
+.anim_smallJarReturn1 {
+    animation: smallJarAnim1 .5s 0s 1 ease-in-out reverse forwards;
+}
+
+@keyframes smallJarAnim1 {
+    0% {
+        width: 6%;
+        height: 15%;
+        top: 15.5%;
+        left: 42%;
+    }
+    20% {
+        width: 10%;
+        height: 25%;
+        top: 10.5%;
+        left: 40%;
+    }
+    80% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 40%;
+    }
+    100% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 26%;
+    }
+}
+
+.anim_smallJarTake2 {
+    animation: smallJarAnim2 .5s 0s 1 ease-in-out normal forwards;
+}
+
+.anim_smallJarReturn2 {
+    animation: smallJarAnim2 .5s 0s 1 ease-in-out reverse forwards;
+}
+
+@keyframes smallJarAnim2 {
+    0% {
+        width: 6%;
+        height: 15%;
+        top: 15.5%;
+        left: 50%;
+    }
+    20% {
+        width: 10%;
+        height: 25%;
+        top: 10.5%;
+        left: 48%;
+    }
+    80% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 40%;
+    }
+    100% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 26%;
+    }
+}
+
+.anim_smallJarTake3 {
+    animation: smallJarAnim3 .5s 0s 1 ease-in-out normal forwards;
+}
+
+.anim_smallJarReturn3 {
+    animation: smallJarAnim3 .5s 0s 1 ease-in-out reverse forwards;
+}
+
+@keyframes smallJarAnim3 {
+    0% {
+        width: 6%;
+        height: 15%;
+        top: 15.5%;
+        left: 58%;
+    }
+    20% {
+        width: 10%;
+        height: 25%;
+        top: 10.5%;
+        left: 56%;
+    }
+    80% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 40%;
+    }
+    100% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 26%;
+    }
+}
+
+.anim_smallJarTake4 {
+    animation: smallJarAnim4 .5s 0s 1 ease-in-out normal forwards;
+}
+
+.anim_smallJarReturn4 {
+    animation: smallJarAnim4 .5s 0s 1 ease-in-out reverse forwards;
+}
+
+@keyframes smallJarAnim4 {
+    0% {
+        width: 6%;
+        height: 15%;
+        top: 15.5%;
+        left: 66%;
+    }
+    20% {
+        width: 10%;
+        height: 25%;
+        top: 10.5%;
+        left: 64%;
+    }
+    80% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 40%;
+    }
+    100% {
+        width: 10%;
+        height: 25%;
+        top: 64.8%;
+        left: 26%;
+    }
+}
+
+.smallJarBorder {
+    fill: none;
+    stroke: #686868;
+    stroke-miterlimit: 10;
+}
+
+.smallJarLiquid {
+    opacity: 0.5;
+    fill: #E02A33;
+}
+
+#jarSwitchBox {
+    width: 32%;
+    height: 34.7%;
+    top: -30%;
+    left: 41%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/jar_box.svg);
+    z-index: 100;
+}
+
+.anim_switchJars {
+    animation: switchJars .5s 0s 1 ease-in-out reverse forwards;
+}
+
+@keyframes switchJars {
+    0% {
+        top: -30%;
+    }
+    40% {
+        top: -4%;
+    }
+    60% {
+        top: -4%;
+    }
+    100% {
+        top: -30%;
+    }
+}
+
+.meterButton {
+    width: 12%;
+    height: 7.1%;
+    top: 65%;
+    background-color: white;
+    opacity: 0;
+    position: absolute;
+    border-radius: 50%;
+}
+
+#meterButton1 {
+    left: 15.85%;
+}
+
+#meterButton2 {
+    left: 35.2%;
+}
+
+#meterButton3 {
+    left: 54.55%;
+}
+
+#meterButton4 {
+    left: 73.9%;
+}
+
+#meterScreen {
+    width: 43.5%;
+    height: 23.2%;
+    left: 28.5%;
+    top: 29.75%;
+    position: absolute;
+}
+
+#boxS {
+    width: 15%;
+    height: 15%;
+    left: 18%;
+    top: 3%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/boxS.svg);
+    position: absolute;
+}
+
+.tempRead {
+    width: 10%;
+    height: 15%;
+    top: 3%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/led0.svg);
+    position: absolute;
+}
+
+#tempRead1 {
+    left: 45%;
+}
+
+#tempRead2 {
+    left: 54%;
+}
+
+#tempRead3 {
+    left: 67%;
+}
+
+#tempDecimal {
+    left: 65%;
+    top: 14.95%;
+    width: 1.75%;
+    height: 2%;
+    position: absolute;
+    background-color: black;
+}
+
+#labelCelsius {
+    left: 75%;
+    top: 0%;
+    width: 25%;
+    height: 20%;
+    position: absolute;
+    font-weight: normal;
+}
+
+#labelSet {
+    left: 41%;
+    top: 73%;
+    width: 35%;
+    height: 5%;
+    position: absolute;
+}
+
+#labelClear {
+    left: 65%;
+    top: 64%;
+    width: 35%;
+    height: 5%;
+    position: absolute;
+}
+
+#labelBuffers {
+    left: 65%;
+    top: 73%;
+    width: 35%;
+    height: 5%;
+    position: absolute;
+}
+
+#labelMeasuring {
+    left: 6%;
+    top: 73%;
+    width: 35%;
+    height: 5%;
+    position: absolute;
+}
+
+#label2 {
+    left: 1%;
+    top: 83%;
+    width: 10%;
+    height: 5%;
+    position: absolute;
+}
+
+#label4 {
+    left: 9.5%;
+    top: 83%;
+    width: 10%;
+    height: 5%;
+    position: absolute;
+}
+
+#label7 {
+    left: 18%;
+    top: 83%;
+    width: 10%;
+    height: 5%;
+    position: absolute;
+}
+
+#label10 {
+    left: 27.5%;
+    top: 83%;
+    width: 10%;
+    height: 5%;
+    position: absolute;
+}
+
+#label12 {
+    left: 39%;
+    top: 83%;
+    width: 10%;
+    height: 5%;
+    position: absolute;
+}
+
+.pHRead {
+    width: 17%;
+    height: 30%;
+    top: 32%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(img/led0.svg);
+    position: absolute;
+}
+
+#pHRead1 {
+    left: 2%;
+}
+
+#pHRead2 {
+    left: 19%;
+}
+
+#pHRead3 {
+    left: 40%;
+}
+
+#pHRead4 {
+    left: 57%;
+}
+
+#pHDecimal {
+    left: 36.5%;
+    top: 57.5%;
+    width: 3.5%;
+    height: 4%;
+    position: absolute;
+    background-color: black;
+}
+
+#labelpH {
+    left: 59%;
+    top: 18%;
+    width: 15%;
+    height: 15%;
+    position: absolute;
+}
+
+.meterText {
+    font-family: "Helvetica", sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+#headerText {
+    width: 100%;
+    height: 50%;
+    top: 10%;
+    left: 0%;
+    position: absolute;
+    z-index: 5000000;
+}
+
+#header {
+    z-index: 5000000;
+}
+
+.targetArrow {
+    opacity: 0;
+}
+
+#targetArrowBox {
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 10000000;
+}
+
+#targetArrowBody {
+    height: 3%;
+    position: absolute;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: 0% 0%;
+    background-image: url("img/arrowPiece.svg");
+    z-index: 500000;
+    transform-origin: center center;
+}
+
+#targetArrowHead {
+    height: 4%;
+    width: 6%;
+    left: 20%;
+    top: 20%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("img/arrowHead.svg");
+    z-index: 600000;
+}
+
+.anim_arrow_move {
+    animation: arrow_move .75s 0s infinite linear normal forwards;
+}
+
+@keyframes arrow_move {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 200px 0%;
+    }
+}

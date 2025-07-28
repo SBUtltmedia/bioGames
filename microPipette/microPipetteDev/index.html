@@ -1,0 +1,1281 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Micropipette Test</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <script src="jquery-mousewheel/jquery.mousewheel.min.js"></script>
+
+
+    <style>
+        .shelfSleeves {
+            width: 20%;
+            height: 25%;
+            position: absolute;
+            left: 79%;
+            top: 6%;
+            border: 0px solid;
+            background-color: #aa8866;
+            background-image: url("BeigeStripe.png");
+        }
+        #shelfSleeve1 {
+            width: 6%;
+            height: 45%;
+            position: absolute;
+            left: 20%;
+            top: 5%;
+        }
+        #shelfSleeve2 {
+            width: 7%;
+            height: 55%;
+            position: absolute;
+            left: 45.5%;
+            top: 5%;
+        }
+        #shelfSleeve3 {
+            width: 9%;
+            height: 69%;
+            position: absolute;
+            left: 70.5%;
+            top: 5%;
+        }
+        #sleeve1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0%;
+            top: 0%;
+        }
+        #sleeve2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0%;
+            top: 0%;
+        }
+        #sleeve3 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0%;
+            top: 0%;
+        }
+        #pipetteSleeve {
+            width: 9%;
+            position: absolute;
+            left: 53%;
+            top: 105%;
+        }
+        #plunger {
+            width: 30%;
+            height: 16.6%;
+            position: absolute;
+            left: 40%;
+            top: -1%;
+            z-index: -2;
+        }
+        #pipeBody {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 10%
+        }
+        #droppable {
+            width: 100%;
+            height: 100%;
+            float: left;
+            <!---margin: 150px 10px 10px 0;
+            --> position: relative;
+            z-index: 1;
+        }
+        #draggable {
+            width: 10%;
+            height: 30%;
+            left: 0%;
+            top: 0%;
+            margin-top: 4%;
+            margin-bottom: 25%;
+            margin-right: 25%;
+            padding: 0;
+            position: absolute;
+            z-index: 10;
+            color: #00ffff;
+        }
+        #flaskL {
+            width: 22.5%;
+            height: 35%;
+            position: absolute;
+            top: 45%;
+            left: 15%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -1;
+        }
+        #flaskR {
+            width: 22.5%;
+            height: 35%;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -1;
+        }
+        #flaskLeft {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -1;
+        }
+        #flaskRight {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -1;
+        }
+        #liquidLeft {
+            width: 98.5%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            left: .6%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -2;
+            background-color: #4E9E26
+        }
+        #liquidRight {
+            width: 98.5%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            left: .6%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            color: currentColor;
+            z-index: -2;
+            background-color: #2A6DFF
+        }
+        #sleeveVolumeBox {
+            position: absolute;
+            left: 70%;
+            top: 10%;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        #floor {
+            width: 100%;
+            height: 20%;
+            position: absolute;
+            top: 80%;
+            left: 0%;
+            background-color: #4A3035;
+            background-image: url("BrownStripe2.png");
+        }
+        #alertFloor {
+            width: 100%;
+            height: 100%;
+            top: 0%;
+            background-image: url("AlertStripe.png");
+            z-index: 5;
+            opacity: 0;
+        }
+        body {
+            background-image: url("stripeBG.png");
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        #stage {
+            background-color: #A9D0F5;
+            position: absolute;
+            width: 400px;
+            height: 300px;
+            margin: auto;
+            z-index: 6;
+        }
+        #floorText {
+            width: 100%;
+            height: 100%;
+            top: 0%;
+            margin: 0;
+            padding: 0;
+            z-index: 0;
+            position: absolute;
+        }
+        p.help {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 60px;
+            font-family: "Helvetica";
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+            opacity: 1;
+        }
+        .numberPuncher,
+        .numberPuncher:focus {
+            outline: none;
+            width: 15%;
+        }
+        #dials {
+            position: absolute;
+            left: 87.75%;
+            top: 52%;
+            width: 6%;
+            height: 24%;
+            border: 2px solid;
+        }
+        #dial_tens {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 0%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        #dial_ones {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 33.33%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        #dial_tenths {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 66.67%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        p.dial_num {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 60px;
+            font-family: "Helvetica";
+            margin: 0;
+            padding: 0;
+        }
+        .innerDial {
+            width: 96%;
+            height: 96%;
+            background-color: black;
+            left: 2%;
+            top: 2%;
+            position: absolute;
+        }
+        #plungerStateBox {
+            position: absolute;
+            left: 79%;
+            top: 32.0%;
+            background-image: url("DarkStripeBG.png");
+            color: #ffffff;
+            text-align: center;
+            width: 20%;
+            height: 6%;
+            border: 0px;
+            font-size: 30px;
+            font-family: "Helvetica";
+            text-align: center;
+        }
+        #sleeveVolumeBox {
+            width: 100%;
+            height: 20%;
+            left: 0%;
+            top: 80%;
+            border: 0px solid #000;
+            background-color: #4A3035;
+            background-image: url("BrownStripe2.png");
+            color: #ffffff;
+            font-size: 30px;
+            font-family: "Helvetica";
+            text-align: center;
+        }
+        #goalBox {
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            background-image: url("DarkStripeBG.png");
+            color: #ffffff;
+            text-align: center;
+            width: 100%;
+            height: 5%;
+            border: 0px;
+            font-size: 30px;
+            font-family: "Helvetica";
+            text-align: center;
+        }
+        #pipetteDials {
+            position: absolute;
+            left: 71.5%;
+            top: 17.0%;
+            width: 6.5%;
+            height: 10%;
+            border: 1px solid;
+            border-color: #000000;
+        }
+        #pipette_dial_tens {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 0%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        #pipette_dial_ones {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 33.33%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        #pipette_dial_tenths {
+            width: 100%;
+            height: 33.33%;
+            background-color: #000000;
+            color: white;
+            top: 66.67%;
+            left: 0%;
+            z-index: 5;
+            position: absolute;
+        }
+        p.pipette_dial_num {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-size: 9px;
+            font-family: "Helvetica";
+            margin: 0;
+            padding: 0;
+        }
+        .pipette_innerDial {
+            width: 96%;
+            height: 96%;
+            background-color: black;
+            left: 2%;
+            top: 2%;
+            position: absolute;
+        }
+        
+    	.pipetteTops {
+            width: 10%;
+            height: 40%;
+            position: absolute;
+            left: 83.75%;
+            top: 39.0%;
+            border: 0px solid;
+            z-index: 20
+        }
+        #pipetteTop1 img{
+            width: 100%;
+            height: 33.33%;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+        }
+        #pipetteTop2 img{
+            width: 100%;
+            height: 33.33%;
+            position: absolute;
+            left: 0%;
+            top: 33.33%;
+        }
+        #pipetteTop3 img{
+            width: 100%;
+            height: 33.33%;
+            position: absolute;
+            left: 0%;
+            top: 66.67%;
+        }
+        #shortPipette img{
+        	width: 55%;
+        	height: 40%;
+        	position: absolute;
+        	left: 61.25%;
+        	top: 40%;
+        	z-index: -5;
+        }
+        #grayDiv {
+        	width: 22%;
+        	height: 100%;
+        	position: absolute;
+        	left: 78%;
+        	top: 0%;
+        	z-index: -10;
+        	background-image: url("GrayStripe.png");
+        }
+        #modeBox {
+        	width: 100%;
+        	height: 5%;
+        	position: absolute;
+        	left: 0%;
+        	top: 96%;
+        	color: #ffffff;
+        	z-index: 30
+        }
+        p.mText {
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            color: #ffffff;
+            font-size: 60px;
+            font-family: "Helvetica";
+            margin: 0;
+            padding: 0;
+            z-index: 10;
+            opacity: .3;
+        }
+    </style>
+    <script>
+        var leftLiquidHeight = 75; // Keep this here or it breaks
+        var rightLiquidHeight = 10;
+
+        var stageWidth = 0;
+        var stageHeight = 0;
+        var stageLeft = 0;
+        var stageTop = 0;
+
+         // Called when game is started
+        $(window).ready(function () {
+            resizeWindow();
+            requestAnimationFrame(animate);
+            updateLiquids(leftLiquidHeight, rightLiquidHeight);
+            newGame();
+        });
+
+        var sleeveLabels = {
+            "pipette_tip_1.png": "2-20μL",
+            "pipette_tip_2.png": "20-200μL",
+            "pipette_tip_3.png": "200-1000μL"
+        };
+        var sleeveLabelsNum = {
+            "pipette_tip_1.png": 0,
+            "pipette_tip_2.png": 1,
+            "pipette_tip_3.png": 2
+        };
+        var topLabels = {
+            "pipetteTopOne.svg": "20μL",
+            "pipetteTopTwo.svg": "200μL",
+            "pipetteTopThree.svg": "1000μL"
+        };
+        var topLabelsNum = {
+            "pipetteTopOne.svg": 0,
+            "pipetteTopTwo.svg": 1,
+            "pipetteTopThree.svg": 2
+        };
+        
+        var positionLabel = [
+        "Resting State",
+         "First Stop",
+         "Second Stop"
+        ];
+        var wheelHeight = 0;
+        var slowPlungerSpeed = 900;
+        var plungerTopFloat;
+        var plungerRange = 11;
+        var plungerState = 0;
+        var plungerSpeed = 30;
+        var totalPlungerStates = 3; //don't change number of states
+        var currentPlungerSpeed = plungerSpeed;
+        var beakerLeft = 129;
+        var beakerRight = 219;
+        var liquidHeight = 29;
+
+         // Position of draggable area
+        var draggableLeft = 0;
+        var draggableTop = 0;
+
+         // Game state variable
+        /*
+            sleeve: User must choose a sleeve before using the pipette
+            dial: User must set dials to correct numbers
+            middle: User must set plunger to middle position before dipping pipette into liquid
+            insert: User must insert plunger sleeve into liquid (left beaker)
+            top: User must set plunger to rest (top) state
+            move: User must move pipette sleeve to the opening of the right beaker
+            bottom: User must set plunger to bottom position, expelling liquid
+            complete: User has completed the task.
+        */
+        var gameState = "pickTop";
+
+         // Variable that stores whether the user has taken an incorrect action
+        var errors = "";
+        /*
+        	
+        */
+        var errorFlash = 0;
+
+         // Variable that stores the current game mode.  Guided: players are given specific instructions and cannot proceed to the next game state until the current mini-objective is fulfilled.  Not guided: players are given no instructions and are only congratulated upon completion of the task and told when their pipette breaks.
+        var guidedMode = true;
+
+         // Frame/animation variables
+        var frames = 0;
+        var alertOpacity = 0;
+
+         // Desired amount of liquid to be transferred, in microliters
+        var goalAmount = 2;
+         // The correct sleeve that should be clicked.
+        var correctSleeve = 0;
+
+         // The values of the numeric displays on the pipette.
+        var pipetteDisplay = [0, 0, 0];
+
+        function oIndexOf(mObject, value) {
+            var index = 0
+            for (var key in mObject) {
+                if (key == value) return index;
+                index++;
+            }
+        }
+
+        $(function () {
+
+			$(".pipetteTops").children("div").click(function () {
+				if (gameState == "pickTop"){
+					var clickedImage = $(this).children("img").attr("src");
+					if (topLabelsNum[clickedImage] == correctSleeve) {
+                        // If so, set state to sleeve
+                        gameState = "sleeve";
+                        errors = "";
+                        updateText();
+                        $("#draggable").css({
+            				'opacity': 1
+            			});
+             			$("#dials").css({
+            				'opacity': 1,
+            				'z-index': 30
+            			});
+            			$("#shortPipette").css({
+            				'opacity': 1
+            			});
+            			$(".pipetteTops").css({
+            				'opacity': 0
+            			});
+						$('#plungerStateBox').text("Plunger is now in the Resting State");
+                    } else {
+                        errors = "wrongTop";
+                        errorFlash = 150;
+                        updateText();
+                    }
+				}
+			});
+			
+                        
+            $(".shelfSleeves").children("div").click(function () {
+            
+             
+
+                if (gameState == "sleeve") {
+                    var clickedImage = $(this).children("img").attr("src");
+                    // Set some digits to red based on clicked pipette
+                    if (sleeveLabelsNum[clickedImage] == 0) {
+                        // 20 microliter max; last digit red
+                        $("#num_tenths").css({
+                            color: "#ff0000"
+                        });
+                        $("#pipette_num_tenths").css({
+                            color: "#ff0000"
+                        });
+                        $("#num_tens").css({
+                            color: "#ffffff"
+                        });
+                        $("#pipette_num_tens").css({
+                            color: "#ffffff"
+                        });
+                    } else if (sleeveLabelsNum[clickedImage] == 2) {
+                        // 1000 microliter max; first digit red
+                        $("#num_tenths").css({
+                            color: "#ffffff"
+                        });
+                        $("#pipette_num_tenths").css({
+                            color: "#ffffff"
+                        });
+                        $("#num_tens").css({
+                            color: "#ff0000"
+                        });
+                        $("#pipette_num_tens").css({
+                            color: "#ff0000"
+                        });
+                    } else {
+                        // 200 microliter max; no digits red
+                        $("#num_tenths").css({
+                            color: "#ffffff"
+                        });
+                        $("#pipette_num_tenths").css({
+                            color: "#ffffff"
+                        });
+                        $("#num_tens").css({
+                            color: "#ffffff"
+                        });
+                        $("#pipette_num_tens").css({
+                            color: "#ffffff"
+                        });
+                    }
+                    // Check if the correct sleeve has been clicked
+                    if (sleeveLabelsNum[clickedImage] == correctSleeve) {
+                        // If so, set state to dial
+                        gameState = "dial";
+                        errors = "";
+                        updateText();
+
+                    } else {
+                        errors = "wrongSleeve";
+                        errorFlash = 150;
+                        updateText();
+                    }
+                    $('#pipetteSleeve').attr("src", clickedImage);
+
+                    $('#sleeveVolumeBox').text(sleeveLabels[clickedImage]);
+
+                }
+                else if (gameState == "pickTop") {
+                	errors = "sleeveTooEarly";
+                    errorFlash = 150;
+                    updateText();
+                }
+
+                // Change game state to "plunger to middle state"
+
+            });
+
+
+
+            $('.numberPuncher').keydown(function () {
+                return false;
+            });
+
+
+            // This runs when a dial number is clicked
+            $("#dial_tens").click(function () {
+                if (gameState == "sleeve") {
+                    errors = "dialTooEarly";
+                    updateText();
+                } else if (gameState == "dial") {
+                    pipetteDisplay[0] = (pipetteDisplay[0] + 1) % 10;
+                    $("#num_tens").text(pipetteDisplay[0]);
+                    $("#pipette_num_tens").text(pipetteDisplay[0]);
+                    checkDials();
+                }
+            });
+            $("#dial_ones").click(function () {
+                if (gameState == "sleeve") {
+                    errors = "dialTooEarly";
+                    updateText();
+                } else if (gameState == "dial") {
+                    pipetteDisplay[1] = (pipetteDisplay[1] + 1) % 10;
+                    $("#num_ones").text(pipetteDisplay[1]);
+                    $("#pipette_num_ones").text(pipetteDisplay[1]);
+                    checkDials();
+                }
+
+            });
+            $("#dial_tenths").click(function () {
+                if (gameState == "sleeve") {
+                    errors = "dialTooEarly";
+                    updateText();
+                } else if (gameState == "dial") {
+                    pipetteDisplay[2] = (pipetteDisplay[2] + 1) % 10;
+                    $("#num_tenths").text(pipetteDisplay[2]);
+                    $("#pipette_num_tenths").text(pipetteDisplay[2]);
+                    checkDials();
+                }
+
+            });
+
+
+
+
+
+            plungerTopFloat = ($("#plunger").position().top / $("#plunger").parent().height() * 100)
+
+            //console.log($("#plunger").position().top / $("#plunger").parent().height() * 100)
+
+            $("#pipeBody").mousewheel(function (event) {
+                ////console.log(gameState);
+                if (gameState == "middle" || gameState == "top" || gameState == "bottom") {
+                    plungerState = Math.floor(((plungerTopFloat + plungerRange) / plungerRange) * (totalPlungerStates));
+                    if (-11 + 10 < plungerTopFloat && plungerTopFloat < -9 + 10) plungerState = 0
+                    if (-9 + 10 < plungerTopFloat && plungerTopFloat < -5 + 10) plungerState = 1
+                    if (-5 + 10 < plungerTopFloat) plungerState = 2
+                    if (plungerState > 2) plungerState = 2 //Prevents states above 2
+                    //console.log(plungerState)
+                    if (plungerState == 1) currentPlungerSpeed = slowPlungerSpeed;
+                    else currentPlungerSpeed = plungerSpeed;
+
+                    wheelHeight = (event.deltaY / currentPlungerSpeed);
+                    proposedTop = (plungerTopFloat - wheelHeight)
+                    if (-plungerRange + 10 <= proposedTop) { //makes sure plunger doesn't go too high
+                        if (proposedTop < -3.5 + 10) { // makes sure plunger doesn't go too low
+                            plungerTopFloat = proposedTop;
+                        }
+                    }
+
+                    $("#plunger").css({
+                        top: plungerTopFloat + "%"
+                    });
+
+                    $('#plungerStateBox').text("Plunger is now in the " + positionLabel[plungerState]);
+
+                    // Check if plunger is pressed in too much or too little (error) or just enough (advance game state)
+                    if (gameState == "middle") {
+                        if (plungerState == 1) {
+                            gameState = "insert";
+                            errors = "";
+                            updateText();
+                            $("#draggable").draggable({
+                                revert: false
+                            });
+                        } else if (plungerState == 2) {
+                            errors = "You pushed the plunger down too far!";
+                            updateText();
+                        }
+                    } else if (gameState == "top") {
+                        if (plungerState == 0) {
+                            gameState = "move";
+                            errors = "";
+                            updateText();
+                        } else if (plungerState == 2) {
+                            errors = "You pushed the plunger down too far!";
+                        }
+                    } else if (gameState == "bottom") {
+                        if (plungerState == 2) {
+                            gameState = "complete";
+                            errors = "";
+                            updateText();
+                        }
+                    }
+                } else if (gameState == "sleeve") {
+                    errors = "plungerTooEarly";
+                    updateText();
+                } else if (gameState == "dial") {
+                    errors = "plungerTooEarlyDial";
+                    updateText();
+                }
+
+            });
+
+            $("#draggable").draggable({
+                    containment: "#stage",
+                    scroll: false,
+                    drag: function (event, ui) {
+                        var pipetteLeft = parseInt($(this).css("left"));
+                        var pipetteTop = parseInt($(this).css("top"));
+                        draggableLeft = pipetteLeft / stageWidth * 100;
+                        draggableTop = pipetteTop / stageHeight * 100;
+                        ////console.log(draggableLeft + " " + draggableTop);
+                        var leftPct = pipetteLeft / stageWidth;
+                        var topPct = pipetteTop / stageHeight;
+                        // Formulas computed with a linear regression
+                        var leftHeightPct = 0.4 - 0.00348 * leftLiquidHeight;
+                        var rightHeightPct = 0.4 - 0.00348 * rightLiquidHeight;
+                        ////console.log("Left height: " + leftHeightPct);
+                        ////console.log(leftPct + " " + topPct);
+                        // Check for contact with liquid in left flask (only tip is in liquid)
+                        ////console.log ("k"+$('#sleeveVolumeBox').text()+"k")
+
+                        if (leftPct > 0.190 && leftPct < 0.225 && topPct > leftHeightPct - 0.061 && topPct < leftHeightPct) {
+                            // Pipette is correctly in the liquid
+
+
+                            if ($('#sleeveVolumeBox').text() == "") {
+                                //$("#helpText").text("You forgot to pick a sleeve!");
+                            } else if (gameState == "insert") {
+                                gameState = "top";
+                                errors = "";
+                                updateText();
+                            }
+                        }
+                        // Check for contact with liquid in left flask (too deep)
+                        else if (leftPct > 0.190 && leftPct < 0.225 && topPct >= leftHeightPct) {
+                            //$("#helpText").text("Your pipette is too deep into the liquid!");
+                            errors = "tooDeep";
+                            updateText();
+                        } else {
+                            if (gameState == "top") {
+                                errors = "pipetteMoved";
+                                updateText();
+                            }
+                        }
+                        // Check for contact with mouth of right flask
+                        if (leftPct > 0.540 && leftPct < 0.573 && topPct > leftHeightPct - 0.061 && topPct < leftHeightPct) {
+                            if (gameState == "move") {
+                                gameState = "bottom";
+                                errors = "";
+                                updateText();
+                            }
+                        }
+                        // Check for contact with liquid in right flask (too deep)
+                        else if (leftPct > 0.552 && leftPct < 0.582 && topPct >= rightHeightPct) {
+                            //$("#helpText").text("I don't think that's physically possible...");
+                        }
+
+                        // If the user drags the pipette in "sleeve" mode, tell them they are wrong :(
+                        if (gameState == "sleeve") {
+                            errors = "moveTooEarly";
+                            updateText();
+                        } else if (gameState == "dial") {
+                            errors = "moveTooEarlyDial";
+                            updateText();
+                        } else if (gameState == "middle") {
+                            errors = "moveTooEarlyMiddle"; // The user hasn't made any mistakes...yet
+                            updateText();
+                        }
+
+                    }
+
+                }
+
+            );
+            $("#droppable").droppable({
+                drop: function (event, ui) {
+                    $(this)
+                        .addClass("ui-state-highlight")
+                        .find("p")
+                        .html();
+                }
+            });
+        });
+
+         // Fix aspect ratio of the stage
+        $(window).resize(function () {
+            resizeWindow();
+        });
+
+         // Resize the window
+        function resizeWindow() {
+            // Get window width and height
+            var w = $(window).width();
+            var h = $(window).height();
+            // If the aspect ratio is greater than or equal to 4:3, fix height and set width based on height
+            if ((w / h) >= 4 / 3) {
+                stageHeight = h;
+                stageWidth = (4 / 3) * h;
+                stageLeft = (w - stageWidth) / 2;
+                stageTop = 0;
+            }
+            // If the aspect ratio is less than 4:3, fix width and set height based on width
+            else {
+                stageWidth = w;
+                stageHeight = (3 / 4) * w;
+                stageTop = (h - stageHeight) / 2;
+                stageLeft = 0;
+            }
+
+
+            //  var plungerRange = 10/stageHeight;
+            // currentPlungerSpeed
+
+            // Set stage width and height to stageWidth and stageHeight, and center screen
+            $("#stage").css({
+                width: stageWidth + "px",
+                height: stageHeight + "px",
+                left: stageLeft + "px",
+                top: stageTop + "px"
+            });
+
+            // Resize text based on stage height
+
+            // Help text font size
+            var fontSize = stageHeight * 0.07;
+            //console.log(stageHeight + " " + fontSize);
+            $("#helpText").css({
+                'font-size': fontSize + "px"
+            });
+
+            // Pipette capacity font size
+            var pFontSize = stageHeight * 0.035;
+            //console.log(stageHeight + " " + fontSize);
+            $("#sleeveVolumeBox").css({
+                'font-size': pFontSize + "px"
+            });
+
+            // Pipette state font size
+            var psFontSize = stageHeight * 0.025;
+            $("#plungerStateBox").css({
+                'font-size': psFontSize + "px"
+
+            });
+
+            // Dial number font size
+            var dFontSize = stageHeight * 0.07;
+            $(".dial_num").css({
+                'font-size': dFontSize + "px"
+            });
+
+            // Goal box font size
+            var gFontSize = stageHeight * 0.04;
+            $("#goalBox").css({
+                'font-size': gFontSize + "px"
+            });
+			
+			// Dial number font size
+            var fontSize1 = stageHeight * 0.009;
+            //console.log(stageHeight + " " + fontSize);
+            $(".pipette_dial_num").css({
+                'font-size': fontSize1 + "px"
+            });
+            
+            // Mode text font size
+            var mFontSize = stageHeight * 0.035;
+            //console.log(stageHeight + " " + fontSize);
+            $("#modeText").css({
+                'font-size': mFontSize + "px"
+            });
+
+            // Move draggable area (this apparently needs to be done manually)
+            $("#draggable").css({
+                'left': draggableLeft + "%",
+                'top': draggableTop + "%"
+            });
+        }
+
+         // Updates the level of the liquids
+        function updateLiquids(l, r) {
+            $("#liquidLeft").css({
+                height: l + "%",
+                top: (100 - l) + "%",
+            });
+            $("#liquidRight").css({
+                height: r + "%",
+                top: (100 - r) + "%",
+            });
+
+        }
+
+         // Check to see if the dials are adjusted correctly
+        function checkDials() {
+            var isCorrect = false;
+            if (correctSleeve == 0) {
+                if (goalAmount == 10 * pipetteDisplay[0] + 1 * pipetteDisplay[1] + .1 * pipetteDisplay[2]) {
+                    isCorrect = true;
+                }
+            } else if (correctSleeve == 1) {
+                if (goalAmount == 100 * pipetteDisplay[0] + 10 * pipetteDisplay[1] + 1 * pipetteDisplay[2]) {
+                    isCorrect = true;
+                }
+            } else if (correctSleeve == 2) {
+                if (goalAmount == 1000 * pipetteDisplay[0] + 100 * pipetteDisplay[1] + 10 * pipetteDisplay[2]) {
+                    isCorrect = true;
+                }
+            }
+            if (isCorrect) {
+                gameState = "middle";
+                errors == "";
+                updateText();
+            }
+        }
+
+         // Starts a new game.
+        function newGame() {
+            // Reset game state and update text
+            gameState = "pickTop";
+            guidedMode = true;
+            frames = 0;
+            errors = ""; // The user hasn't made any mistakes...yet
+            updateText();
+            // Randomize goal
+            var chance = Math.random();
+            if (chance < 0.33333) {
+                goalAmount = Math.floor(180 * Math.random() + 20) / 10;
+                correctSleeve = 0;
+            } else if (chance < 0.66667) {
+                goalAmount = Math.floor(180 * Math.random() + 20);
+                correctSleeve = 1;
+            } else {
+                goalAmount = 10 * Math.floor(80 * Math.random() + 20);
+                correctSleeve = 2;
+            }
+            // Set goal text
+            $("#goalText").text("Task: Transfer " + goalAmount + "μL of solution from the left beaker to the right beaker.");
+            // Reset pipette capacity
+            pipetteDisplay = [0, 0, 0];
+            // Set draggable revert property to true (so users can't drag the pipette)
+            $("#draggable").draggable({
+                revert: true
+            });
+            
+            // Make pipette and dials invisible
+            $("#draggable").css({
+            	'opacity': 0
+            });
+            $("#dials").css({
+            	'opacity': 0
+            });
+            $("#shortPipette").css({
+            	'opacity': 0
+            });
+            
+        }
+
+         // Updates text based on game state and other variables.
+        function updateText() {
+            var text;
+            // If the game mode is set to guides on, then display help text.  Otherwise, only display messages when the pipette breaks.
+            if (guidedMode) {
+            	$("#modeText").text("Guided Mode");
+                if (errors != "") {
+                    frames = 0;
+                    errorFlash = 50;
+                } else {
+                    errorFlash = 0;
+                }
+                if (errors == "") {
+                	if (gameState == "pickTop") {
+                        text = "Choose the correct pipette.";
+                    } else if (gameState == "sleeve") {
+                        text = "Choose a pipette tip for your pipette.";
+                    } else if (gameState == "dial") {
+                        text = "Click the black boxes to adjust the dials to the correct amount.";
+                    } else if (gameState == "middle") {
+                        text = "Use the scroll wheel to press down the plunger so that it is at the first stop.";
+                    } else if (gameState == "insert") {
+                        text = "Drag the pipette and insert the tip of the pipette into the left beaker.";
+                    } else if (gameState == "top") {
+                        text = "Use the scroll wheel to release the plunger so that it is in the resting state.";
+                    } else if (gameState == "move") {
+                        text = "Position the pipette so that the tip is inside the mouth of the right beaker.";
+                    } else if (gameState == "bottom") {
+                        text = "Use the scroll wheel to press down the plunger so that it is at the second stop.";
+                    } else if (gameState == "complete") {
+                        text = "Task complete!";
+                    }
+                } else if (errors == "moveTooEarly") {
+                    text = "Hey! I told you to choose a tip!";
+                } else if (errors == "moveTooEarlyDial") {
+                    text = "Hey! I told you to adjust the dials first!";
+                } else if (errors == "moveTooEarlyMiddle") {
+                    text = "Please press down the plunger first!";
+                } else if (errors == "dialTooEarly") {
+                    text = "Please choose a tip before adjusting the dials!";
+                } else if (errors == "wrongSleeve") {
+                    text = "That isn't the correct tip!";
+                } else if (errors == "plungerTooEarly") {
+                    text = "Please choose a tip before pushing down the plunger!";
+                } else if (errors == "plungerTooEarlyDial") {
+                    text = "Please adjust the dial before pushing down the plunger!";
+                } else if (errors == "tooDeep") {
+                    text = "The pipette is too deep into the liquid!";
+                } else if (errors == "pipetteMoved") {
+                    text = "Don't remove the pipette until the plunger is in the resting state!";
+                } else if (errors == "wrongTop") {
+                    text = "That isn't the correct pipette!";
+                } else if (errors == "sleeveTooEarly") {
+                    text = "Please choose a pipette before choosing a tip!";
+                }
+                // Set text
+                $("#helpText").text(text);
+
+            } else {
+                // guidedMode is false
+            }
+        }
+
+        function animate() {
+            // Increment frame count
+            frames++;
+            // If there is an error, fade in
+            if (errorFlash == 0) {
+                errors = "";
+                updateText();
+                errorFlash = -1;
+            }
+            if (errorFlash <= 0) {
+                alertOpacity *= .9;
+               
+            } else if (errorFlash >= 1) {
+                alertOpacity += (1 - alertOpacity) / 5;
+                errorFlash--;
+            }
+            $("#alertFloor").css({
+                'opacity': alertOpacity * (Math.sin(frames / 10) / 2 + .5)
+            });
+
+            requestAnimationFrame(animate);
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+    <div id="stage">
+    	<div id="grayDiv">
+    	</div>
+    	<div id="modeBox">
+    		<p id="modeText" class="mText">Guided Mode</p>
+    	</div>
+        <div id="floor">
+            <div id="alertFloor"></div>
+            <div id="floorText">
+                <p id="helpText" class="help">Choose a sleeve for your pipette.</p>
+            </div>
+        </div>
+
+        <div id="droppable" class="ui-widget-header">
+            <div id="flaskL">
+                <img id="flaskLeft" src="flask_new_two.svg" draggable="false">
+                <div id="liquidLeft" src="liquid.svg" draggable="false"></div>
+            </div>
+            <div id="flaskR">
+                <img id="flaskRight" src="flask_new_two.svg" draggable="false">
+                <div id="liquidRight" src="liquid.svg" draggable="false"></div>
+            </div>
+
+        </div>
+
+        <div id="draggable">
+            <img id="plunger" src="plunger.svg" class="ui-widget-content">
+            <img id="pipeBody" src="pipette.svg" class="ui-widget-content">
+            <img id="pipetteSleeve" src="empty.svg">
+            <div id="pipetteDials" class="ui-widget-content">
+                <div class="numberPuncher" id="pipette_dial_tens">
+                    <div class="innerDial">
+                        <p class="pipette_dial_num" id="pipette_num_tens">0</p>
+                    </div>
+                </div>
+
+                <div class="numberPuncher" id="pipette_dial_ones">
+                    <div class="innerDial">
+                        <p class="pipette_dial_num" id="pipette_num_ones">0</p>
+                    </div>
+                </div>
+
+                <div class="numberPuncher" id="pipette_dial_tenths">
+                    <div class="innerDial">
+                        <p class="pipette_dial_num" id="pipette_num_tenths">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shelfSleeves" draggable="false">
+            <div id="shelfSleeve1" draggable="false">
+                <img id="sleeve1" src="pipette_tip_1.png" draggable="false" />
+
+            </div>
+            <div id="shelfSleeve2" draggable="false">
+                <img id="sleeve2" src="pipette_tip_2.png" draggable="false" />
+            </div>
+            <div id="shelfSleeve3" draggable="false">
+                <img id="sleeve3" src="pipette_tip_3.png" draggable="false" />
+            </div>
+            <div id="sleeveVolumeBox" draggable="false"></div>
+        </div>
+        
+        <div class="pipetteTops" draggable="false">
+            <div id="pipetteTop1" draggable="false">
+                <img id="top1" src="pipetteTopOne.svg" draggable="false" />
+
+            </div>
+            <div id="pipetteTop2" draggable="false">
+                <img id="top2" src="pipetteTopTwo.svg" draggable="false" />
+            </div>
+            <div id="pipetteTop3" draggable="false">
+                <img id="top3" src="pipetteTopThree.svg" draggable="false" />
+            </div>
+        </div>
+
+        <div id="plungerStateBox" draggable="false"></div>
+
+        <div id="goalBox" draggable="false">
+            <div id="goalText" draggable="false"></div>
+        </div>
+        <div id="shortPipette">
+        	<img id="zoomedPipette" src="shortPipette.svg" draggable="false" />
+        </div>
+        <div id="dials" draggable="false">
+        	
+            <div class="numberPuncher" id="dial_tens">
+                <div class="innerDial">
+                    <p class="dial_num" id="num_tens">0</p>
+                </div>
+            </div>
+
+            <div class="numberPuncher" id="dial_ones">
+                <div class="innerDial">
+                    <p class="dial_num" id="num_ones">0</p>
+                </div>
+            </div>
+
+            <div class="numberPuncher" id="dial_tenths">
+                <div class="innerDial">
+                    <p class="dial_num" id="num_tenths">0</p>
+                </div>
+            </div>
+            
+         
+        </div>
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>

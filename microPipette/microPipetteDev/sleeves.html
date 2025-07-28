@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+		
+    	<script src="jquery-mousewheel/jquery.mousewheel.min.js"></script>
+		<script>
+		$(function() {
+		$(".sleeves").click(function(){alert($(this).children("img").attr("src"))});
+		})
+		
+		</script>
+		<style> .sleeves { 
+	
+							}
+		</style>		
+	</head>
+
+	<body>
+ 		<div class="sleeves" id="sleeve1">
+ 		<img src ="tip.svg"/>
+ 	
+ 		</div>
+ 		<div class="sleeves" id="sleeve2">
+ 		<img src ="tip_2.svg"/>
+ 		</div>
+		<div class="sleeves" id="sleeve3">
+		<img src ="tip_3.svg"/>
+	</div>
+
+ 
+ </body>
+</html>

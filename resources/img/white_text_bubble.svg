@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 250 150" style="enable-background:new 0 0 250 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#F2F2F2;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:url(#SVGID_1_);stroke:#000000;stroke-miterlimit:10;}
+</style>
+<pattern  y="150" width="240" height="696" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_20" viewBox="0 -696 240 696" style="overflow:visible;">
+	<g>
+		<rect y="-696" class="st0" width="240" height="696"/>
+		<g>
+			<g>
+				<g>
+					<g>
+						<rect y="-696" class="st1" width="16.7" height="696"/>
+						<rect x="15" y="-696" class="st2" width="18.9" height="696"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="30" y="-696" class="st1" width="16.7" height="696"/>
+							<rect x="45" y="-696" class="st2" width="18.4" height="696"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="60" y="-696" class="st1" width="16.7" height="696"/>
+						<rect x="75" y="-696" class="st2" width="18.9" height="696"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="90" y="-696" class="st1" width="16.7" height="696"/>
+							<rect x="105" y="-696" class="st2" width="19.1" height="696"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="120" y="-696" class="st1" width="16.7" height="696"/>
+						<rect x="135" y="-696" class="st2" width="18.9" height="696"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="150" y="-696" class="st1" width="16.7" height="696"/>
+							<rect x="165" y="-696" class="st2" width="18.4" height="696"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="180" y="-696" class="st1" width="16.7" height="696"/>
+						<rect x="195" y="-696" class="st2" width="18.9" height="696"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="210" y="-696" class="st1" width="16.7" height="696"/>
+							<rect x="225" y="-696" class="st2" width="15" height="696"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_20" patternTransform="matrix(0.7071 0.7071 -0.7071 0.7071 -20246.0391 14636.1494)">
+</pattern>
+<path class="st3" d="M225,0H25C11.2,0,0,11.2,0,25v70c0,13.8,11.2,25,25,25h82.7l17.3,30l17.3-30H225c13.8,0,25-11.2,25-25V25
+	C250,11.2,238.8,0,225,0z"/>
+</svg>

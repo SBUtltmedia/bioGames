@@ -1,0 +1,30 @@
+Tutorial
+
+1. Appears on the main screen, in the top right corner:
+[start1] "Welcome to the Stony Brook Online Lab leaderboard!" (Click to continue)
+[start2] "Click on one of the game icons to see the challenges for that game." (Click)
+
+2. Appears on the game screen for the clicked icon, to the left:
+[challenge1] "Here are the challenges for the <game title> game." (Click)
+(If all challenges completed:)
+[challenge2a] > "It looks like you've completed all of the challenges. Great!" (Click)
+(Otherwise:)
+[challenge2b] > "Hover over a challenge with a "!" symbol to see how to achieve it." (Player hovers)
+[challenge3] "To go to this game, click the <game name> icon." (Click that icon)
+[challenge4] "To return to the main menu, click the return button." (Click return button)
+
+3. Appears on the main screen, in the top right corner:
+[main1] "The green number shows how many challenges you have completed across all of the games." (Click)
+[main2] "Click the green hexagon in the center to see how your score compares to other students'." (Click green hexagon)
+
+4. Appears on the rank screen, on the left:
+[rank1] "Here, you can see all students' scores and ranks." (Click)
+[rank2] "Click the eye icon next to a student's name to view the challenges they've completed." (Click a student's name)
+
+5. Appears on the main screen, on the left:
+[spy1] "Feel free to click around to see this student's completed challenges." (Click)
+[spy2] "To return to your own challenges, click the button in the top left corner." (Click button)
+(Screen flashes)
+
+6. Appears on the main screen, on the left:
+[end1] "That's it for the tutorial.  Good luck completing the challenges!" (Click)

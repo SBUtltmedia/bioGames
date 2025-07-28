@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 264.5 264.5" style="enable-background:new 0 0 264.5 264.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#161616;}
+	.st2{fill:url(#SVGID_2_);stroke:#010101;stroke-width:5;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;}
+</style>
+<pattern  y="264.5" width="74" height="295" patternUnits="userSpaceOnUse" id="SVGID_1_" viewBox="0 -295 74 295" style="overflow:visible;">
+	<g>
+		<rect y="-295" class="st0" width="74" height="295"/>
+		<g>
+			<rect y="-295" class="st0" width="74" height="295"/>
+			<g>
+				<rect y="-295" class="st0" width="74" height="295"/>
+				<g>
+					<rect y="-295" class="st0" width="74" height="295"/>
+					<rect y="-295" width="55.5" height="295"/>
+					<rect x="37" y="-295" class="st1" width="37" height="295"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  id="SVGID_2_" xlink:href="#SVGID_1_" patternTransform="matrix(0.367 0.367 0.367 -0.367 -15972.4629 -16921.375)">
+</pattern>
+<path class="st2" d="M212.4,262H52.1c-27.4,0-49.6-22.2-49.6-49.6V52.1c0-27.4,22.2-49.6,49.6-49.6h160.3
+	c27.4,0,49.6,22.2,49.6,49.6v160.3C262,239.8,239.8,262,212.4,262z"/>
+<g>
+	<path class="st3" d="M72.2,100.4c0-9.6,1.4-18.4,4.3-26.2c2.9-7.9,7.1-14.6,12.6-20.2s12.2-9.9,19.9-13c7.8-3.1,16.5-4.6,26.1-4.6
+		c8,0,15.5,1.2,22.4,3.5c6.9,2.4,12.9,5.8,18.1,10.2c5.2,4.5,9.2,10,12.2,16.7c3,6.6,4.5,14.2,4.5,22.6c0,6.1-0.7,11.4-2,15.9
+		s-3.1,8.3-5.2,11.5c-2.2,3.2-4.7,6.1-7.5,8.7c-2.8,2.5-5.6,5-8.4,7.5c-3.3,2.8-6.4,5.5-9.2,8.1s-5.2,5.6-7.3,8.8s-3.7,7-4.9,11.4
+		c-1.1,4.4-1.7,9.7-1.7,16h-28.3c0-7.7,0.4-14.2,1.2-19.5c0.8-5.3,2.1-10,3.8-14c1.7-4,3.9-7.6,6.4-10.6c2.5-3.1,5.5-6.1,9-9
+		c2.8-2.4,5.5-4.7,8-6.8c2.5-2.1,4.8-4.4,6.8-7c2-2.5,3.6-5.4,4.7-8.5c1.1-3.1,1.7-6.9,1.7-11.3c0-5.2-0.9-9.7-2.8-13.5
+		c-1.8-3.8-4.1-6.8-6.7-9c-2.6-2.3-5.4-3.9-8.4-5c-3-1-5.6-1.6-7.9-1.6c-10.8,0-18.8,3.5-24,10.6s-7.7,16.6-7.7,28.5H72.2V100.4z
+		 M113.9,195.3H149v32.8h-35.1V195.3z"/>
+</g>
+</svg>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 505 505" style="enable-background:new 0 0 505 505;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#131313;}
+	.st2{fill:#202020;}
+	.st3{fill:url(#SVGID_1_);stroke:#010101;stroke-width:5;stroke-miterlimit:10;}
+</style>
+<pattern  y="505" width="786.9" height="2282" patternUnits="userSpaceOnUse" id="New_Pattern_Swatch_24" viewBox="0 -2282 786.9 2282" style="overflow:visible;">
+	<g>
+		<rect x="0" y="-2282" class="st0" width="786.9" height="2282"/>
+		<g>
+			<g>
+				<g>
+					<g>
+						<rect x="0" y="-2282" class="st1" width="54.8" height="2282"/>
+						<rect x="49.2" y="-2282" class="st2" width="62" height="2282"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="98.4" y="-2282" class="st1" width="54.8" height="2282"/>
+							<rect x="147.5" y="-2282" class="st2" width="60.3" height="2282"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="196.7" y="-2282" class="st1" width="54.8" height="2282"/>
+						<rect x="245.9" y="-2282" class="st2" width="62" height="2282"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="295.1" y="-2282" class="st1" width="54.8" height="2282"/>
+							<rect x="344.3" y="-2282" class="st2" width="62.6" height="2282"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="393.4" y="-2282" class="st1" width="54.8" height="2282"/>
+						<rect x="442.6" y="-2282" class="st2" width="62" height="2282"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="491.8" y="-2282" class="st1" width="54.8" height="2282"/>
+							<rect x="541" y="-2282" class="st2" width="60.3" height="2282"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g>
+				<g>
+					<g>
+						<rect x="590.2" y="-2282" class="st1" width="54.8" height="2282"/>
+						<rect x="639.4" y="-2282" class="st2" width="62" height="2282"/>
+					</g>
+				</g>
+				<g>
+					<g>
+						<g>
+							<rect x="688.5" y="-2282" class="st1" width="54.8" height="2282"/>
+							<rect x="737.7" y="-2282" class="st2" width="49.2" height="2282"/>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</pattern>
+<pattern  id="SVGID_1_" xlink:href="#New_Pattern_Swatch_24" patternTransform="matrix(0.7071 0.7071 0.7071 -0.7071 -2376.6924 -16079.4668)">
+</pattern>
+<path class="st3" d="M446,502.5H59c-31.2,0-56.5-25.3-56.5-56.5V59C2.5,27.8,27.8,2.5,59,2.5h387c31.2,0,56.5,25.3,56.5,56.5v387
+	C502.5,477.2,477.2,502.5,446,502.5z"/>
+</svg>
