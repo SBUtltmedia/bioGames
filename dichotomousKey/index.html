@@ -13,10 +13,27 @@
         body {
             font-family: 'Source Sans 3', sans-serif;
             background-color: #f0eadd; /* A warm, paper-like color */
+            overflow: hidden; /* Prevent scrollbars from scaled container */
         }
         h1, h2, #tree-map-container h3 {
             font-family: 'Lora', serif;
         }
+        
+        /* This is the core of the new aspect ratio logic */
+        #game-container {
+            /* Base resolution for the game */
+            width: 1440px;
+            height: 810px; /* 1440 * 9 / 16 = 810 */
+
+            /* Positioning for scaling */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center center;
+            
+            /* The transform itself will be set by JavaScript */
+        }
+
         .choice-image-container {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
@@ -69,57 +86,167 @@
             stroke: #38a169; /* Green */
             fill: #9ae6b4; /* Light green */
         }
+        #progress-bar {
+            transition: width 0.5s ease-in-out;
+        }
+        .bug-circle {
+            background-size: cover;
+            background-position: center;
+        }
+        .difficulty-option.selected {
+            border-color: #4a5568;
+            background-color: #e2e8f0;
+        }
+        /* Add cursor pointer to specimen image */
+        #specimen-image {
+            cursor: zoom-in;
+        }
     </style>
 </head>
-<body class="bg-[#f0eadd] text-gray-800 flex items-center justify-center min-h-screen p-4">
+<body class="bg-[#f0eadd] text-gray-800">
 
-    <div id="game-container" class="w-full max-w-7xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 text-center">
+    <!-- The container is now positioned absolutely and scaled with JS -->
+    <div id="game-container" class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 text-center">
 
-        <!-- Start Screen -->
-        <div id="start-screen">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#4a403a] mb-4">Isopod Identifier</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Welcome to the virtual key for the Oniscoidea of Vermont. You will be shown a specimen. Follow the visual guide and the subway map to correctly identify it!</p>
-            <button id="start-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
-                Begin Identification
-            </button>
-        </div>
+        <div id="game-area" class="grid grid-cols-3 gap-8 text-left h-full">
+            <!-- Start Screen -->
+            <div id="start-screen" class="col-span-3 flex flex-col items-center justify-center h-full">
+                <h1 class="text-4xl md:text-5xl font-bold text-[#4a403a] mb-4">Isopod Identifier</h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Welcome to the virtual key for the Oniscoidea of Vermont. You will be shown a specimen. Follow the visual guide and the subway map to correctly identify it!</p>
+                <button id="start-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
+                    Begin Identification
+                </button>
+            </div>
 
-        <!-- Game Screen -->
-        <div id="game-screen" class="hidden md:grid md:grid-cols-3 md:gap-8 text-left">
+            <!-- Game Panels (initially hidden) -->
             <!-- Left Column: Tree Map -->
-            <div id="tree-map-container" class="mb-8 md:mb-0 md:col-span-1 bg-[#f0eadd]/60 p-4 rounded-lg shadow-inner overflow-y-auto max-h-[80vh]">
+            <div id="tree-map-container" class="hidden flex flex-col h-full col-span-1 bg-[#f0eadd]/60 p-4 rounded-lg shadow-inner">
                  <h3 class="text-2xl font-bold text-[#4a403a] mb-4 text-center">Key Map</h3>
-                 <div id="tree-map" class="w-full h-full min-h-[500px]">
+                 <div id="tree-map" class="w-full h-full flex-grow">
                     <svg id="subway-map-svg"></svg>
                  </div>
             </div>
 
             <!-- Right Column: Main Game -->
-            <div id="main-game-area" class="md:col-span-2 text-center">
+            <div id="main-game-area" class="hidden text-center col-span-2 flex flex-col h-full">
                 <h2 class="text-2xl md:text-3xl font-bold text-[#4a403a] mb-2">Specimen to Identify:</h2>
                 <div id="specimen-area" class="mb-6 flex justify-center">
-                    <img id="specimen-image" src="" alt="Specimen to identify" class="max-w-xs md:max-w-sm w-full h-auto rounded-lg shadow-lg border-4 border-white bg-[#d1c4b7]">
+                    <img id="specimen-image" src="" alt="Specimen to identify" class="max-h-52 w-auto rounded-lg shadow-lg border-4 border-white bg-[#d1c4b7]">
                 </div>
                 <p id="question-text" class="text-xl md:text-2xl font-semibold text-gray-700 mb-6 min-h-[3rem]"></p>
-                <div id="choices-area" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div id="choices-area" class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow min-h-0">
                     <!-- Choices will be dynamically inserted here -->
+                </div>
+                <div class="flex justify-center items-center space-x-4 mt-8">
+                    <button id="progress-container" class="bg-[#6d5d4d] text-white p-2 rounded-lg shadow-md hover:bg-[#5a4d41] transition-colors flex items-center space-x-2">
+                        <span class="font-bold text-sm">View Collection</span>
+                        <div class="w-24 h-4 bg-gray-200 rounded-full overflow-hidden border border-gray-400">
+                            <div id="progress-bar" class="h-full bg-green-400" style="width: 0%;"></div>
+                        </div>
+                        <p id="progress-text" class="text-sm font-semibold w-10 text-left">0/12</p>
+                    </button>
+                    <button id="change-difficulty-button" class="bg-gray-500 text-white p-2 px-4 rounded-lg shadow-md hover:bg-gray-600 transition-colors flex items-center space-x-2">
+                        <span class="font-bold text-sm">Change Difficulty</span>
+                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- End Screen -->
-        <div id="end-screen" class="hidden">
-            <h1 id="end-title" class="text-4xl md:text-5xl font-bold mb-4"></h1>
-            <p id="end-message" class="text-lg text-gray-600 mb-8"></p>
-            <div id="correct-specimen-display" class="mb-8 flex justify-center"></div>
-            <button id="restart-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
-                Identify Another
-            </button>
+        <!-- Modals -->
+        <div id="incorrect-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-md w-full">
+                <h2 class="text-3xl font-bold text-red-700 mb-4">Incorrect Path</h2>
+                <p id="incorrect-message" class="text-lg text-gray-700 mb-6"></p>
+                <button id="try-again-button" class="bg-red-600 text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-red-700 transition-colors duration-300">
+                    Try Again
+                </button>
+            </div>
+        </div>
+        
+        <div id="success-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-md w-full">
+                <h2 id="success-title" class="text-3xl font-bold text-green-700 mb-4"></h2>
+                <p id="success-message" class="text-lg text-gray-700 mb-6"></p>
+                <div id="success-specimen-display" class="mb-6 flex justify-center"></div>
+                <button id="next-button" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-green-700 transition-colors duration-300">
+                    Identify Another
+                </button>
+            </div>
+        </div>
+
+        <div id="collection-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-2xl w-full">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Your Collection</h2>
+                <div id="collection-grid" class="grid grid-cols-3 sm:grid-cols-4 gap-4 mb-6"></div>
+                <button id="close-collection-button" class="bg-gray-600 text-white font-bold py-2 px-6 rounded-lg text-lg shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+
+        <div id="difficulty-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-lg w-full">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Select Difficulty</h2>
+                <div class="space-y-4 text-left">
+                    <div id="difficulty-easy" class="difficulty-option border-4 p-4 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <h3 class="font-bold text-xl text-green-700">Easy</h3>
+                        <p class="text-gray-600">An incorrect choice lets you try the same question again.</p>
+                    </div>
+                    <div id="difficulty-normal" class="difficulty-option border-4 p-4 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <h3 class="font-bold text-xl text-blue-700">Normal</h3>
+                        <p class="text-gray-600">An incorrect choice sends you back to the beginning of the key for this specimen.</p>
+                    </div>
+                    <div id="difficulty-hard" class="difficulty-option border-4 p-4 rounded-lg cursor-pointer hover:bg-gray-100">
+                        <h3 class="font-bold text-xl text-red-700">Hard</h3>
+                        <p class="text-gray-600">Same as Normal, but feature images are replaced with text. You must identify features on the main specimen by memory.</p>
+                    </div>
+                </div>
+                 <button id="close-difficulty-button" class="mt-6 bg-gray-600 text-white font-bold py-2 px-6 rounded-lg text-lg shadow-lg hover:bg-gray-700 transition-colors duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+
+        <div id="difficulty-unlocked-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-md w-full">
+                <h2 class="text-3xl font-bold text-blue-700 mb-4">Difficulty Unlocked!</h2>
+                <p class="text-lg text-gray-700 mb-6">Congratulations on completing your collection! You've unlocked Normal Mode. In this mode, a wrong answer sends you back to the start of the key.</p>
+                <button id="start-normal-mode-button" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                    Start Normal Mode
+                </button>
+            </div>
+        </div>
+
+        <!-- MODIFIED: Removed bg-black/80 from the class list -->
+        <div id="zoom-modal" class="hidden absolute inset-0 flex items-center justify-center p-4 z-50 cursor-zoom-out">
+            <div class="relative">
+                <img id="zoomed-image" src="" alt="Zoomed specimen" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl">
+                <button id="close-zoom-button" class="absolute -top-5 -right-5 bg-white text-black rounded-full h-12 w-12 flex items-center justify-center text-3xl font-bold leading-none hover:bg-gray-200 transition-colors">&times;</button>
+            </div>
         </div>
 
     </div>
 
     <script>
+        // --- ASPECT RATIO SCALING LOGIC ---
+        function scaleGameContainer() {
+            const gameContainer = document.getElementById('game-container');
+            if (!gameContainer) return;
+
+            const baseWidth = 1440;
+            const baseHeight = 810;
+            
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate scale based on which dimension is the most constrained
+            const scale = Math.min(viewportWidth / baseWidth, viewportHeight / baseHeight);
+
+            // Apply the scale and center the container
+            gameContainer.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        }
+
+
         // --- DATA STRUCTURES ---
         const CDN_BASE_URL = "https://sbutltmedia.github.io/CDN/Isopod/";
         const imageUrlMap = {
@@ -140,21 +267,47 @@
             q11: { question: "How many pairs of white bodies are visible (in a live animal)?", choices: [{ imageText: "FEATURE: 2 Pairs\of White Bodies", next: "Porcellio scaber" }, { imageText: "FEATURE: 5 Pairs\of White Bodies", next: "Porcellio rathkei" }] }
         };
         const speciesData = [
-            { name: "Armadillidium nasatum", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Notched Frontal Line"] }, { name: "Armadillidium vulgare", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Smooth Frontal Line"] }, { name: "Ligidium longicaudatum", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 11 Segments\nin Antenna Flagellum"] }, { name: "Trichoniscus pusillus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 3 Eye Facets"] }, { name: "Haplophthalmus danicus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 1 Eye Facet"] }, { name: "Oniscus asellus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 3 Segments\nin Antenna Flagellum"] }, { name: "Metoponorthus pruinosus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen\nAbruptly Narrower"] }, { name: "Cylisticus convexus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Smooth\nDorsal Surface", "FEATURE: Extremely\nConvex Body"] }, { name: "Porcellio laevis", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Smooth\nDorsal Surface", "FEATURE: Moderately\nConvex Body"] }, { name: "Porcellio spinicornis", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nContrasts with Thorax"] }, { name: "Porcellio scaber", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nDoes NOT Contrast", "FEATURE: 2 Pairs\of White Bodies"] }, { name: "Porcellio rathkei", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nDoes NOT Contrast", "FEATURE: 5 Pairs\of White Bodies"] }
+            { id: "2a", name: "Armadillidium nasatum", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Notched Frontal Line"] }, { id: "2b", name: "Armadillidium vulgare", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Smooth Frontal Line"] }, { id: "4a", name: "Ligidium longicaudatum", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 11 Segments\nin Antenna Flagellum"] }, { id: "5a", name: "Trichoniscus pusillus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 3 Eye Facets"] }, { id: "5b", name: "Haplophthalmus danicus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 1 Eye Facet"] }, { id: "6a", name: "Oniscus asellus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 3 Segments\nin Antenna Flagellum"] }, { id: "7a", name: "Metoponorthus pruinosus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen\nAbruptly Narrower"] }, { id: "9a", name: "Cylisticus convexus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Smooth\nDorsal Surface", "FEATURE: Extremely\nConvex Body"] }, { id: "9b", name: "Porcellio laevis", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Smooth\nDorsal Surface", "FEATURE: Moderately\nConvex Body"] }, { id: "10a", name: "Porcellio spinicornis", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nContrasts with Thorax"] }, { id: "11a", name: "Porcellio scaber", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nDoes NOT Contrast", "FEATURE: 2 Pairs\of White Bodies"] }, { id: "11b", name: "Porcellio rathkei", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nDoes NOT Contrast", "FEATURE: 5 Pairs\of White Bodies"] }
         ];
 
         // --- GAME STATE ---
         let currentTarget = null; let currentQuestionKey = ''; let userStep = 0; let userPath = []; let mapLayout = {};
+        let unidentifiedSpecies = []; let identifiedSpecies = []; let difficultyMode = 'easy';
 
         // --- DOM ELEMENTS ---
-        const startScreen = document.getElementById('start-screen'); const gameScreen = document.getElementById('game-screen'); const endScreen = document.getElementById('end-screen');
-        const startButton = document.getElementById('start-button'); const restartButton = document.getElementById('restart-button');
-        const specimenImage = document.getElementById('specimen-image'); const questionText = document.getElementById('question-text'); const choicesArea = document.getElementById('choices-area');
-        const endTitle = document.getElementById('end-title'); const endMessage = document.getElementById('end-message'); const correctSpecimenDisplay = document.getElementById('correct-specimen-display');
+        const startScreen = document.getElementById('start-screen');
+        const treeMapContainer = document.getElementById('tree-map-container');
+        const mainGameArea = document.getElementById('main-game-area');
+        const startButton = document.getElementById('start-button'); 
+        const specimenImage = document.getElementById('specimen-image'); 
+        const questionText = document.getElementById('question-text'); 
+        const choicesArea = document.getElementById('choices-area');
         const svgMap = document.getElementById('subway-map-svg');
+        const incorrectModal = document.getElementById('incorrect-modal');
+        const incorrectMessage = document.getElementById('incorrect-message');
+        const tryAgainButton = document.getElementById('try-again-button');
+        const successModal = document.getElementById('success-modal');
+        const successTitle = document.getElementById('success-title');
+        const successMessage = document.getElementById('success-message');
+        const successSpecimenDisplay = document.getElementById('success-specimen-display');
+        const nextButton = document.getElementById('next-button');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const difficultyUnlockedModal = document.getElementById('difficulty-unlocked-modal');
+        const startNormalModeButton = document.getElementById('start-normal-mode-button');
+        const collectionModal = document.getElementById('collection-modal');
+        const collectionGrid = document.getElementById('collection-grid');
+        const closeCollectionButton = document.getElementById('close-collection-button');
+        const changeDifficultyButton = document.getElementById('change-difficulty-button');
+        const difficultyModal = document.getElementById('difficulty-modal');
+        const closeDifficultyButton = document.getElementById('close-difficulty-button');
+        const zoomModal = document.getElementById('zoom-modal');
+        const zoomedImage = document.getElementById('zoomed-image');
+        const closeZoomButton = document.getElementById('close-zoom-button');
 
         // --- HELPER FUNCTIONS ---
-        function getImageUrl(name) { const filename = imageUrlMap[name]; return filename ? CDN_BASE_URL + filename : getPlaceholderUrl(`MISSING:\n${name}`); }
+        function getImageUrl(name) { const filename = imageUrlMap[name]; return filename ? CDN_BASE_URL + filename : ''; }
         function getPlaceholderUrl(text, width = 400, height = 300) { const bgColor = 'd1c4b7'; const textColor = '3e332d'; return `https://placehold.co/${width}x${height}/${bgColor}/${textColor}?text=${encodeURIComponent(text)}&font=lora`; }
 
         // --- SVG SUBWAY MAP LOGIC ---
@@ -177,9 +330,9 @@
             }
             traverse('q1', 0, null);
 
-            // Assign coordinates based on level and position
             const totalWidth = svgMap.parentElement.clientWidth;
             const totalHeight = svgMap.parentElement.clientHeight;
+            
             const levelHeight = totalHeight / (Object.keys(levelWidths).length + 1);
 
             for (const key in mapLayout) {
@@ -191,10 +344,14 @@
         }
 
         function renderSubwayMap() {
-            svgMap.innerHTML = ''; // Clear previous map
-            if (Object.keys(mapLayout).length === 0) return;
+            svgMap.innerHTML = '';
+            if (Object.keys(mapLayout).length === 0 || !svgMap.parentElement || svgMap.parentElement.clientWidth === 0) return;
 
-            // Draw lines first so they are behind circles
+            const totalWidth = svgMap.parentElement.clientWidth;
+            const totalHeight = svgMap.parentElement.clientHeight;
+            
+            svgMap.setAttribute('viewBox', `0 0 ${totalWidth} ${totalHeight}`);
+
             for (const key in mapLayout) {
                 const parentNode = mapLayout[key];
                 parentNode.children.forEach(childKey => {
@@ -208,7 +365,6 @@
                 });
             }
 
-            // Draw stations (shapes and text)
             for (const key in mapLayout) {
                 const node = mapLayout[key];
                 const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
@@ -232,8 +388,8 @@
                     shape.setAttribute('y', node.cy - 15);
                     shape.setAttribute('width', 30);
                     shape.setAttribute('height', 30);
-                    shape.setAttribute('rx', 4); // Rounded corners for the square
-                    text.textContent = '🪲'; // Beetle emoji for species
+                    shape.setAttribute('rx', 4);
+                    text.textContent = '🪲';
                     text.style.fontSize = '18px';
                 }
                 shape.classList.add('map-station');
@@ -246,12 +402,10 @@
         }
 
         function updateMapHighlighting() {
-            // Reset all styles
             svgMap.querySelectorAll('.map-line, .map-station').forEach(el => {
                 el.classList.remove('path-line', 'path-station', 'current-station');
             });
 
-            // Highlight path
             for (let i = 0; i < userPath.length - 1; i++) {
                 const parentKey = userPath[i];
                 const childKey = userPath[i + 1];
@@ -263,14 +417,12 @@
                 if (station) station.querySelector('.map-station').classList.add('path-station');
             }
             
-            // Highlight current station
             const currentKey = userPath[userPath.length - 1];
             const currentStationGroup = document.getElementById(`station-${currentKey}`);
             if (currentStationGroup) {
                 const shape = currentStationGroup.querySelector('.map-station');
                 shape.classList.add('current-station');
                 
-                 // Also mark the final node on the path as a path station
                 if (userPath.length > 1) {
                    const finalPathNode = document.getElementById(`station-${userPath[userPath.length-1]}`);
                    if(finalPathNode) finalPathNode.querySelector('.map-station').classList.add('path-station');
@@ -278,18 +430,86 @@
             }
         }
 
+        function updateProgressBar() {
+            const totalSpecies = speciesData.length;
+            const identifiedCount = identifiedSpecies.length;
+            const percentage = totalSpecies > 0 ? (identifiedCount / totalSpecies) * 100 : 0;
+            
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${identifiedCount}/${totalSpecies}`;
+        }
+
+        function renderCollectionModal() {
+            collectionGrid.innerHTML = '';
+            speciesData.forEach(species => {
+                const isIdentified = identifiedSpecies.some(s => s.id === species.id);
+                const item = document.createElement('div');
+                item.className = 'text-center';
+
+                const circle = document.createElement('div');
+                circle.className = 'bug-circle w-24 h-24 mx-auto rounded-full border-4 flex items-center justify-center relative';
+                
+                const textOverlay = document.createElement('div');
+                textOverlay.className = 'absolute inset-0 flex items-center justify-center bg-black/30 rounded-full';
+                textOverlay.innerHTML = `<span class="font-bold text-white text-lg">${species.id}</span>`;
+
+                if (isIdentified) {
+                    circle.style.backgroundImage = `url(${getImageUrl(species.name)})`;
+                    circle.style.borderColor = '#38a169'; // Green border
+                    item.innerHTML = `<p class="mt-2 text-sm font-semibold">${species.name}</p>`;
+                } else {
+                    circle.style.backgroundColor = '#e2e8f0'; // Gray background
+                    circle.style.borderColor = '#a0aec0'; // Darker gray border
+                    item.innerHTML = `<p class="mt-2 text-sm text-gray-500">??????? ???????</p>`;
+                }
+                
+                circle.appendChild(textOverlay);
+                item.prepend(circle);
+                collectionGrid.appendChild(item);
+            });
+        }
+
+        function updateDifficultySelection() {
+            document.querySelectorAll('.difficulty-option').forEach(el => {
+                el.classList.remove('selected');
+            });
+            document.getElementById(`difficulty-${difficultyMode}`).classList.add('selected');
+        }
 
         // --- GAME LOGIC ---
-        function startGame() {
-            currentTarget = speciesData[Math.floor(Math.random() * speciesData.length)];
-            currentQuestionKey = 'q1'; userStep = 0; userPath = ['q1'];
+        function initializeGameSession() {
+            unidentifiedSpecies = [...speciesData];
+            identifiedSpecies = [];
+            updateProgressBar();
+            renderCollectionModal();
             
-            startScreen.classList.add('hidden'); endScreen.classList.add('hidden'); gameScreen.classList.remove('hidden');
+            startScreen.classList.remove('hidden');
+            treeMapContainer.classList.add('hidden');
+            mainGameArea.classList.add('hidden');
+            progressContainer.classList.add('hidden');
+        }
+
+        function startNewRound() {
+            const randomIndex = Math.floor(Math.random() * unidentifiedSpecies.length);
+            currentTarget = unidentifiedSpecies[randomIndex];
+            resetCurrentAttempt();
+        }
+        
+        function resetCurrentAttempt() {
+            currentQuestionKey = 'q1'; 
+            userStep = 0; 
+            userPath = ['q1'];
             
-            // Generate layout and render map
-            generateMapLayout();
-            renderSubwayMap();
-            renderState();
+            startScreen.classList.add('hidden'); 
+            treeMapContainer.classList.remove('hidden');
+            mainGameArea.classList.remove('hidden');
+            progressContainer.classList.remove('hidden');
+            
+            setTimeout(() => {
+                generateMapLayout();
+                renderSubwayMap();
+                renderState();
+            }, 0);
         }
 
         function renderState() {
@@ -304,10 +524,12 @@
             choicesArea.innerHTML = '';
             questionData.choices.forEach(choice => {
                 const choiceEl = document.createElement('div');
-                choiceEl.className = 'choice-image-container cursor-pointer rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-[#6d5d4d] bg-[#d1c4b7]';
-                const imageUrl = getImageUrl(choice.imageText);
-                const placeholderUrl = getPlaceholderUrl(choice.imageText);
-                choiceEl.innerHTML = `<img src="${imageUrl}" alt="${choice.imageText}" class="w-full h-auto object-cover" onerror="this.onerror=null;this.src='${placeholderUrl}';">`;
+                choiceEl.className = 'choice-image-container cursor-pointer rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-[#6d5d4d] bg-[#d1c4b7] h-full';
+                
+                const imageUrl = difficultyMode === 'hard' ? getPlaceholderUrl(choice.imageText.replace(/FEATURE: /g, '')) : getImageUrl(choice.imageText);
+                const placeholderUrl = getPlaceholderUrl(choice.imageText.replace(/FEATURE: /g, ''));
+
+                choiceEl.innerHTML = `<img src="${imageUrl}" alt="${choice.imageText}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='${placeholderUrl}';">`;
                 choiceEl.addEventListener('click', () => handleChoice(choice));
                 choicesArea.appendChild(choiceEl);
             });
@@ -326,7 +548,7 @@
                     renderState();
                 } else {
                     updateMapHighlighting();
-                    setTimeout(() => endGame(true), 500); // Short delay to see final path
+                    setTimeout(() => endGame(true), 500);
                 }
             } else {
                 endGame(false);
@@ -334,36 +556,138 @@
         }
 
         function endGame(isSuccess) {
-            gameScreen.classList.add('hidden'); endScreen.classList.remove('hidden');
-            const specimenName = currentTarget.name;
-            const finalImageUrl = getImageUrl(specimenName);
-            const finalPlaceholderUrl = getPlaceholderUrl(`CORRECT:\n${specimenName}`, 400, 300);
-            if (isSuccess) {
-                endTitle.textContent = 'Identification Successful!';
-                endTitle.className = "text-4xl md:text-5xl font-bold mb-4 text-green-700";
-                endMessage.textContent = `You correctly identified the specimen as:`;
+            if(isSuccess) {
+                const identifiedIndex = unidentifiedSpecies.findIndex(s => s.id === currentTarget.id);
+                if (identifiedIndex > -1) {
+                    identifiedSpecies.push(unidentifiedSpecies.splice(identifiedIndex, 1)[0]);
+                }
+                updateProgressBar();
+                renderCollectionModal();
+
+                const isComplete = unidentifiedSpecies.length === 0;
+                const specimenName = currentTarget.name;
+                const finalImageUrl = getImageUrl(specimenName);
+                const finalPlaceholderUrl = getPlaceholderUrl(`CORRECT:\n${specimenName}`, 400, 300);
+                
+                if (isComplete) {
+                    successTitle.textContent = 'Collection Complete!';
+                    successMessage.textContent = `Congratulations! You have identified all ${speciesData.length} species.`;
+                    nextButton.textContent = 'Start New Collection';
+                } else {
+                    successTitle.textContent = 'Identification Successful!';
+                    successMessage.textContent = `You correctly identified the specimen as:`;
+                    nextButton.textContent = 'Identify Another';
+                }
+                
+                successSpecimenDisplay.innerHTML = `
+                    <div class="text-center">
+                        <img src="${finalImageUrl}" alt="${specimenName}" class="rounded-lg shadow-md mx-auto mb-2 border-4 border-white bg-[#d1c4b7]" style="max-width: 400px;" onerror="this.onerror=null;this.src='${finalPlaceholderUrl}';">
+                        <p class="text-xl font-bold italic">${specimenName}</p>
+                    </div>`;
+                
+                successModal.classList.remove('hidden');
+
             } else {
-                endTitle.textContent = 'Incorrect Path';
-                endTitle.className = "text-4xl md:text-5xl font-bold mb-4 text-red-700";
-                endMessage.textContent = `That was the wrong choice. The correct specimen was:`;
+                if (difficultyMode === 'normal' || difficultyMode === 'hard') {
+                    incorrectMessage.textContent = 'Incorrect! Returning to the start of the key for this specimen.';
+                } else {
+                    incorrectMessage.textContent = 'That was not the correct feature for this specimen. Please try again.';
+                }
+                incorrectModal.classList.remove('hidden');
             }
-            correctSpecimenDisplay.innerHTML = `
-                <div class="text-center">
-                    <img src="${finalImageUrl}" alt="${specimenName}" class="rounded-lg shadow-md mx-auto mb-2 border-4 border-white bg-[#d1c4b7]" style="max-width: 400px;" onerror="this.onerror=null;this.src='${finalPlaceholderUrl}';">
-                    <p class="text-2xl font-bold italic">${specimenName}</p>
-                </div>`;
         }
 
         // --- EVENT LISTENERS ---
-        startButton.addEventListener('click', startGame);
-        restartButton.addEventListener('click', startGame);
-        // Re-render map on resize to adjust coordinates
+        startButton.addEventListener('click', startNewRound);
+        
+        nextButton.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+            if (unidentifiedSpecies.length === 0) {
+                difficultyMode = 'easy'; // Reset to easy for the unlock prompt
+                difficultyUnlockedModal.classList.remove('hidden');
+            } else {
+                startNewRound();
+            }
+        });
+
+        startNormalModeButton.addEventListener('click', () => {
+            difficultyUnlockedModal.classList.add('hidden');
+            difficultyMode = 'normal';
+            initializeGameSession();
+            startNewRound();
+        });
+
+        tryAgainButton.addEventListener('click', () => {
+            incorrectModal.classList.add('hidden');
+            if (difficultyMode === 'normal' || difficultyMode === 'hard') {
+                resetCurrentAttempt();
+            }
+        });
+
+        progressContainer.addEventListener('click', () => {
+            collectionModal.classList.remove('hidden');
+        });
+
+        closeCollectionButton.addEventListener('click', () => {
+            collectionModal.classList.add('hidden');
+        });
+
+        changeDifficultyButton.addEventListener('click', () => {
+            updateDifficultySelection();
+            difficultyModal.classList.remove('hidden');
+        });
+
+        closeDifficultyButton.addEventListener('click', () => {
+            difficultyModal.classList.add('hidden');
+        });
+
+        document.querySelectorAll('.difficulty-option').forEach(el => {
+            el.addEventListener('click', (e) => {
+                difficultyMode = e.currentTarget.id.replace('difficulty-', '');
+                updateDifficultySelection();
+                // If in hard mode, re-render choices immediately
+                if(!mainGameArea.classList.contains('hidden')) {
+                    renderState();
+                }
+                setTimeout(() => {
+                    difficultyModal.classList.add('hidden');
+                }, 200);
+            });
+        });
+
+        specimenImage.addEventListener('click', () => {
+            if (specimenImage.src) {
+                zoomedImage.src = specimenImage.src;
+                zoomModal.classList.remove('hidden');
+            }
+        });
+
+        closeZoomButton.addEventListener('click', () => {
+            zoomModal.classList.add('hidden');
+        });
+
+        zoomModal.addEventListener('click', (e) => {
+            if (e.target === zoomModal) {
+                zoomModal.classList.add('hidden');
+            }
+        });
+
+
+        // Add event listeners for scaling
         window.addEventListener('resize', () => {
-            if (!gameScreen.classList.contains('hidden')) {
+            scaleGameContainer();
+            if (!mainGameArea.classList.contains('hidden')) {
                 generateMapLayout();
                 renderSubwayMap();
             }
         });
+        
+        // Initial call to set the size
+        window.addEventListener('load', scaleGameContainer);
+
+
+        // Initialize the game state when the script loads
+        initializeGameSession();
     </script>
 </body>
 </html>
