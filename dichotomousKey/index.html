@@ -36,10 +36,20 @@
 
         .choice-image-container {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            aspect-ratio: 16 / 9;
+            max-height: 219px; /* Approx 30% of main game area's inner height (730px) */
+            width: 100%; /* Fill grid column, but will be constrained by max-height and aspect-ratio */
         }
         .choice-image-container:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* NEW: Rule to make images inside choice containers fill correctly */
+        .choice-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* --- SVG Subway Map Styles --- */
@@ -134,7 +144,7 @@
                     <img id="specimen-image" src="" alt="Specimen to identify" class="max-h-52 w-auto rounded-lg shadow-lg border-4 border-white bg-[#d1c4b7]">
                 </div>
                 <p id="question-text" class="text-xl md:text-2xl font-semibold text-gray-700 mb-6 min-h-[3rem]"></p>
-                <div id="choices-area" class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow min-h-0">
+                <div id="choices-area" class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow min-h-0 justify-items-center align-content-start">
                     <!-- Choices will be dynamically inserted here -->
                 </div>
                 <div class="flex justify-center items-center space-x-4 mt-8">
@@ -217,8 +227,8 @@
             </div>
         </div>
 
-        <!-- MODIFIED: Removed bg-black/80 from the class list -->
-        <div id="zoom-modal" class="hidden absolute inset-0 flex items-center justify-center p-4 z-50 cursor-zoom-out">
+        <!-- NEW: Image Zoom Modal -->
+        <div id="zoom-modal" class="hidden absolute inset-0 bg-black/80 flex items-center justify-center p-4 z-50 cursor-zoom-out">
             <div class="relative">
                 <img id="zoomed-image" src="" alt="Zoomed specimen" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl">
                 <button id="close-zoom-button" class="absolute -top-5 -right-5 bg-white text-black rounded-full h-12 w-12 flex items-center justify-center text-3xl font-bold leading-none hover:bg-gray-200 transition-colors">&times;</button>
@@ -302,6 +312,7 @@
         const changeDifficultyButton = document.getElementById('change-difficulty-button');
         const difficultyModal = document.getElementById('difficulty-modal');
         const closeDifficultyButton = document.getElementById('close-difficulty-button');
+        // NEW: Zoom modal elements
         const zoomModal = document.getElementById('zoom-modal');
         const zoomedImage = document.getElementById('zoomed-image');
         const closeZoomButton = document.getElementById('close-zoom-button');
@@ -333,14 +344,33 @@
             const totalWidth = svgMap.parentElement.clientWidth;
             const totalHeight = svgMap.parentElement.clientHeight;
             
-            const levelHeight = totalHeight / (Object.keys(levelWidths).length + 1);
+            // --- MODIFICATION FOR SHORTER ROW HEIGHT ---
+            const numLevels = Object.keys(levelWidths).length;
+            const maxLevel = numLevels > 1 ? numLevels - 1 : 1;
+            const nodeRadius = 15; // The radius of the station circles/rects
+            
+            // Calculate the total vertical space available for the connecting lines, reduced by 15%
+            const newLinesHeight = (totalHeight - (nodeRadius * 2)) * 0.85; 
+            const newRowDistance = maxLevel > 0 ? newLinesHeight / maxLevel : 0;
+            
+            // Calculate the top margin needed to vertically center the new, shorter map
+            const totalMapHeight = newLinesHeight + (nodeRadius * 2);
+            const topMargin = (totalHeight - totalMapHeight) / 2;
 
             for (const key in mapLayout) {
                 const node = mapLayout[key];
                 const widthPerNode = totalWidth / (levelWidths[node.level] + 1);
                 node.cx = widthPerNode * (node.position + 1);
-                node.cy = levelHeight * (node.level + 1);
+
+                // Calculate cy based on the new, shorter row distance and the top margin
+                if (numLevels <= 1) {
+                    node.cy = totalHeight / 2; // Center if only one level
+                } else {
+                    // Start at the top margin, add the node radius, then add the distance for each level
+                    node.cy = topMargin + nodeRadius + (node.level * newRowDistance);
+                }
             }
+            // --- END MODIFICATION ---
         }
 
         function renderSubwayMap() {
@@ -524,12 +554,12 @@
             choicesArea.innerHTML = '';
             questionData.choices.forEach(choice => {
                 const choiceEl = document.createElement('div');
-                choiceEl.className = 'choice-image-container cursor-pointer rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-[#6d5d4d] bg-[#d1c4b7] h-full';
+                choiceEl.className = 'choice-image-container cursor-pointer rounded-lg overflow-hidden shadow-lg border-2 border-transparent hover:border-[#6d5d4d] bg-[#d1c4b7]';
                 
                 const imageUrl = difficultyMode === 'hard' ? getPlaceholderUrl(choice.imageText.replace(/FEATURE: /g, '')) : getImageUrl(choice.imageText);
                 const placeholderUrl = getPlaceholderUrl(choice.imageText.replace(/FEATURE: /g, ''));
 
-                choiceEl.innerHTML = `<img src="${imageUrl}" alt="${choice.imageText}" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='${placeholderUrl}';">`;
+                choiceEl.innerHTML = `<img src="${imageUrl}" alt="${choice.imageText}" onerror="this.onerror=null;this.src='${placeholderUrl}';">`;
                 choiceEl.addEventListener('click', () => handleChoice(choice));
                 choicesArea.appendChild(choiceEl);
             });
@@ -655,6 +685,7 @@
             });
         });
 
+        // NEW: Event listeners for the zoom modal
         specimenImage.addEventListener('click', () => {
             if (specimenImage.src) {
                 zoomedImage.src = specimenImage.src;
@@ -667,6 +698,7 @@
         });
 
         zoomModal.addEventListener('click', (e) => {
+            // Close the modal if the click is on the background itself, not the image or button
             if (e.target === zoomModal) {
                 zoomModal.classList.add('hidden');
             }
