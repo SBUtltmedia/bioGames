@@ -174,10 +174,14 @@
         </div>
         
         <div id="success-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
-            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-md w-full">
+            <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-2xl w-full">
                 <h2 id="success-title" class="text-3xl font-bold text-green-700 mb-4"></h2>
                 <p id="success-message" class="text-lg text-gray-700 mb-6"></p>
                 <div id="success-specimen-display" class="mb-6 flex justify-center"></div>
+                
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-t pt-4">Your Collection Progress</h3>
+                <div id="success-collection-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-6 max-h-48 overflow-y-auto p-2 bg-gray-50 rounded-lg"></div>
+
                 <button id="next-button" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-green-700 transition-colors duration-300">
                     Identify Another
                 </button>
@@ -227,7 +231,6 @@
             </div>
         </div>
 
-        <!-- NEW: Image Zoom Modal -->
         <div id="zoom-modal" class="hidden absolute inset-0 bg-black/80 flex items-center justify-center p-4 z-50 cursor-zoom-out">
             <div class="relative">
                 <img id="zoomed-image" src="" alt="Zoomed specimen" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl">
@@ -249,10 +252,8 @@
             const viewportWidth = window.innerWidth;
             const viewportHeight = window.innerHeight;
 
-            // Calculate scale based on which dimension is the most constrained
             const scale = Math.min(viewportWidth / baseWidth, viewportHeight / baseHeight);
 
-            // Apply the scale and center the container
             gameContainer.style.transform = `translate(-50%, -50%) scale(${scale})`;
         }
 
@@ -262,7 +263,7 @@
         const imageUrlMap = {
           "Armadillidium nasatum": "species-armadillidium-nasatum.jpg", "Armadillidium vulgare": "species-armadillidium-vulgare.jpg", "Ligidium longicaudatum": "species-ligidium-longicaudatum.jpg", "Trichoniscus pusillus": "species-trichoniscus-pusillus.jpg", "Haplophthalmus danicus": "species-haplophthalmus-danicus.jpg", "Oniscus asellus": "species-oniscus-asellus.jpg", "Metoponorthus pruinosus": "species-metoponorthus-pruinosus.jpg", "Cylisticus convexus": "species-cylisticus-convexus.jpg", "Porcellio laevis": "species-porcellio-laevis.jpg", "Porcellio spinicornis": "species-porcellio-spinicornis.jpg", "Porcellio scaber": "species-porcellio-scaber.jpg", "Porcellio rathkei": "species-porcellio-rathkei.jpg",
           "FEATURE: Short Uropods\n(not beyond body)": "feature-short-uropods.jpg", "FEATURE: Long Uropods\n(beyond body)": "feature-long-uropods.jpg", "FEATURE: Notched Frontal Line": "feature-notched-frontal-line.jpg", "FEATURE: Smooth Frontal Line": "feature-smooth-frontal-line.jpg", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment": "feature-rounded-abdominal-segment.jpg", "FEATURE: Acutely Triangular\nAbdominal Segment": "feature-triangular-abdominal-segment.jpg", "FEATURE: 11 Segments\nin Antenna Flagellum": "feature-11-antenna-segments.jpg", "FEATURE: 3-4 Segments\nin Antenna Flagellum": "feature-3-to-4-antenna-segments.jpg", 
-          "FEATURE: 4 Segments\nin Antenna Flagellum": "feature-4-antenna-segments.jpg", // NEW
+          "FEATURE: 4 Segments\nin Antenna Flagellum": "feature-4-antenna-segments.jpg",
           "FEATURE: 3 Segments\nin Antenna Flagellum": "feature-3-antenna-segments.jpg", "FEATURE: 2 Segments\nin Antenna Flagellum": "feature-2-antenna-segments.jpg", "FEATURE: Abdomen\nAbruptly Narrower": "feature-abdomen-narrower.jpg", "FEATURE: Abdomen NOT\nAbruptly Narrower": "feature-abdomen-not-narrower.jpg", "FEATURE: Smooth\nDorsal Surface": "feature-smooth-dorsal-surface.jpg", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface": "feature-bumpy-dorsal-surface.jpg", "FEATURE: Extremely\nConvex Body": "feature-extremely-convex-body.jpg", "FEATURE: Moderately\nConvex Body": "feature-moderately-convex-body.jpg", "FEATURE: Head Color\nContrasts with Thorax": "feature-head-contrasts-thorax.jpg", "FEATURE: Head Color\nDoes NOT Contrast": "feature-head-not-contrasting.jpg", "FEATURE: 2 Pairs\of White Bodies": "feature-2-pairs-white-bodies.jpg", "FEATURE: 5 Pairs\of White Bodies": "feature-5-pairs-white-bodies.jpg"
         };
         const keyData = {
@@ -270,7 +271,7 @@
             q2: { question: "Is the frontal line on the head notched at the midline?", choices: [{ imageText: "FEATURE: Notched Frontal Line", next: "Armadillidium nasatum" }, { imageText: "FEATURE: Smooth Frontal Line", next: "Armadillidium vulgare" }] },
             q3: { question: "Is the last abdominal segment rounded or acutely triangular?", choices: [{ imageText: "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", next: "q4" }, { imageText: "FEATURE: Acutely Triangular\nAbdominal Segment", next: "q6" }] },
             q4: { question: "How many segments are in the antenna flagellum?", choices: [{ imageText: "FEATURE: 11 Segments\nin Antenna Flagellum", next: "Ligidium longicaudatum" }, { imageText: "FEATURE: 3-4 Segments\nin Antenna Flagellum", next: "q5" }] },
-            q5: { question: "How many segments are in the antenna flagellum?", choices: [{ imageText: "FEATURE: 4 Segments\nin Antenna Flagellum", next: "Trichoniscus pusillus" }, { imageText: "FEATURE: 3 Segments\nin Antenna Flagellum", next: "Haplophthalmus danicus" }] }, // MODIFIED
+            q5: { question: "How many segments are in the antenna flagellum?", choices: [{ imageText: "FEATURE: 4 Segments\nin Antenna Flagellum", next: "Trichoniscus pusillus" }, { imageText: "FEATURE: 3 Segments\nin Antenna Flagellum", next: "Haplophthalmus danicus" }] },
             q6: { question: "How many segments are in the antenna flagellum?", choices: [{ imageText: "FEATURE: 3 Segments\nin Antenna Flagellum", next: "Oniscus asellus" }, { imageText: "FEATURE: 2 Segments\nin Antenna Flagellum", next: "q7" }] },
             q7: { question: "Is the abdomen abruptly narrower than the thorax?", choices: [{ imageText: "FEATURE: Abdomen\nAbruptly Narrower", next: "Metoponorthus pruinosus" }, { imageText: "FEATURE: Abdomen NOT\nAbruptly Narrower", next: "q8" }] },
             q8: { question: "Is the dorsal (top) surface smooth or bumpy (tuberculate)?", choices: [{ imageText: "FEATURE: Smooth\nDorsal Surface", next: "q9" }, { imageText: "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", next: "q10" }] },
@@ -282,8 +283,8 @@
             { id: "2a", name: "Armadillidium nasatum", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Notched Frontal Line"] }, 
             { id: "2b", name: "Armadillidium vulgare", path: ["FEATURE: Short Uropods\n(not beyond body)", "FEATURE: Smooth Frontal Line"] }, 
             { id: "4a", name: "Ligidium longicaudatum", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 11 Segments\nin Antenna Flagellum"] }, 
-            { id: "5a", name: "Trichoniscus pusillus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 4 Segments\nin Antenna Flagellum"] }, // MODIFIED
-            { id: "5b", name: "Haplophthalmus danicus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 3 Segments\nin Antenna Flagellum"] }, // MODIFIED
+            { id: "5a", name: "Trichoniscus pusillus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 4 Segments\nin Antenna Flagellum"] },
+            { id: "5b", name: "Haplophthalmus danicus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Rounded/\nSlightly Indented\nAbdominal Segment", "FEATURE: 3-4 Segments\nin Antenna Flagellum", "FEATURE: 3 Segments\nin Antenna Flagellum"] },
             { id: "6a", name: "Oniscus asellus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 3 Segments\nin Antenna Flagellum"] }, 
             { id: "7a", name: "Metoponorthus pruinosus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen\nAbruptly Narrower"] }, 
             { id: "9a", name: "Cylisticus convexus", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Smooth\nDorsal Surface", "FEATURE: Extremely\nConvex Body"] }, 
@@ -293,9 +294,27 @@
             { id: "11b", name: "Porcellio rathkei", path: ["FEATURE: Long Uropods\n(beyond body)", "FEATURE: Acutely Triangular\nAbdominal Segment", "FEATURE: 2 Segments\nin Antenna Flagellum", "FEATURE: Abdomen NOT\nAbruptly Narrower", "FEATURE: Bumpy (Tuberculate)\nDorsal Surface", "FEATURE: Head Color\nDoes NOT Contrast", "FEATURE: 5 Pairs\of White Bodies"] }
         ];
 
+        function deterministicShuffle(array, seed) {
+            let currentIndex = array.length, temporaryValue, randomIndex;
+            const random = () => {
+                var x = Math.sin(seed++) * 10000;
+                return x - Math.floor(x);
+            };
+            const shuffled = [...array];
+            while (0 !== currentIndex) {
+                randomIndex = Math.floor(random() * currentIndex);
+                currentIndex -= 1;
+                temporaryValue = shuffled[currentIndex];
+                shuffled[currentIndex] = shuffled[randomIndex];
+                shuffled[randomIndex] = temporaryValue;
+            }
+            return shuffled;
+        }
+        const shuffledSpeciesOrder = deterministicShuffle(speciesData, 42);
+
         // --- GAME STATE ---
         let currentTarget = null; let currentQuestionKey = ''; let userStep = 0; let userPath = []; let mapLayout = {};
-        let unidentifiedSpecies = []; let identifiedSpecies = []; let difficultyMode = 'easy';
+        let identifiedSpecies = []; let difficultyMode = 'easy';
 
         // --- DOM ELEMENTS ---
         const startScreen = document.getElementById('start-screen');
@@ -313,6 +332,7 @@
         const successTitle = document.getElementById('success-title');
         const successMessage = document.getElementById('success-message');
         const successSpecimenDisplay = document.getElementById('success-specimen-display');
+        const successCollectionGrid = document.getElementById('success-collection-grid');
         const nextButton = document.getElementById('next-button');
         const progressContainer = document.getElementById('progress-container');
         const progressBar = document.getElementById('progress-bar');
@@ -325,7 +345,6 @@
         const changeDifficultyButton = document.getElementById('change-difficulty-button');
         const difficultyModal = document.getElementById('difficulty-modal');
         const closeDifficultyButton = document.getElementById('close-difficulty-button');
-        // NEW: Zoom modal elements
         const zoomModal = document.getElementById('zoom-modal');
         const zoomedImage = document.getElementById('zoomed-image');
         const closeZoomButton = document.getElementById('close-zoom-button');
@@ -357,16 +376,13 @@
             const totalWidth = svgMap.parentElement.clientWidth;
             const totalHeight = svgMap.parentElement.clientHeight;
             
-            // --- MODIFICATION FOR SHORTER ROW HEIGHT ---
             const numLevels = Object.keys(levelWidths).length;
             const maxLevel = numLevels > 1 ? numLevels - 1 : 1;
-            const nodeRadius = 15; // The radius of the station circles/rects
+            const nodeRadius = 15;
             
-            // Calculate the total vertical space available for the connecting lines, reduced by 15%
             const newLinesHeight = (totalHeight - (nodeRadius * 2)) * 0.85; 
             const newRowDistance = maxLevel > 0 ? newLinesHeight / maxLevel : 0;
             
-            // Calculate the top margin needed to vertically center the new, shorter map
             const totalMapHeight = newLinesHeight + (nodeRadius * 2);
             const topMargin = (totalHeight - totalMapHeight) / 2;
 
@@ -375,15 +391,12 @@
                 const widthPerNode = totalWidth / (levelWidths[node.level] + 1);
                 node.cx = widthPerNode * (node.position + 1);
 
-                // Calculate cy based on the new, shorter row distance and the top margin
                 if (numLevels <= 1) {
-                    node.cy = totalHeight / 2; // Center if only one level
+                    node.cy = totalHeight / 2;
                 } else {
-                    // Start at the top margin, add the node radius, then add the distance for each level
                     node.cy = topMargin + nodeRadius + (node.level * newRowDistance);
                 }
             }
-            // --- END MODIFICATION ---
         }
 
         function renderSubwayMap() {
@@ -432,7 +445,7 @@
                     shape.setAttribute('width', 30);
                     shape.setAttribute('height', 30);
                     shape.setAttribute('rx', 4);
-                    text.textContent = '�';
+                    text.textContent = '🪲';
                     text.style.fontSize = '18px';
                 }
                 shape.classList.add('map-station');
@@ -482,9 +495,9 @@
             progressText.textContent = `${identifiedCount}/${totalSpecies}`;
         }
 
-        function renderCollectionModal() {
-            collectionGrid.innerHTML = '';
-            speciesData.forEach(species => {
+        function renderCollectionGrid(targetGrid, sourceModal) {
+            targetGrid.innerHTML = '';
+            shuffledSpeciesOrder.forEach(species => {
                 const isIdentified = identifiedSpecies.some(s => s.id === species.id);
                 const item = document.createElement('div');
                 item.className = 'text-center';
@@ -494,21 +507,28 @@
                 
                 const textOverlay = document.createElement('div');
                 textOverlay.className = 'absolute inset-0 flex items-center justify-center bg-black/30 rounded-full';
-                textOverlay.innerHTML = `<span class="font-bold text-white text-lg">${species.id}</span>`;
+                
+                textOverlay.innerHTML = `<span class="font-bold text-white text-lg">${isIdentified ? species.id : '??'}</span>`;
 
                 if (isIdentified) {
                     circle.style.backgroundImage = `url(${getImageUrl(species.name)})`;
-                    circle.style.borderColor = '#38a169'; // Green border
+                    circle.style.borderColor = '#38a169';
                     item.innerHTML = `<p class="mt-2 text-sm font-semibold">${species.name}</p>`;
                 } else {
-                    circle.style.backgroundColor = '#e2e8f0'; // Gray background
-                    circle.style.borderColor = '#a0aec0'; // Darker gray border
+                    circle.style.backgroundColor = '#e2e8f0';
+                    circle.style.borderColor = '#a0aec0';
                     item.innerHTML = `<p class="mt-2 text-sm text-gray-500">??????? ???????</p>`;
                 }
                 
+                item.classList.add('cursor-pointer', 'transition-transform', 'transform', 'hover:scale-105');
+                item.addEventListener('click', () => {
+                    sourceModal.classList.add('hidden');
+                    startNewRound(species.id);
+                });
+                
                 circle.appendChild(textOverlay);
                 item.prepend(circle);
-                collectionGrid.appendChild(item);
+                targetGrid.appendChild(item);
             });
         }
 
@@ -521,10 +541,9 @@
 
         // --- GAME LOGIC ---
         function initializeGameSession() {
-            unidentifiedSpecies = [...speciesData];
             identifiedSpecies = [];
             updateProgressBar();
-            renderCollectionModal();
+            renderCollectionGrid(collectionGrid, collectionModal);
             
             startScreen.classList.remove('hidden');
             treeMapContainer.classList.add('hidden');
@@ -532,9 +551,17 @@
             progressContainer.classList.add('hidden');
         }
 
-        function startNewRound() {
-            const randomIndex = Math.floor(Math.random() * unidentifiedSpecies.length);
-            currentTarget = unidentifiedSpecies[randomIndex];
+        function startNewRound(speciesId = null) {
+            if (speciesId) {
+                currentTarget = speciesData.find(s => s.id === speciesId);
+            } else {
+                currentTarget = shuffledSpeciesOrder.find(s => !identifiedSpecies.some(is => is.id === s.id));
+            }
+
+            if (!currentTarget) {
+                return;
+            }
+            
             resetCurrentAttempt();
         }
         
@@ -600,14 +627,18 @@
 
         function endGame(isSuccess) {
             if(isSuccess) {
-                const identifiedIndex = unidentifiedSpecies.findIndex(s => s.id === currentTarget.id);
-                if (identifiedIndex > -1) {
-                    identifiedSpecies.push(unidentifiedSpecies.splice(identifiedIndex, 1)[0]);
+                const isAlreadyIdentified = identifiedSpecies.some(s => s.id === currentTarget.id);
+                if (!isAlreadyIdentified) {
+                    const newlyIdentified = speciesData.find(s => s.id === currentTarget.id);
+                    if (newlyIdentified) {
+                        identifiedSpecies.push(newlyIdentified);
+                    }
                 }
-                updateProgressBar();
-                renderCollectionModal();
 
-                const isComplete = unidentifiedSpecies.length === 0;
+                updateProgressBar();
+                renderCollectionGrid(collectionGrid, collectionModal); // Update main collection modal
+
+                const isComplete = identifiedSpecies.length === speciesData.length;
                 const specimenName = currentTarget.name;
                 const finalImageUrl = getImageUrl(specimenName);
                 const finalPlaceholderUrl = getPlaceholderUrl(`CORRECT:\n${specimenName}`, 400, 300);
@@ -624,10 +655,11 @@
                 
                 successSpecimenDisplay.innerHTML = `
                     <div class="text-center">
-                        <img src="${finalImageUrl}" alt="${specimenName}" class="rounded-lg shadow-md mx-auto mb-2 border-4 border-white bg-[#d1c4b7]" style="max-width: 400px;" onerror="this.onerror=null;this.src='${finalPlaceholderUrl}';">
+                        <img src="${finalImageUrl}" alt="${specimenName}" class="rounded-lg shadow-md mx-auto mb-2 border-4 border-white bg-[#d1c4b7]" style="max-width: 250px;" onerror="this.onerror=null;this.src='${finalPlaceholderUrl}';">
                         <p class="text-xl font-bold italic">${specimenName}</p>
                     </div>`;
                 
+                renderCollectionGrid(successCollectionGrid, successModal); // Render grid in success modal
                 successModal.classList.remove('hidden');
 
             } else {
@@ -641,12 +673,14 @@
         }
 
         // --- EVENT LISTENERS ---
-        startButton.addEventListener('click', startNewRound);
+        startButton.addEventListener('click', () => startNewRound());
         
         nextButton.addEventListener('click', () => {
             successModal.classList.add('hidden');
-            if (unidentifiedSpecies.length === 0) {
-                difficultyMode = 'easy'; // Reset to easy for the unlock prompt
+            const isGameComplete = identifiedSpecies.length === speciesData.length;
+
+            if (isGameComplete) {
+                difficultyMode = 'easy';
                 difficultyUnlockedModal.classList.remove('hidden');
             } else {
                 startNewRound();
@@ -688,7 +722,6 @@
             el.addEventListener('click', (e) => {
                 difficultyMode = e.currentTarget.id.replace('difficulty-', '');
                 updateDifficultySelection();
-                // If in hard mode, re-render choices immediately
                 if(!mainGameArea.classList.contains('hidden')) {
                     renderState();
                 }
@@ -698,7 +731,6 @@
             });
         });
 
-        // NEW: Event listeners for the zoom modal
         specimenImage.addEventListener('click', () => {
             if (specimenImage.src) {
                 zoomedImage.src = specimenImage.src;
@@ -711,14 +743,12 @@
         });
 
         zoomModal.addEventListener('click', (e) => {
-            // Close the modal if the click is on the background itself, not the image or button
             if (e.target === zoomModal) {
                 zoomModal.classList.add('hidden');
             }
         });
 
 
-        // Add event listeners for scaling
         window.addEventListener('resize', () => {
             scaleGameContainer();
             if (!mainGameArea.classList.contains('hidden')) {
@@ -727,11 +757,8 @@
             }
         });
         
-        // Initial call to set the size
         window.addEventListener('load', scaleGameContainer);
 
-
-        // Initialize the game state when the script loads
         initializeGameSession();
     </script>
 </body>
