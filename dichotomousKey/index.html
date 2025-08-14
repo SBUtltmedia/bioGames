@@ -6,6 +6,7 @@
     <title>Vermont Isopod Identification Key</title>
     
     <!-- PWA and iOS Fullscreen Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Isopod ID">
@@ -264,7 +265,7 @@
         const manifestJSON = {
             "name": "Vermont Isopod Identification Key",
             "short_name": "Isopod ID",
-            "start_url": ".",
+            "start_url": window.location.href,
             "display": "standalone",
             "background_color": "#f0eadd",
             "theme_color": "#6d5d4d",
@@ -823,4 +824,4 @@
         initializeGameSession();
     </script>
 </body>
-</html>
+</ht
