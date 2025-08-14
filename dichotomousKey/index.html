@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Vermont Isopod Identification Key</title>
+    
+    <!-- PWA and iOS Fullscreen Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Isopod ID">
+    <link rel="manifest" href=""> <!-- Href will be set by script -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -45,7 +52,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         
-        /* NEW: Rule to make images inside choice containers fill correctly */
         .choice-image-container img {
             width: 100%;
             height: 100%;
@@ -57,10 +63,9 @@
             width: 100%;
             height: 100%;
         }
-        /* Default state for lines and stations */
         .map-line {
             fill: none;
-            stroke: #c5b9a9; /* Muted brown-gray */
+            stroke: #c5b9a9;
             stroke-width: 3px;
             transition: stroke 0.3s ease;
         }
@@ -77,24 +82,21 @@
             fill: #4a403a;
             text-anchor: middle;
             alignment-baseline: central;
-            pointer-events: none; /* Make text non-interactive */
+            pointer-events: none;
         }
 
         /* --- Highlight Styles --- */
-        /* Path taken by the user */
         .path-line {
-            stroke: #e53e3e; /* Red */
-            stroke-dasharray: 6, 4; /* Dashed line effect */
+            stroke: #e53e3e;
+            stroke-dasharray: 6, 4;
         }
         .path-station {
-            stroke: #e53e3e; /* Red */
-            fill: #fed7d7; /* Light red */
+            stroke: #e53e3e;
+            fill: #fed7d7;
         }
-        
-        /* Current active station */
         .current-station {
-            stroke: #38a169; /* Green */
-            fill: #9ae6b4; /* Light green */
+            stroke: #38a169;
+            fill: #9ae6b4;
         }
         #progress-bar {
             transition: width 0.5s ease-in-out;
@@ -107,7 +109,6 @@
             border-color: #4a5568;
             background-color: #e2e8f0;
         }
-        /* Add cursor pointer to specimen image */
         #specimen-image {
             cursor: zoom-in;
         }
@@ -124,11 +125,9 @@
                 <h1 class="text-4xl md:text-5xl font-bold text-[#4a403a] mb-4">Isopod Identifier</h1>
                 <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">Welcome to the virtual key for the Oniscoidea of Vermont. Click "Begin" to start with the next unidentified isopod, or select one from your collection to practice.</p>
 
-                <!-- Collection on Start Screen -->
                 <div class="w-full max-w-3xl bg-black/10 p-4 rounded-lg shadow-inner mb-6">
                     <h3 class="text-2xl font-bold text-[#4a403a] mb-4">Collection</h3>
                     <div id="start-collection-grid" class="grid grid-cols-4 sm:grid-cols-6 gap-4">
-                        <!-- Grid will be populated by JS -->
                     </div>
                 </div>
 
@@ -136,14 +135,10 @@
                     <button id="start-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
                         Begin Identification
                     </button>
-                    <button id="fullscreen-button-splash" class="p-3 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 transition-colors">
-                        <!-- SVG Icon for fullscreen -->
-                    </button>
                 </div>
             </div>
 
             <!-- Game Panels (initially hidden) -->
-            <!-- Left Column: Tree Map -->
             <div id="tree-map-container" class="hidden flex flex-col h-full col-span-1 bg-[#f0eadd]/60 p-4 rounded-lg shadow-inner">
                  <h3 class="text-2xl font-bold text-[#4a403a] mb-4 text-center">Key Map</h3>
                  <div id="tree-map" class="w-full h-full flex-grow">
@@ -151,7 +146,6 @@
                  </div>
             </div>
 
-            <!-- Right Column: Main Game -->
             <div id="main-game-area" class="hidden text-center col-span-2 flex flex-col h-full">
                 <h2 class="text-2xl md:text-3xl font-bold text-[#4a403a] mb-2">Specimen to Identify:</h2>
                 <div id="specimen-area" class="mb-6 flex justify-center">
@@ -159,7 +153,6 @@
                 </div>
                 <p id="question-text" class="text-xl md:text-2xl font-semibold text-gray-700 mb-6 min-h-[3rem]"></p>
                 <div id="choices-area" class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow min-h-0 justify-items-center align-content-start">
-                    <!-- Choices will be dynamically inserted here -->
                 </div>
                 <div class="flex justify-center items-center space-x-4 mt-8">
                     <button id="progress-container" class="bg-[#6d5d4d] text-white p-2 rounded-lg shadow-md hover:bg-[#5a4d41] transition-colors flex items-center space-x-2">
@@ -172,14 +165,16 @@
                     <button id="change-difficulty-button" class="bg-gray-500 text-white p-2 px-4 rounded-lg shadow-md hover:bg-gray-600 transition-colors flex items-center space-x-2">
                         <span class="font-bold text-sm">Change Difficulty</span>
                     </button>
-                    <button id="fullscreen-button-game" class="p-2 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 transition-colors">
-                        <!-- SVG Icon for fullscreen -->
-                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Modals -->
+        <div id="pwa-install-prompt" class="hidden absolute bottom-4 left-1/2 -translate-x-1/2 bg-gray-800 text-white p-4 rounded-lg shadow-2xl text-center max-w-sm w-full z-50">
+            <p class="mb-2">For a fullscreen experience, add this to your Home Screen:</p>
+            <p>Tap the <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block -mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg> Share icon and then "Add to Home Screen".</p>
+        </div>
+
         <div id="incorrect-modal" class="hidden absolute inset-0 bg-black/50 flex items-center justify-center p-4">
             <div class="bg-white p-8 rounded-lg shadow-2xl text-center max-w-md w-full">
                 <h2 class="text-3xl font-bold text-red-700 mb-4">Incorrect Path</h2>
@@ -265,6 +260,32 @@
     </div>
 
     <script>
+        // --- PWA MANIFEST & INSTALL PROMPT ---
+        const manifestJSON = {
+            "name": "Vermont Isopod Identification Key",
+            "short_name": "Isopod ID",
+            "start_url": ".",
+            "display": "standalone",
+            "background_color": "#f0eadd",
+            "theme_color": "#6d5d4d",
+            "description": "A dichotomous key for identifying isopods of Vermont.",
+            "icons": [
+                { "src": "https://placehold.co/192x192/6d5d4d/f0eadd?text=ID", "sizes": "192x192", "type": "image/png" },
+                { "src": "https://placehold.co/512x512/6d5d4d/f0eadd?text=ID", "sizes": "512x512", "type": "image/png" }
+            ]
+        };
+        const blob = new Blob([JSON.stringify(manifestJSON)], { type: 'application/json' });
+        const manifestURL = URL.createObjectURL(blob);
+        document.querySelector('[rel="manifest"]').setAttribute('href', manifestURL);
+
+        function showPwaInstallPrompt() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            const isInStandaloneMode = ('standalone' in window.navigator) && (window.navigator.standalone);
+            if (isIOS && !isInStandaloneMode) {
+                document.getElementById('pwa-install-prompt').classList.remove('hidden');
+            }
+        }
+
         // --- ASPECT RATIO SCALING LOGIC ---
         function scaleGameContainer() {
             const gameContainer = document.getElementById('game-container');
@@ -373,8 +394,6 @@
         const zoomModal = document.getElementById('zoom-modal');
         const zoomedImage = document.getElementById('zoomed-image');
         const closeZoomButton = document.getElementById('close-zoom-button');
-        const fullscreenButtonSplash = document.getElementById('fullscreen-button-splash');
-        const fullscreenButtonGame = document.getElementById('fullscreen-button-game');
 
         // --- HELPER FUNCTIONS ---
         function getImageUrl(name) { const filename = imageUrlMap[name]; return filename ? CDN_BASE_URL + filename : ''; }
@@ -711,43 +730,6 @@
             }
         }
         
-        // --- FULLSCREEN LOGIC ---
-        function toggleFullScreen() {
-            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                if (document.documentElement.requestFullscreen) {
-                    document.documentElement.requestFullscreen();
-                } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
-                    document.documentElement.mozRequestFullScreen();
-                } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
-                    document.documentElement.webkitRequestFullscreen();
-                } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
-                    document.documentElement.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) { /* Firefox */
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE/Edge */
-                    document.msExitFullscreen();
-                }
-            }
-        }
-
-        function updateFullscreenButton() {
-            const iconEnter = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>`;
-            const iconExit = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h6v6m-1-1L9 15m-3 6H3v-6m1 1l11-11" /></svg>`;
-            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-                fullscreenButtonSplash.innerHTML = iconExit;
-                fullscreenButtonGame.innerHTML = iconExit;
-            } else {
-                fullscreenButtonSplash.innerHTML = iconEnter;
-                fullscreenButtonGame.innerHTML = iconEnter;
-            }
-        }
-
         // --- EVENT LISTENERS ---
         startButton.addEventListener('click', () => startNewRound());
         
@@ -824,13 +806,6 @@
             }
         });
 
-        fullscreenButtonSplash.addEventListener('click', toggleFullScreen);
-        fullscreenButtonGame.addEventListener('click', toggleFullScreen);
-        document.addEventListener('fullscreenchange', updateFullscreenButton);
-        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
-        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
-        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
-
 
         window.addEventListener('resize', () => {
             scaleGameContainer();
@@ -842,7 +817,7 @@
         
         window.addEventListener('load', () => {
             scaleGameContainer();
-            updateFullscreenButton(); // Set initial icon state
+            showPwaInstallPrompt();
         });
 
         initializeGameSession();
