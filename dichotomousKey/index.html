@@ -132,9 +132,14 @@
                     </div>
                 </div>
 
-                <button id="start-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
-                    Begin Identification
-                </button>
+                <div class="flex items-center space-x-4">
+                    <button id="start-button" class="bg-[#6d5d4d] text-white font-bold py-3 px-8 rounded-lg text-xl shadow-lg hover:bg-[#5a4d41] transition-colors duration-300">
+                        Begin Identification
+                    </button>
+                    <button id="fullscreen-button-splash" class="p-3 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+                        <!-- SVG Icon for fullscreen -->
+                    </button>
+                </div>
             </div>
 
             <!-- Game Panels (initially hidden) -->
@@ -166,6 +171,9 @@
                     </button>
                     <button id="change-difficulty-button" class="bg-gray-500 text-white p-2 px-4 rounded-lg shadow-md hover:bg-gray-600 transition-colors flex items-center space-x-2">
                         <span class="font-bold text-sm">Change Difficulty</span>
+                    </button>
+                    <button id="fullscreen-button-game" class="p-2 bg-gray-500 text-white rounded-lg shadow-md hover:bg-gray-600 transition-colors">
+                        <!-- SVG Icon for fullscreen -->
                     </button>
                 </div>
             </div>
@@ -365,6 +373,8 @@
         const zoomModal = document.getElementById('zoom-modal');
         const zoomedImage = document.getElementById('zoomed-image');
         const closeZoomButton = document.getElementById('close-zoom-button');
+        const fullscreenButtonSplash = document.getElementById('fullscreen-button-splash');
+        const fullscreenButtonGame = document.getElementById('fullscreen-button-game');
 
         // --- HELPER FUNCTIONS ---
         function getImageUrl(name) { const filename = imageUrlMap[name]; return filename ? CDN_BASE_URL + filename : ''; }
@@ -700,6 +710,43 @@
                 incorrectModal.classList.remove('hidden');
             }
         }
+        
+        // --- FULLSCREEN LOGIC ---
+        function toggleFullScreen() {
+            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    document.documentElement.webkitRequestFullscreen();
+                } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+                    document.documentElement.msRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.mozCancelFullScreen) { /* Firefox */
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE/Edge */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+
+        function updateFullscreenButton() {
+            const iconEnter = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 0h-4m4 0l-5-5" /></svg>`;
+            const iconExit = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h6v6m-1-1L9 15m-3 6H3v-6m1 1l11-11" /></svg>`;
+            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                fullscreenButtonSplash.innerHTML = iconExit;
+                fullscreenButtonGame.innerHTML = iconExit;
+            } else {
+                fullscreenButtonSplash.innerHTML = iconEnter;
+                fullscreenButtonGame.innerHTML = iconEnter;
+            }
+        }
 
         // --- EVENT LISTENERS ---
         startButton.addEventListener('click', () => startNewRound());
@@ -777,6 +824,13 @@
             }
         });
 
+        fullscreenButtonSplash.addEventListener('click', toggleFullScreen);
+        fullscreenButtonGame.addEventListener('click', toggleFullScreen);
+        document.addEventListener('fullscreenchange', updateFullscreenButton);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+
 
         window.addEventListener('resize', () => {
             scaleGameContainer();
@@ -786,7 +840,10 @@
             }
         });
         
-        window.addEventListener('load', scaleGameContainer);
+        window.addEventListener('load', () => {
+            scaleGameContainer();
+            updateFullscreenButton(); // Set initial icon state
+        });
 
         initializeGameSession();
     </script>
