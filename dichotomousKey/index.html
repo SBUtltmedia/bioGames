@@ -194,7 +194,7 @@
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">Collection Progress</h3>
-                        <div id="success-collection-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-h-64 overflow-y-auto p-2 bg-gray-50 rounded-lg"></div>
+                        <div id="success-collection-grid" class="grid grid-cols-6 gap-2 p-2 bg-gray-50 rounded-lg"></div>
                     </div>
                 </div>
 
@@ -522,8 +522,13 @@
                 const circle = document.createElement('div');
                 
                 let circleSize = 'w-24 h-24';
-                if (targetGrid.id === 'success-collection-grid' || targetGrid.id === 'start-collection-grid') {
+                let textSize = 'text-sm';
+                if (targetGrid.id === 'success-collection-grid') {
+                    circleSize = 'w-16 h-16';
+                    textSize = 'text-[10px] leading-tight';
+                } else if (targetGrid.id === 'start-collection-grid') {
                     circleSize = 'w-20 h-20';
+                    textSize = 'text-xs';
                 }
                 circle.className = `bug-circle ${circleSize} mx-auto rounded-full border-4 flex items-center justify-center relative`;
                 
@@ -535,16 +540,16 @@
                 if (isIdentified) {
                     circle.style.backgroundImage = `url(${getImageUrl(species.name)})`;
                     circle.style.borderColor = '#38a169';
-                    item.innerHTML = `<p class="mt-2 text-xs font-semibold">${species.name}</p>`;
+                    item.innerHTML = `<p class="mt-1 ${textSize} font-semibold">${species.name}</p>`;
                 } else {
                     circle.style.backgroundColor = '#e2e8f0';
                     circle.style.borderColor = '#a0aec0';
-                    item.innerHTML = `<p class="mt-2 text-xs text-gray-500">???????</p>`;
+                    item.innerHTML = `<p class="mt-1 ${textSize} text-gray-500">???????</p>`;
                 }
                 
                 item.classList.add('cursor-pointer', 'transition-transform', 'transform', 'hover:scale-105');
                 item.addEventListener('click', () => {
-                    sourceModal.classList.add('hidden');
+                    if (sourceModal) sourceModal.classList.add('hidden');
                     startNewRound(species.id);
                 });
                 
